@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessObject.IService;
+using BusinessObject.Service;
+using DataAccess.BaseRepo;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,8 @@ namespace BusinessObject
     {
         public static IServiceCollection AddService(this IServiceCollection services, string? DatabaseConnection)
         {
-
+            services.AddScoped(typeof(IBaseRepo<>), typeof(BaseRepo<>));
+            services.AddScoped<IUserService, UserService>();
             return services;
         }
     }

@@ -10,10 +10,10 @@ namespace DataAccess.BaseRepo
 {
     public class BaseRepo<TEntity>: IBaseRepo<TEntity> where TEntity : class
     {
-        protected readonly DbContext _context;
+        protected readonly WashShopContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public BaseRepo(DbContext context)
+        public BaseRepo(WashShopContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
