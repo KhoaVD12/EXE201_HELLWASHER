@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HELLWASHER_Controller.props" />
+</Project>
