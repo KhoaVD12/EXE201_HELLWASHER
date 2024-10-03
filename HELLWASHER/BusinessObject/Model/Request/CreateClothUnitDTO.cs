@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject.Model.Response
+namespace BusinessObject.Model.Request
 {
-    public class ResponseWashServiceTypeDTO
+    public class CreateClothUnitDTO
     {
-        /*public int WashServiceTypeId { get; set; }*/
         public string Name { get; set; }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HELLWASHER_Controller")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23c439a9f51291aa2ae615e3ecdd9e034b4140cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f116650b189d1a6d3c1e9843566edfa8d6df6632")]
 [assembly: System.Reflection.AssemblyProductAttribute("HELLWASHER_Controller")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HELLWASHER_Controller")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
