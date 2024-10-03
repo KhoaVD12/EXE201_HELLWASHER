@@ -17,6 +17,7 @@ namespace BusinessObject
             services.AddScoped(typeof(IBaseRepo<>), typeof(BaseRepo<>));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IWashServiceService, WashServiceService>();
+            services.AddScoped<IWashServiceTypeService, WashServiceTypeService>();
             return services;
         }
     }
