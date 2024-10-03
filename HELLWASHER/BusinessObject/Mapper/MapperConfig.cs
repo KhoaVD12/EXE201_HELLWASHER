@@ -17,6 +17,11 @@ namespace BusinessObject.Mapper
             //User
             CreateMap<CreateUserDTO, User>().ReverseMap();
             CreateMap<ResponseUserDTO, User>().ReverseMap();
+            //Wash Service
+            CreateMap<CreateWashServiceDTO, WashService>().ReverseMap();
+            CreateMap<ResponseWashServiceDTO, WashService>().ReverseMap();
+            //Category
+
         }
     }
 }
