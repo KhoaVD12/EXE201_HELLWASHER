@@ -10,10 +10,10 @@ namespace BusinessObject.IService
 {
     public interface IWashServiceTypeService
     {
-        Task<ServiceResponse<ResponseWashServiceTypeDTO>> CreateWashServiceType(CreateWashServiceTypeDTO serviceDTO);
+        Task<ServiceResponse<ResponseWashServiceTypeDTO>> CreateWashServiceType(CreateWashServiceTypeDTO serviceTypeDTO);
         Task<ServiceResponse<bool>> DeleteWashServiceType(int id);
         Task<ServiceResponse<PaginationModel<ResponseWashServiceTypeDTO>>> GetAllWashServiceType(int page, int pageSize,
             string? search, string sort);
-        Task<ServiceResponse<ResponseWashServiceTypeDTO>> UpdateWashServiceType(int id, ResponseWashServiceTypeDTO serviceDTO);
+        Task<ServiceResponse<ResponseWashServiceTypeDTO>> UpdateWashServiceType(int id, ResponseWashServiceTypeDTO serviceTypeDTO);
     }
 }
