@@ -21,6 +21,8 @@ namespace BusinessObject.Mapper
             CreateMap<CreateWashServiceDTO, WashService>().ReverseMap();
             CreateMap<ResponseWashServiceDTO, WashService>().ReverseMap();
             //Category
+            CreateMap<CreateCategoryDTO, Category>().ReverseMap();
+            CreateMap<ResponseCategoryDTO, Category>().ReverseMap();
             //Wash Service Type
             CreateMap<CreateWashServiceTypeDTO, WashServiceType>().ReverseMap();
             CreateMap<ResponseWashServiceTypeDTO,WashServiceType>().ReverseMap();

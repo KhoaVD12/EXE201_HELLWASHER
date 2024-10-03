@@ -13,44 +13,45 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Service
 {
-    public class WashServiceTypeService : IWashServiceTypeService
+    public class CategoryService:ICategoryService
     {
-        private readonly IBaseRepo<WashServiceType> _baseRepo;
+        private readonly IBaseRepo<Category> _baseRepo;
         private readonly IMapper _mapper;
-        public WashServiceTypeService(IBaseRepo<WashServiceType> repo, IMapper mapper)
+        public CategoryService(IBaseRepo<Category> repo, IMapper mapper)
         {
             _baseRepo = repo;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<ResponseWashServiceTypeDTO>> CreateWashServiceType(CreateWashServiceTypeDTO serviceTypeDTO)
+
+        public async Task<ServiceResponse<ResponseCategoryDTO>> CreateCategory(CreateCategoryDTO categoryDTO)
         {
-            var res = new ServiceResponse<ResponseWashServiceTypeDTO>();
+            var res = new ServiceResponse<ResponseCategoryDTO>();
             try
             {
                 var existList = await _baseRepo.GetAllAsync();
-                if (existList.Any(s => s.Name == serviceTypeDTO.Name))
+                if (existList.Any(s => s.Name == categoryDTO.Name))
                 {
                     res.Success = false;
                     res.Message = "Name existed";
                     return res;
                 }
-                var mapp = _mapper.Map<WashServiceType>(serviceTypeDTO);
+                var mapp = _mapper.Map<Category>(categoryDTO);
                 await _baseRepo.AddAsync(mapp);
-                var result = _mapper.Map<ResponseWashServiceTypeDTO>(mapp);
+                var result = _mapper.Map<ResponseCategoryDTO>(mapp);
                 res.Success = true;
                 res.Data = result;
-                res.Message = "Service Type Created Successfully";
+                res.Message = "Category Created Successfully";
                 return res;
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to create Service Type:{ex.Message}";
+                res.Message = $"Fail to create Category:{ex.Message}";
                 return res;
             }
         }
 
-        public async Task<ServiceResponse<bool>> DeleteWashServiceType(int id)
+        public async Task<ServiceResponse<bool>> DeleteCategory(int id)
         {
             var res = new ServiceResponse<bool>();
             try
@@ -60,27 +61,27 @@ namespace BusinessObject.Service
                 {
                     await _baseRepo.DeleteAsync(id);
                     res.Success = true;
-                    res.Message = "Delete Service Type Successfully";
+                    res.Message = "Delete Category Successfully";
                     return res;
                 }
                 else
                 {
                     res.Success = false;
-                    res.Message = "Service Type not found";
+                    res.Message = "Category not found";
                     return res;
                 }
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to delete Service Type: {ex.Message}";
+                res.Message = $"Fail to delete Category: {ex.Message}";
                 return res;
             }
         }
 
-        public async Task<ServiceResponse<PaginationModel<ResponseWashServiceTypeDTO>>> GetAllWashServiceType(int page, int pageSize, string? search, string sort)
+        public async Task<ServiceResponse<PaginationModel<ResponseCategoryDTO>>> GetAllCategory(int page, int pageSize, string? search, string sort)
         {
-            var res = new ServiceResponse<PaginationModel<ResponseWashServiceTypeDTO>>();
+            var res = new ServiceResponse<PaginationModel<ResponseCategoryDTO>>();
             try
             {
                 var services = await _baseRepo.GetAllAsync();
@@ -92,58 +93,61 @@ namespace BusinessObject.Service
                 services = sort.ToLower().Trim() switch
                 {
                     "name" => services.OrderBy(e => e.Name),
-                    _ => services.OrderBy(e => e.WashServiceTypeId)
+                    _ => services.OrderBy(e => e.CategoryId)
                 };
-                var mapp = _mapper.Map<IEnumerable<ResponseWashServiceTypeDTO>>(services);
+                var mapp = _mapper.Map<IEnumerable<ResponseCategoryDTO>>(services);
                 if (mapp.Any())
                 {
                     var paginationModel = await Pagination.GetPaginationEnum(mapp, page, pageSize);
                     res.Success = true;
-                    res.Message = "Get Service Types successfully";
+                    res.Message = "Get Category successfully";
                     res.Data = paginationModel;
                     return res;
                 }
                 else
                 {
                     res.Success = false;
-                    res.Message = "No Service Types";
+                    res.Message = "No Category";
                     return res;
                 }
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to get Service Types:{ex.Message}";
+                res.Message = $"Fail to get Category:{ex.Message}";
                 return res;
             }
         }
 
-        public async Task<ServiceResponse<ResponseWashServiceTypeDTO>> UpdateWashServiceType(int id, ResponseWashServiceTypeDTO serviceTypeDTO)
+        public async Task<ServiceResponse<ResponseCategoryDTO>> UpdateCategory(int id, ResponseCategoryDTO categoryDTO)
         {
-            var res = new ServiceResponse<ResponseWashServiceTypeDTO>();
+            var res = new ServiceResponse<ResponseCategoryDTO>();
             try
             {
                 var exist = await _baseRepo.GetByIdAsync(id);
                 if (exist == null)
                 {
                     res.Success = false;
-                    res.Message = "No service type found";
+                    res.Message = "No Category found";
                     return res;
                 }
                 else
                 {
-                    exist.Name = serviceTypeDTO.Name;
+                    exist.Name = categoryDTO.Name;
+                    exist.Description = categoryDTO.Description;
+                    exist.ImageURL = categoryDTO.ImageURL;
+                    exist.Status = categoryDTO.Status;
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;
-                    res.Message = "Update service type Successfully";
-                    res.Data = serviceTypeDTO;
+                    res.Message = "Update Category Successfully";
+                    res.Data = categoryDTO;
                     return res;
                 }
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to update Service Type:{ex.Message}";
+                res.Message = $"Fail to update Category:{ex.Message}";
                 return res;
             }
         }

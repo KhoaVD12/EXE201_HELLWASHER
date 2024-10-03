@@ -10,10 +10,10 @@ namespace BusinessObject.IService
 {
     public interface IClothUnitService
     {
-        Task<ServiceResponse<ResponseClothUnitDTO>> CreateClothUnit(CreateClothUnitDTO serviceDTO);
+        Task<ServiceResponse<ResponseClothUnitDTO>> CreateClothUnit(CreateClothUnitDTO clothUnitDTO);
         Task<ServiceResponse<bool>> DeleteClothUnit(int id);
         Task<ServiceResponse<PaginationModel<ResponseClothUnitDTO>>> GetAllClothUnit(int page, int pageSize,
             string? search, string sort);
-        Task<ServiceResponse<ResponseClothUnitDTO>> UpdateClothUnit(int id, ResponseClothUnitDTO serviceDTO);
+        Task<ServiceResponse<ResponseClothUnitDTO>> UpdateClothUnit(int id, ResponseClothUnitDTO clothUnitDTO);
     }
 }

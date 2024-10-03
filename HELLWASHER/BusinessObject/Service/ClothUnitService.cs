@@ -23,19 +23,19 @@ namespace BusinessObject.Service
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<ResponseClothUnitDTO>> CreateClothUnit(CreateClothUnitDTO serviceDTO)
+        public async Task<ServiceResponse<ResponseClothUnitDTO>> CreateClothUnit(CreateClothUnitDTO clothUnitDTO)
         {
             var res = new ServiceResponse<ResponseClothUnitDTO>();
             try
             {
                 var existList = await _baseRepo.GetAllAsync();
-                if (existList.Any(s => s.Name == serviceDTO.Name))
+                if (existList.Any(s => s.Name == clothUnitDTO.Name))
                 {
                     res.Success = false;
                     res.Message = "Name existed";
                     return res;
                 }
-                var mapp = _mapper.Map<ClothUnit>(serviceDTO);
+                var mapp = _mapper.Map<ClothUnit>(clothUnitDTO);
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseClothUnitDTO>(mapp);
                 res.Success = true;
@@ -119,7 +119,7 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<ResponseClothUnitDTO>> UpdateClothUnit(int id, ResponseClothUnitDTO serviceDTO)
+        public async Task<ServiceResponse<ResponseClothUnitDTO>> UpdateClothUnit(int id, ResponseClothUnitDTO clothUnitDTO)
         {
             var res = new ServiceResponse<ResponseClothUnitDTO>();
             try
@@ -133,11 +133,11 @@ namespace BusinessObject.Service
                 }
                 else
                 {
-                    exist.Name = serviceDTO.Name;
+                    exist.Name = clothUnitDTO.Name;
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;
                     res.Message = "Update Cloth Unit Successfully";
-                    res.Data = serviceDTO;
+                    res.Data = clothUnitDTO;
                     return res;
                 }
             }
