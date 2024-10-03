@@ -18,6 +18,7 @@ namespace BusinessObject
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IWashServiceService, WashServiceService>();
             services.AddScoped<IWashServiceTypeService, WashServiceTypeService>();
+            services.AddScoped<IClothUnitService, ClothUnitService>();
             return services;
         }
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Model.Response
 {
-    public class ResponseWashServiceTypeDTO
+    public class ResponseClothUnitDTO
     {
-        /*public int WashServiceTypeId { get; set; }*/
+        /*public int ClothUnitId { get; set; }*/
         public string Name { get; set; }
     }
 }
