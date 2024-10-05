@@ -5,6 +5,7 @@ using BusinessObject.Model.Response;
 using BusinessObject.Utils;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
+using DataAccess.IRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,14 @@ namespace BusinessObject.Service
 {
     public class UserService:IUserService
     {
-        private readonly IBaseRepo<User> _userRepo;
+        private readonly IUserRepo _userRepo;
+        private readonly IBaseRepo<Cart> _cartRepo;
         private readonly IMapper _mapper;
-        public UserService(IBaseRepo<User> userRepo, IMapper mapper)
+        public UserService(IUserRepo userRepo, IMapper mapper, IBaseRepo<Cart> cartRepo)
         {
             _userRepo = userRepo;
             _mapper = mapper;
+            _cartRepo = cartRepo;
         }
 
         public async Task<ServiceResponse<ResponseUserDTO>> CreateUser(CreateUserDTO userDTO)
@@ -41,6 +44,12 @@ namespace BusinessObject.Service
                 mapp.AccountConfirm = false;
                 mapp.Token = "Super Admin";
                 await _userRepo.AddAsync(mapp);
+                CreateCartDTO userCart = new CreateCartDTO
+                {
+                    UserId=mapp.UserId,
+                };
+                var cartMapp=_mapper.Map<Cart>(userCart);
+                await _cartRepo.AddAsync(cartMapp);
                 var result=_mapper.Map<ResponseUserDTO>(mapp);
                 res.Success=true;
                 res.Data = result;
@@ -89,7 +98,8 @@ namespace BusinessObject.Service
             var res= new ServiceResponse<PaginationModel<ResponseUserDTO>>();
             try
             {
-                var users = await _userRepo.GetAllAsync();
+                var users = await _userRepo.GetUserWithCart();
+                
                 if (!string.IsNullOrEmpty(search))
                 {
                     users = users.Where(e => e.Name.Contains(search, StringComparison.OrdinalIgnoreCase) ||
@@ -103,6 +113,7 @@ namespace BusinessObject.Service
                     _ => users.OrderBy(e => e.UserId)
                 };
                 var mapp = _mapper.Map<IEnumerable<ResponseUserDTO>>(users);
+                
                 if (mapp.Any())
                 {
                     var paginationModel = await Pagination.GetPaginationEnum(mapp, page, pageSize);

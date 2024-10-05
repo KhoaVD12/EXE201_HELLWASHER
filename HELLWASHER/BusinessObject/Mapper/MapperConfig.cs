@@ -16,7 +16,9 @@ namespace BusinessObject.Mapper
         {
             //User
             CreateMap<CreateUserDTO, User>().ReverseMap();
-            CreateMap<ResponseUserDTO, User>().ReverseMap();
+            CreateMap<ResponseUserDTO, User>()
+                .ForMember(dest => dest.Cart, opt => opt.MapFrom(src => src.Cart))
+                .ReverseMap();
             //Wash Service
             CreateMap<CreateWashServiceDTO, WashService>().ReverseMap();
             CreateMap<ResponseWashServiceDTO, WashService>().ReverseMap();
@@ -32,6 +34,9 @@ namespace BusinessObject.Mapper
             //Cloth Unit
             CreateMap<CreateClothUnitDTO, ClothUnit>().ReverseMap();
             CreateMap<ResponseClothUnitDTO, ClothUnit>().ReverseMap();
+            //Cart 
+            CreateMap<CreateCartDTO, Cart>().ReverseMap();
+            CreateMap<ResponseCartDTO, Cart>().ReverseMap();
 
         }
     }
