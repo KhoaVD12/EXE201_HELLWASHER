@@ -17,5 +17,6 @@ namespace BusinessObject.Model.Response
         public string Status { get; set; }
         public bool AccountConfirm { get; set; }
         public string Token { get; set; }
+        public ResponseCartDTO Cart { get; set; }
     }
 }

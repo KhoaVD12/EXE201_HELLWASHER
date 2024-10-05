@@ -36,6 +36,7 @@ namespace BusinessObject.Service
                     return res;
                 }
                 var mapp = _mapper.Map<WashService>(serviceDTO);
+                mapp.ServiceStatusId = 1;
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseWashServiceDTO>(mapp);
                 res.Success = true;

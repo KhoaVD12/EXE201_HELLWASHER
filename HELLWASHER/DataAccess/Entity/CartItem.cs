@@ -11,7 +11,7 @@ namespace DataAccess.Entity
         public int Id { get; set; }
         public int CartId { get; set; }
         public int ServiceId { get; set; }
-        public int Quantity { get; set; }
+        public int QuantityPerService { get; set; }
         // Navigation properties
         public Cart Cart { get; set; }
         public WashService Service { get; set; }

@@ -52,7 +52,7 @@ namespace DataAccess.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("QuantityPerService")
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceId")
