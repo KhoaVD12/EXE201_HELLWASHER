@@ -12,6 +12,7 @@ namespace DataAccess.Entity
         public int CartId { get; set; }
         public int ServiceId { get; set; }
         public int QuantityPerService { get; set; }
+        public decimal TotalPricePerService { get; set; }
         // Navigation properties
         public Cart Cart { get; set; }
         public WashService Service { get; set; }
