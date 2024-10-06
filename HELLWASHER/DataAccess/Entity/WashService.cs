@@ -19,11 +19,7 @@ namespace DataAccess.Entity
         public string? ImageURL { get; set; }
         // Navigation properties
         public Category Category { get; set; }
-        public ClothUnit ClothUnit { get; set; }
-        public WashServiceType ServiceType { get; set; }
         public WashServiceStatus ServiceStatus { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
-        public ICollection<OrderItem>? OrderItems { get; set; }
-        public ICollection<Feedback>? Feedbacks { get; set; }
     }
 }

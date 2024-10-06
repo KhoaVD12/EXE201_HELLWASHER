@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241003033942_NofactoryTrial")]
-    partial class NofactoryTrial
+    [Migration("20241006125358_fixDB_RE")]
+    partial class fixDB_RE
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,13 +33,14 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("CartStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("CartId");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -55,11 +56,14 @@ namespace DataAccess.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("QuantityPerService")
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPricePerService")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -95,54 +99,6 @@ namespace DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.ClothUnit", b =>
-                {
-                    b.Property<int>("ClothUnitId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClothUnitId"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ClothUnitId");
-
-                    b.ToTable("ClothUnits");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
-                {
-                    b.Property<int>("FeedbackId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FeedbackId");
-
-                    b.HasIndex("ServiceId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Feedbacks");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -153,6 +109,9 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -166,50 +125,31 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("WashStatusId")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("OrderStatusId");
+                    b.HasIndex("CartId")
+                        .IsUnique();
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("OrderStatusId");
 
                     b.HasIndex("WashStatusId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.OrderItem", b =>
-                {
-                    b.Property<int>("OrderItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderItemId"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderItemId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ServiceId");
-
-                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.OrderStatus", b =>
@@ -226,48 +166,6 @@ namespace DataAccess.Migrations
                     b.HasKey("OrderStatusId");
 
                     b.ToTable("OrderStatuses");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
-
-                    b.Property<bool>("AccountConfirm")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Token")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.WashService", b =>
@@ -307,11 +205,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ClothUnitId");
-
                     b.HasIndex("ServiceStatusId");
-
-                    b.HasIndex("ServiceTypeId");
 
                     b.ToTable("Services");
                 });
@@ -332,22 +226,6 @@ namespace DataAccess.Migrations
                     b.ToTable("ServiceStatuses");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.WashServiceType", b =>
-                {
-                    b.Property<int>("WashServiceTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WashServiceTypeId"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("WashServiceTypeId");
-
-                    b.ToTable("ServiceTypes");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.WashingStatus", b =>
                 {
                     b.Property<int>("WashingStatusId")
@@ -362,17 +240,6 @@ namespace DataAccess.Migrations
                     b.HasKey("WashingStatusId");
 
                     b.ToTable("WashStatuses");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.Cart", b =>
-                {
-                    b.HasOne("DataAccess.Entity.User", "User")
-                        .WithOne("Cart")
-                        .HasForeignKey("DataAccess.Entity.Cart", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.CartItem", b =>
@@ -394,36 +261,17 @@ namespace DataAccess.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
-                {
-                    b.HasOne("DataAccess.Entity.WashService", "Service")
-                        .WithMany("Feedbacks")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entity.User", "User")
-                        .WithMany("Feedbacks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Service");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.Order", b =>
                 {
+                    b.HasOne("DataAccess.Entity.Cart", "Cart")
+                        .WithOne("Order")
+                        .HasForeignKey("DataAccess.Entity.Order", "CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DataAccess.Entity.OrderStatus", "OrderStatus")
                         .WithMany("Orders")
                         .HasForeignKey("OrderStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entity.User", "User")
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -433,30 +281,11 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Cart");
+
                     b.Navigation("OrderStatus");
 
-                    b.Navigation("User");
-
                     b.Navigation("WashStatus");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.OrderItem", b =>
-                {
-                    b.HasOne("DataAccess.Entity.Order", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataAccess.Entity.WashService", "Service")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.WashService", b =>
@@ -467,36 +296,23 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Entity.ClothUnit", "ClothUnit")
-                        .WithMany("Services")
-                        .HasForeignKey("ClothUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DataAccess.Entity.WashServiceStatus", "ServiceStatus")
                         .WithMany("Services")
                         .HasForeignKey("ServiceStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Entity.WashServiceType", "ServiceType")
-                        .WithMany("Services")
-                        .HasForeignKey("ServiceTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Category");
 
-                    b.Navigation("ClothUnit");
-
                     b.Navigation("ServiceStatus");
-
-                    b.Navigation("ServiceType");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Cart", b =>
                 {
                     b.Navigation("CartItems");
+
+                    b.Navigation("Order")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Category", b =>
@@ -504,46 +320,17 @@ namespace DataAccess.Migrations
                     b.Navigation("Services");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.ClothUnit", b =>
-                {
-                    b.Navigation("Services");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.Order", b =>
-                {
-                    b.Navigation("OrderItems");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.OrderStatus", b =>
                 {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.User", b =>
-                {
-                    b.Navigation("Cart")
-                        .IsRequired();
-
-                    b.Navigation("Feedbacks");
-
                     b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.WashService", b =>
                 {
                     b.Navigation("CartItems");
-
-                    b.Navigation("Feedbacks");
-
-                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.WashServiceStatus", b =>
-                {
-                    b.Navigation("Services");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.WashServiceType", b =>
                 {
                     b.Navigation("Services");
                 });

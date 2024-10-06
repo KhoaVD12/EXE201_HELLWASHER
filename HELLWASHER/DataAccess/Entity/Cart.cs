@@ -10,10 +10,11 @@ namespace DataAccess.Entity
     {
         public int CartId { get; set; }
         // Foreign Key
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string CartStatus { get; set; }
 
         // Navigation properties
         public ICollection<CartItem>? CartItems { get; set; }
+        public Order Order { get; set; }
     }
 }
