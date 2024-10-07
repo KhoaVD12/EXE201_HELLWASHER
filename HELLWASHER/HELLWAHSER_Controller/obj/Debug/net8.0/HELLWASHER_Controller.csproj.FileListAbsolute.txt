@@ -285,3 +285,10 @@ C:\Users\ADMIN\Desktop\FPT\HK8\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Co
 C:\Users\ADMIN\Desktop\FPT\HK8\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\HELLWASHER_Controller.pdb
 C:\Users\ADMIN\Desktop\FPT\HK8\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\HELLWASHER_Controller.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\FPT\HK8\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\ref\HELLWASHER_Controller.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ADMIN\Source\Repos\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
