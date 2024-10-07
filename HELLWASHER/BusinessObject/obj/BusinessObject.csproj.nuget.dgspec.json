@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {}
+    "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\obj\\",
+        "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\duykh\\.nuget\\packages\\",
+        "outputPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj"
+              "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -123,21 +123,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
+    "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
+        "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\duykh\\.nuget\\packages\\",
+        "outputPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -242,7 +242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject.Model.Request
+namespace BusinessObject.Model.Request.CreateRequest
 {
-    public class CreateCategoryDTO
+    public class CreateWashServiceStatusDTO
     {
         public string Name { get; set; }
-        public string? Description { get; set; }
-        public string? ImageURL { get; set; }
     }
 }

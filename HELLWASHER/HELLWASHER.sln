@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessObject", "BusinessObject\BusinessObject.csproj", "{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HELLWASHER_Controller", "HELLWAHSER_Controller\HELLWASHER_Controller.csproj", "{718043E3-0188-4486-B8BE-4414B4EDF7F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HELLWASHER_Controller", "HELLWAHSER_Controller\HELLWASHER_Controller.csproj", "{718043E3-0188-4486-B8BE-4414B4EDF7F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using BusinessObject.Model.Request;
+using BusinessObject.Model.Request.CreateRequest;
+using BusinessObject.Model.Request.UpdateRequest.Status;
 using BusinessObject.Model.Response;
 using DataAccess.Entity;
 using System;
@@ -28,8 +29,13 @@ namespace BusinessObject.Mapper
             
             //Cart 
             CreateMap<CreateCartDTO, Cart>().ReverseMap();
-            CreateMap<ResponseCartDTO, Cart>().ReverseMap();
-
+            CreateMap< Cart,ResponseCartDTO > ()
+                .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.CartItems))
+                .ReverseMap();
+            CreateMap<ChangeCartStatusDTO, Cart>().ReverseMap();
+            //Cart Item
+            CreateMap<CreateCartItemDTO, CartItem>().ReverseMap();
+            CreateMap<ResponseCartItemDTO, CartItem>().ReverseMap();
         }
     }
 }

@@ -3,52 +3,64 @@
   "WorkspaceRootPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\migrations\\20241006125358_fixdb_re.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\migrations\\20241006125358_fixdb_re.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\service\\cartitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\cartitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241006125016_fixDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataAccess\\Migrations\\20241006125016_fixDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\hellwahser_controller\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\washshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\washshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\iservice\\icartitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\iservice\\icartitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\irepo\\icartrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\irepo\\icartrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\repo\\cartrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repo\\cartrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\mapper\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\mapper\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\washservicestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\washservicestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\washingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\washingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\model\\response\\responsecartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\response\\responsecartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\model\\response\\responsecartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\response\\responsecartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\model\\response\\responsewashservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\response\\responsewashservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\model\\request\\createrequest\\createwashservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\request\\createrequest\\createwashservicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\hellwahser_controller\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\model\\request\\createrequest\\createcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\request\\createrequest\\createcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,8 +69,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 207,
-          "SelectedChildIndex": 8,
+          "DockedWidth": 448,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -93,155 +105,216 @@
               "Name": "ST:18:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20241006125358_fixDB_RE.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241006125358_fixDB_RE.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Migrations\\20241006125358_fixDB_RE.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241006125358_fixDB_RE.cs",
-              "RelativeToolTip": "DataAccess\\Migrations\\20241006125358_fixDB_RE.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T12:53:58.213Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20241006125016_fixDB.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241006125016_fixDB.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Migrations\\20241006125016_fixDB.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241006125016_fixDB.cs",
-              "RelativeToolTip": "DataAccess\\Migrations\\20241006125016_fixDB.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T12:50:16.706Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "WashServiceStatus.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashServiceStatus.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\WashServiceStatus.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashServiceStatus.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\WashServiceStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T11:15:28.526Z"
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WashingStatus.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashingStatus.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\WashingStatus.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashingStatus.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\WashingStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T11:14:59.465Z"
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "OrderStatus.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\OrderStatus.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\OrderStatus.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\OrderStatus.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\OrderStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T11:14:56.865Z"
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WashShopContext.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\WashShopContext.cs",
-              "RelativeDocumentMoniker": "DataAccess\\WashShopContext.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\WashShopContext.cs",
-              "RelativeToolTip": "DataAccess\\WashShopContext.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFUAAAAxAAAAAAAAAA==",
+              "Title": "ICartItemService.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\IService\\ICartItemService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\IService\\ICartItemService.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\IService\\ICartItemService.cs",
+              "RelativeToolTip": "BusinessObject\\IService\\ICartItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T10:53:01.75Z"
+              "WhenOpened": "2024-10-07T14:35:25.993Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Order.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\Order.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Order.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\Order.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwA8AAAAYAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ICartRepo.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\IRepo\\ICartRepo.cs",
+              "RelativeDocumentMoniker": "DataAccess\\IRepo\\ICartRepo.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\IRepo\\ICartRepo.cs",
+              "RelativeToolTip": "DataAccess\\IRepo\\ICartRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T10:52:23.834Z"
+              "WhenOpened": "2024-10-07T14:17:20.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "CartRepo.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Repo\\CartRepo.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repo\\CartRepo.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Repo\\CartRepo.cs",
+              "RelativeToolTip": "DataAccess\\Repo\\CartRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T14:17:25.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MapperConfig.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Mapper\\MapperConfig.cs",
               "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
               "RelativeToolTip": "BusinessObject\\Mapper\\MapperConfig.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAwwBkAAABUAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T10:51:57.072Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\DependencyInjection.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
-              "RelativeToolTip": "BusinessObject\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T10:50:53.26Z"
+              "WhenOpened": "2024-10-07T14:14:43.077Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\CartItem.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\CartItem.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\CartItem.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T10:45:57.297Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "ResponseCartDTO.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseCartDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseCartDTO.cs",
               "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseCartDTO.cs",
               "RelativeToolTip": "BusinessObject\\Model\\Response\\ResponseCartDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T10:45:35.764Z"
+              "WhenOpened": "2024-10-07T14:13:05.981Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Cart.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Entity\\Cart.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Cart.cs",
-              "RelativeToolTip": "DataAccess\\Entity\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\CartService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Service\\CartService.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\CartService.cs",
+              "RelativeToolTip": "BusinessObject\\Service\\CartService.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAowJgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:40:03.358Z"
+              "WhenOpened": "2024-10-07T14:12:17.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20241007140407_Khoa_Fix_WashService.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs",
+              "RelativeToolTip": "DataAccess\\Migrations\\20241007140407_Khoa_Fix_WashService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T14:04:07.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ResponseWashServiceDTO.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
+              "RelativeToolTip": "BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T14:02:48.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WashServiceService.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\WashServiceService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Service\\WashServiceService.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\WashServiceService.cs",
+              "RelativeToolTip": "BusinessObject\\Service\\WashServiceService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwCIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T14:02:35.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreateWashServiceDTO.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
+              "RelativeToolTip": "BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T13:58:27.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\CartController.cs",
+              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T10:08:29.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CartItemController.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\CartItemController.cs",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\CartItemController.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\CartItemController.cs",
+              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\CartItemController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAIAwwCMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T13:52:11.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ResponseCartItemDTO.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseCartItemDTO.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseCartItemDTO.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseCartItemDTO.cs",
+              "RelativeToolTip": "BusinessObject\\Model\\Response\\ResponseCartItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T12:47:12.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreateCartItemDTO.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateCartItemDTO.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateCartItemDTO.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateCartItemDTO.cs",
+              "RelativeToolTip": "BusinessObject\\Model\\Request\\CreateRequest\\CreateCartItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T12:46:41.834Z",
+              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 409,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 210,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -270,6 +343,27 @@
             {
               "$type": "Bookmark",
               "Name": "ST:16:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a0c8e2a7-bd07-4d13-9e3c-855ecc9a027c}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CartItemService.cs",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\CartItemService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Service\\CartItemService.cs",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\CartItemService.cs",
+              "RelativeToolTip": "BusinessObject\\Service\\CartItemService.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAYwEwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T12:56:13.52Z",
+              "EditorCaption": ""
             }
           ]
         }
