@@ -4449,19 +4449,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\duykh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
+      "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+      "packagesPath": "C:\\Users\\duykh\\.nuget\\packages\\",
+      "outputPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\duykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4566,7 +4566,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

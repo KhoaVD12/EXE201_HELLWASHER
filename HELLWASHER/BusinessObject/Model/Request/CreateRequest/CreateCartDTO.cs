@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject.Model.Request
+namespace BusinessObject.Model.Request.CreateRequest
 {
     public class CreateCartDTO
     {
-        public int UserId { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

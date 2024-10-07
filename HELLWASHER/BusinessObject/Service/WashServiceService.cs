@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BusinessObject.IService;
-using BusinessObject.Model.Request;
+using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using BusinessObject.Utils;
 using DataAccess.BaseRepo;
@@ -138,8 +138,7 @@ namespace BusinessObject.Service
                     exist.Name = serviceDTO.Name;
                     exist.Description = serviceDTO.Description;
                     exist.CategoryId = serviceDTO.CategoryId;
-                    exist.ClothUnitId = serviceDTO.ClothUnitId;
-                    exist.ServiceTypeId = serviceDTO.ServiceTypeId;
+                    exist.ClothUnit = serviceDTO.ClothUnit;
                     exist.Price = serviceDTO.Price;
                     exist.ServiceStatusId = serviceDTO.ServiceStatusId;
                     exist.ImageURL = serviceDTO.ImageURL;

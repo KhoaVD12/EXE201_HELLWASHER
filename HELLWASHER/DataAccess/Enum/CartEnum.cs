@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject.Model.Request
+namespace DataAccess.Enum
 {
-    public class CreateWashServiceStatusDTO
+    public enum CartEnum
     {
-        public string Name { get; set; }
+        CHOOSING,
+        FINISH
     }
 }
