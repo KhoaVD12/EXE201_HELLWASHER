@@ -1,0 +1,6 @@
+services:
+  hellwasher_controller:
+    image: ${DOCKER_REGISTRY-}hellwashercontroller
+    build:
+      context: .
+      dockerfile: HELLWAHSER_Controller/Dockerfile

@@ -1,5 +1,5 @@
 ﻿using BusinessObject.IService;
-using BusinessObject.Model.Request;
+using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using Microsoft.AspNetCore.Mvc;
 

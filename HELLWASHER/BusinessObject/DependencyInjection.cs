@@ -19,7 +19,9 @@ namespace BusinessObject
             
 
             services.AddScoped(typeof(IBaseRepo<>), typeof(BaseRepo<>));
-            
+
+            services.AddScoped<ICartRepo, CartRepo>();
+
             services.AddScoped<IWashServiceService, WashServiceService>();
             
             services.AddScoped<IOrderService, OrderService>();
@@ -27,6 +29,7 @@ namespace BusinessObject
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IWashServiceStatusService, WashServiceStatusService>();
             services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICartItemService, CartItemService>();
             return services;
         }
     }

@@ -1,12 +1,102 @@
 [
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.CartController",
-    "Method": "GetAll",
+    "Method": "CreateCart",
     "RelativePath": "api/Cart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartDTO",
+        "Type": "BusinessObject.Model.Request.CreateRequest.CreateCartDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.CartController",
+    "Method": "GetAll",
+    "RelativePath": "api/Cart/Carts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.CartController",
+    "Method": "ChangeCartStatus",
+    "RelativePath": "api/Cart/ChangeCartStatus/{id}\u0026{status}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.CartController",
+    "Method": "UpdateCartTotalPrice",
+    "RelativePath": "api/Cart/UpdateCartTotalPrice/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.CartItemController",
+    "Method": "CreateItem",
+    "RelativePath": "api/CartItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemDTO",
+        "Type": "BusinessObject.Model.Request.CreateRequest.CreateCartItemDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.CartItemController",
+    "Method": "UpdateCartItemQuantity",
+    "RelativePath": "api/CartItem/ChangeItemQuantity/{id}\u0026\u0026{quantity}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "quantity",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -19,7 +109,7 @@
     "Parameters": [
       {
         "Name": "newCategory",
-        "Type": "BusinessObject.Model.Request.CreateCategoryDTO",
+        "Type": "BusinessObject.Model.Request.CreateRequest.CreateCategoryDTO",
         "IsRequired": true
       }
     ],
@@ -145,7 +235,7 @@
     "Parameters": [
       {
         "Name": "serviceDTO",
-        "Type": "BusinessObject.Model.Request.CreateWashServiceDTO",
+        "Type": "BusinessObject.Model.Request.CreateRequest.CreateWashServiceDTO",
         "IsRequired": true
       }
     ],
@@ -229,7 +319,7 @@
     "Parameters": [
       {
         "Name": "newWashServiceStatus",
-        "Type": "BusinessObject.Model.Request.CreateWashServiceStatusDTO",
+        "Type": "BusinessObject.Model.Request.CreateRequest.CreateWashServiceStatusDTO",
         "IsRequired": true
       }
     ],
