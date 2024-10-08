@@ -14,11 +14,11 @@ namespace DataAccess.Entity
         public int CategoryId { get; set; }
         public string ClothUnit { get; set; }
         public decimal Price { get; set; }
-        public int ServiceStatusId { get; set; }
+        public string ServiceStatus { get; set; }
         public string? ImageURL { get; set; }
         // Navigation properties
         public Category Category { get; set; }
-        public WashServiceStatus ServiceStatus { get; set; }
+        
         public ICollection<CartItem>? CartItems { get; set; }
     }
 }

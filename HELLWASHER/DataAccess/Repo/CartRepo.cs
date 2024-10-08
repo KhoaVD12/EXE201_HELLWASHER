@@ -20,7 +20,8 @@ namespace DataAccess.Repo
 
         public async Task<IEnumerable<Cart>> GetAllCartAndItem()
         {
-            return await _context.Carts.Include(c => c.CartItems).ToListAsync();
+            return await _context.Carts.Include(c => c.CartItems).ThenInclude(c=>c.Service)
+                .ToListAsync();
         }
         public async Task<Cart> GetCartAndItemInsideByCartId(int id)
         {

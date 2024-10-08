@@ -36,7 +36,7 @@ namespace BusinessObject.Service
                     return res;
                 }
                 var mapp = _mapper.Map<WashService>(serviceDTO);
-                mapp.ServiceStatusId = 1;
+                mapp.ServiceStatus = "Active";
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseWashServiceDTO>(mapp);
                 res.Success = true;
@@ -140,7 +140,7 @@ namespace BusinessObject.Service
                     exist.CategoryId = serviceDTO.CategoryId;
                     exist.ClothUnit = serviceDTO.ClothUnit;
                     exist.Price = serviceDTO.Price;
-                    exist.ServiceStatusId = serviceDTO.ServiceStatusId;
+                    exist.ServiceStatus = serviceDTO.ServiceStatus;
                     exist.ImageURL = serviceDTO.ImageURL;
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;

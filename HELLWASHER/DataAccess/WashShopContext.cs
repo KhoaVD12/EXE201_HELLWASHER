@@ -19,20 +19,17 @@ namespace DataAccess
         public DbSet<Category> Categories { get; set; }
         
         
-        public DbSet<WashServiceStatus> ServiceStatuses { get; set; }
         
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
-        public DbSet<WashingStatus> WashStatuses { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
 
-            /*// 2. User -> Faq (One-to-Many)
+            *//*// 2. User -> Faq (One-to-Many)
             modelBuilder.Entity<Faq>()
                 .HasOne(f => f.User)
                 .WithMany(u => u.Faqs)
-                .HasForeignKey(f => f.UserID);*/
+                .HasForeignKey(f => f.UserID);*//*
 
             
 
@@ -87,7 +84,7 @@ namespace DataAccess
             // Setting up relationships for the entities
             // Configure additional constraints, indexes, etc., if necessary
             base.OnModelCreating(modelBuilder);
-        }
+        }*/
     }
 
 }

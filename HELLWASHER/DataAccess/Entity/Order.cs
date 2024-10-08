@@ -16,12 +16,11 @@ namespace DataAccess.Entity
         public string UserEmail { get; set; }
         public string UserPhone { get; set; }
         public decimal TotalPrice { get; set; }
-        public int OrderStatusId { get; set; }
-        public int WashStatusId { get; set; }
+        public string OrderStatus { get; set; }
+        public string WashStatus { get; set; }
         public DateTime? PickUpDate { get; set; }
         
-        public OrderStatus OrderStatus { get; set; }
-        public WashingStatus WashStatus { get; set; }
+        
         public Cart Cart { get; set; }
     }
 }

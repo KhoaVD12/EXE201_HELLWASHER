@@ -24,7 +24,7 @@ namespace BusinessObject
 
             services.AddScoped<IWashServiceService, WashServiceService>();
             services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IWashServiceStatusService, WashServiceStatusService>();
+            
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<ICartItemService, CartItemService>();
             return services;

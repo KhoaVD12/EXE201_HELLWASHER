@@ -14,7 +14,7 @@ namespace BusinessObject.Model.Response
         public string ClothUnit { get; set; }
         
         public decimal Price { get; set; }
-        public int ServiceStatusId { get; set; }
+        public string ServiceStatus { get; set; }
         public string? ImageURL { get; set; }
     }
 }

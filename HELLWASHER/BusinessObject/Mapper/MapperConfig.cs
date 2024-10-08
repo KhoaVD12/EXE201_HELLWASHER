@@ -23,9 +23,7 @@ namespace BusinessObject.Mapper
             CreateMap<CreateCategoryDTO, Category>().ReverseMap();
             CreateMap<ResponseCategoryDTO, Category>().ReverseMap();
             
-            //Wash Service Status
-            CreateMap<CreateWashServiceStatusDTO, WashServiceStatus>().ReverseMap();
-            CreateMap<ResponseWashServiceStatusDTO, WashServiceStatus>().ReverseMap();
+            
             
             //Cart 
             CreateMap<CreateCartDTO, Cart>().ReverseMap();
@@ -35,7 +33,9 @@ namespace BusinessObject.Mapper
             CreateMap<ChangeCartStatusDTO, Cart>().ReverseMap();
             //Cart Item
             CreateMap<CreateCartItemDTO, CartItem>().ReverseMap();
-            CreateMap<ResponseCartItemDTO, CartItem>().ReverseMap();
+            CreateMap<CartItem, ResponseCartItemDTO>()
+                .ForMember(dest=>dest.ServiceName, opt=>opt.MapFrom(src=>src.Service))
+                .ReverseMap();
         }
     }
 }
