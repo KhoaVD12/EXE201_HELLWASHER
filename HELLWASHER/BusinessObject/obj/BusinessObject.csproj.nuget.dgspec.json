@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {}
+    "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -53,6 +53,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.8.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -105,6 +109,10 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.8.0, )"
             }
           },
           "imports": [
@@ -127,14 +135,14 @@
         }
       }
     },
-    "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Source\\Repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

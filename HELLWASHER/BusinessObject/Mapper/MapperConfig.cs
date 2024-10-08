@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessObject.Model.Request;
 using BusinessObject.Model.Response;
+using BusinessObject.ViewModels.OrderDTO;
 using DataAccess.Entity;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,8 @@ namespace BusinessObject.Mapper
             CreateMap<CreateCartDTO, Cart>().ReverseMap();
             CreateMap<ResponseCartDTO, Cart>().ReverseMap();
 
+            //Order 
+            CreateMap<OrderDTO, Order>().ReverseMap();
         }
     }
 }

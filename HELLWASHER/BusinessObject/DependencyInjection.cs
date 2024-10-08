@@ -1,7 +1,8 @@
 ﻿using BusinessObject.IService;
 using BusinessObject.Service;
 using DataAccess.BaseRepo;
-
+using DataAccess.IRepo;
+using DataAccess.Repo;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace BusinessObject
             
             services.AddScoped<IWashServiceService, WashServiceService>();
             
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IWashServiceStatusService, WashServiceStatusService>();
             services.AddScoped<ICartService, CartService>();
