@@ -52,3 +52,21 @@ C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debu
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.pdb
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\ref\BusinessObject.dll
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\BusinessObject.deps.json
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\BusinessObject.runtimeconfig.json
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\BusinessObject.dll
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\BusinessObject.pdb
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\DataAccess.dll
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\bin\Debug\net8.0\DataAccess.pdb
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfoInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.AssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.sourcelink.json
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\Business.4FFE46AD.Up2Date
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.dll
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\refint\BusinessObject.dll
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.pdb
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\BusinessObject.genruntimeconfig.cache
+C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\BusinessObject\obj\Debug\net8.0\ref\BusinessObject.dll

@@ -3,6 +3,7 @@ using BusinessObject.IService;
 using BusinessObject.ViewModels.OrderDTO;
 using DataAccess;
 using DataAccess.Entity;
+using DataAccess.Enum;
 using DataAccess.IRepo;
 using System;
 using System.Collections.Generic;
@@ -53,14 +54,14 @@ namespace BusinessObject.Service
             {
                 // Map DTO to entity
                 var OrderEntity = _mapper.Map<Order>(order);
-                if (OrderEntity.OrderStatusId == 0 || OrderEntity.OrderStatusId == null)
-                {
-                    throw new Exception("Failed to generate order status ID.");
-                }
-                if (OrderEntity.WashStatusId == 0 || OrderEntity.WashStatusId == null)
-                {
-                    throw new Exception("Failed to generate wash status ID.");
-                }
+                //if (OrderEntity.OrderStatusId == 0 || OrderEntity.OrderStatusId == null)
+                //{
+                //    throw new Exception("Failed to generate order status ID.");
+                //}
+                //if (OrderEntity.WashStatusId == 0 || OrderEntity.WashStatusId == null)
+                //{
+                //    throw new Exception("Failed to generate wash status ID.");
+                //}
                 if (OrderEntity.CartId == 0 || OrderEntity.CartId == null)
                 {
                     throw new Exception("Failed to generate cart ID.");
@@ -83,7 +84,7 @@ namespace BusinessObject.Service
                 // Prepare success response
                 serviceResponse.Data = OrderEntity.OrderId;
                 serviceResponse.Success = true;
-                serviceResponse.Message = "Order created successfully";
+                serviceResponse.Message = "Order created successfully! Please check your email for order details.";
             }
             catch (Exception ex)
             {
@@ -105,14 +106,14 @@ namespace BusinessObject.Service
                     response.Message = "Order not found.";
                     return response;
                 }
-                order.OrderStatusId = orderRequest.OrderStatusId;
+                order.OrderStatus = OrderEnum.CONFIRMED;
                 order.Address = orderRequest.Address;
                 order.UserName = orderRequest.UserName;
                 order.OrderDate = orderRequest.OrderDate;
                 order.UserEmail = orderRequest.UserEmail;
                 order.UserPhone = orderRequest.UserPhone;
                 order.TotalPrice = orderRequest.TotalPrice;
-                order.WashStatusId = orderRequest.WashStatusId;
+                order.WashStatus = WashEnum.WASHING;
                 order.PickUpDate = orderRequest.PickUpDate;
                 await _orderRepo.Update(order);
 
