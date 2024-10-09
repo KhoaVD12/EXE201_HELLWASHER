@@ -16,8 +16,6 @@ namespace BusinessObject.ViewModels.OrderDTO
         public string UserEmail { get; set; }
         public string UserPhone { get; set; }
         public decimal TotalPrice { get; set; }
-        public int OrderStatusId { get; set; }
-        public int WashStatusId { get; set; }
         public DateTime PickUpDate { get; set; }
     }
 }

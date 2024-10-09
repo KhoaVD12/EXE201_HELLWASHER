@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,9 @@ namespace DataAccess.Entity
         public string UserEmail { get; set; }
         public string UserPhone { get; set; }
         public decimal TotalPrice { get; set; }
-        public int OrderStatusId { get; set; }
-        public int WashStatusId { get; set; }
         public DateTime? PickUpDate { get; set; }
-        
-        public OrderStatus OrderStatus { get; set; }
-        public WashingStatus WashStatus { get; set; }
+        public OrderEnum OrderStatus { get; set; }
+        public WashEnum WashStatus { get; set; }
         public Cart Cart { get; set; }
     }
 }
