@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessObject.Model.Request.CreateRequest
+namespace DataAccess.Entity
 {
-    public class CreateCategoryDTO
+    public class PaymentMethod
     {
+        public int PaymentMethodId { get; set; }
         public string Name { get; set; }
-        public string? Description { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

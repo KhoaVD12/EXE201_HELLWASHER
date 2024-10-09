@@ -581,3 +581,6 @@ C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWA
 C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\HELLWASHER_Controller.pdb
 C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\HELLWASHER_Controller.genruntimeconfig.cache
 C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\obj\Debug\net8.0\ref\HELLWASHER_Controller.dll
+D:\My project\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\My project\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\MailKit.dll
+D:\My project\EXE201_HELLWASHER\HELLWASHER\HELLWAHSER_Controller\bin\Debug\net8.0\MimeKit.dll
