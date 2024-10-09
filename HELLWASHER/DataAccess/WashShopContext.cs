@@ -13,20 +13,19 @@ namespace DataAccess
         
         
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCheckout> ProductCheckouts { get; set; }
+        public DbSet<ServiceCheckout> ServiceCheckouts { get; set; }
         public DbSet<WashService> Services { get; set; }
         public DbSet<Category> Categories { get; set; }
-        
-        
-        public DbSet<WashServiceStatus> ServiceStatuses { get; set; }
-        
-        public DbSet<OrderStatus> OrderStatuses { get; set; }
-        public DbSet<WashingStatus> WashStatuses { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-            
+
 
         //    /*// 2. User -> Faq (One-to-Many)
         //    modelBuilder.Entity<Faq>()
@@ -34,9 +33,9 @@ namespace DataAccess
         //        .WithMany(u => u.Faqs)
         //        .HasForeignKey(f => f.UserID);*/
 
-            
 
-            
+
+
 
         //    // 5. Cart -> CartItem (One-to-Many)
         //    modelBuilder.Entity<CartItem>()
@@ -50,7 +49,7 @@ namespace DataAccess
         //        .WithMany(s => s.CartItems)
         //        .HasForeignKey(ci => ci.ServiceId);
 
-            
+
 
         //    // 10. Category -> Service (One-to-Many)
         //    modelBuilder.Entity<WashService>()

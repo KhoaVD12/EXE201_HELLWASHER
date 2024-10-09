@@ -135,8 +135,7 @@ namespace BusinessObject.Service
                 {
                     exist.Name = categoryDTO.Name;
                     exist.Description = categoryDTO.Description;
-                    exist.ImageURL = categoryDTO.ImageURL;
-                    exist.Status = categoryDTO.Status;
+                    
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;
                     res.Message = "Update Category Successfully";

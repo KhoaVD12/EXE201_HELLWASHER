@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Enum
 {
-    public enum CategoryEnum
+    public enum ServiceEnum
     {
-        ACTIVE,
-        INACTIVE
     }
 }

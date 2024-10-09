@@ -10,7 +10,7 @@ namespace BusinessObject.IService
     public interface IOrderService
     {
         Task<ServiceResponse<IEnumerable<OrderDTO>>> GetAllOrder();
-        Task<ServiceResponse<int>> AddOrder(OrderDTO order);
-        Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest);
+        /*Task<ServiceResponse<int>> AddOrder(OrderDTO order);
+        Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest);*/
     }
 }

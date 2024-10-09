@@ -46,7 +46,9 @@ namespace BusinessObject.Service
 
             return response;
         }
-        public async Task<ServiceResponse<int>> AddOrder(OrderDTO order)
+
+
+        /*public async Task<ServiceResponse<int>> AddOrder(OrderDTO order)
         {
             var serviceResponse = new ServiceResponse<int>();
 
@@ -93,8 +95,10 @@ namespace BusinessObject.Service
             }
 
             return serviceResponse;
-        }
-        public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest)
+        }*/
+
+
+        /*public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest)
         {
             var response = new ServiceResponse<UpdateOrderRequest>();
             try
@@ -129,6 +133,6 @@ namespace BusinessObject.Service
                 return response;
             }
             
-        }
+        }*/
     }
 }

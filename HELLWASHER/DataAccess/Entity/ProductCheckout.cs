@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entity
 {
-    public class CartItem
+    public class ProductCheckout
     {
-        public int Id { get; set; }
-        public int CartId { get; set; }
-        public int ServiceId { get; set; }
+        public int ProductCheckoutId { get; set; }
+        public int ProductId { get; set; }
         public int QuantityPerService { get; set; }
         public decimal TotalPricePerService { get; set; }
         // Navigation properties
-        public Cart Cart { get; set; }
-        public WashService Service { get; set; }
+        public Order Order { get; set; }
+        public Product Product { get; set; }
     }
-
 }

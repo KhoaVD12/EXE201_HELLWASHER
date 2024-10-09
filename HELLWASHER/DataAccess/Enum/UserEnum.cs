@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Enum
 {
-    public enum CartEnum
+    public enum UserEnum
     {
-        CHOOSING,
-        FINISH
+        
     }
 }

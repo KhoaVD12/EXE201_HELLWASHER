@@ -22,7 +22,7 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
-        [HttpPost("Add")]
+        /*[HttpPost("Add")]
         public async Task<IActionResult> AddOrder([FromBody] OrderDTO orderDTO)
         {
             var result = await _orderService.AddOrder(orderDTO);
@@ -37,6 +37,6 @@ namespace HELLWASHER_Controller.Controllers
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
-        }
+        }*/
     }
 }

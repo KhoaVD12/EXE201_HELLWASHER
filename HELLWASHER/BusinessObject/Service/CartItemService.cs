@@ -14,19 +14,19 @@ namespace BusinessObject.Service
 {
     public class CartItemService:ICartItemService
     {
-        private readonly IBaseRepo<CartItem> _repo;
+        private readonly IBaseRepo<ServiceCheckout> _repo;
         private readonly IBaseRepo<WashService> _washServiceRepo;
-        private readonly ICartService _cartService;
+        
         private readonly IMapper _mapper;
-        public CartItemService(IBaseRepo<CartItem> repo, 
+        public CartItemService(IBaseRepo<ServiceCheckout> repo, 
             IMapper mapper,
-            IBaseRepo<WashService> washServiceRepo,
-            ICartService cartService)
+            IBaseRepo<WashService> washServiceRepo
+            )
         {
             _mapper = mapper;
             _repo = repo;
             _washServiceRepo = washServiceRepo;
-            _cartService = cartService;
+            
         }
 
         public async Task<ServiceResponse<ResponseCartItemDTO>> CreateCartItem(CreateCartItemDTO itemDTO)
@@ -35,7 +35,7 @@ namespace BusinessObject.Service
             try
             {
                 var items = await _repo.GetAllAsync();
-                if (items.Any(i => i.ServiceId == itemDTO.ServiceId && i.CartId == itemDTO.CartId))
+                if (items.Any(i => i.ServiceId == itemDTO.ServiceId))
                 {
                     res.Success = false;
                     res.Message = "You haved added this service before, now you can only update Quantity inside";
@@ -48,7 +48,7 @@ namespace BusinessObject.Service
                     res.Message = "No service with this Id";
                     return res;
                 }
-                var mapp = _mapper.Map<CartItem>(itemDTO);
+                var mapp = _mapper.Map<ServiceCheckout>(itemDTO);
                 mapp.TotalPricePerService = serviceExist.Price * itemDTO.QuantityPerService;
                 await _repo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseCartItemDTO>(mapp);
@@ -80,11 +80,11 @@ namespace BusinessObject.Service
                 if (exist != null)
                 {
                     var service = await _washServiceRepo.GetByIdAsync(exist.ServiceId);
-                    var mapp = _mapper.Map<CartItem>(exist);
+                    var mapp = _mapper.Map<ServiceCheckout>(exist);
                     exist.QuantityPerService = quantity;
                     exist.TotalPricePerService = quantity * service.Price;
                     await _repo.UpdateAsync(exist);
-                    await _cartService.UpdateCartTotalPrice(exist.CartId);
+                    
                     var result = _mapper.Map<ResponseCartItemDTO>(exist);
                     res.Success = true;
                     res.Data = result;

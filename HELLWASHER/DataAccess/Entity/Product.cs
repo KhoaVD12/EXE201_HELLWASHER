@@ -7,18 +7,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entity
 {
-    public class WashService
+    public class Product
     {
-        public int WashServiceId { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
-        public string ClothUnit { get; set; }
         public decimal Price { get; set; }
-        public ServiceEnum ServiceStatus { get; set; }
+        public ProductEnum ProductStatus { get; set; }
         public string? ImageURL { get; set; }
 
-        // Navigation properties
-        
-        public ICollection<ServiceCheckout>? ServiceItems { get; set; }
+        public ICollection<ProductCheckout> ProductCheckouts { get; set; }
+        public Category Category { get; set; }
     }
 }
