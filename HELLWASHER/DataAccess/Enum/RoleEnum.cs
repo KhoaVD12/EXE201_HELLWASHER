@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Enum
 {
-    public enum UserEnum
+    public enum RoleEnum
     {
-        Active,
-        Inactive
+        Customer,
+        Admin
     }
 }

@@ -5,18 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Entity
+namespace BusinessObject.Model.Request.CreateRequest
 {
-    public class User
+    public class CreateUserDTO
     {
-        public int UserId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
-        public RoleEnum Role { get; set; }
-        public UserEnum Status { get; set; }
-
-        public ICollection<Order> Orders { get; set; }
     }
 }

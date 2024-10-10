@@ -2,6 +2,7 @@
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Status;
 using BusinessObject.Model.Response;
+using BusinessObject.Model.Response.Login_SignUp;
 using BusinessObject.ViewModels.OrderDTO;
 using DataAccess.Entity;
 using System;
@@ -23,14 +24,12 @@ namespace BusinessObject.Mapper
             //Category
             CreateMap<CreateCategoryDTO, Category>().ReverseMap();
             CreateMap<ResponseCategoryDTO, Category>().ReverseMap();
-            
-            
-            
-            
-
+            //User
+            CreateMap<User, CreateUserDTO>().ReverseMap();
+            CreateMap<User, ResponseUserDTO>().ReverseMap();
+            CreateMap<User, LoginRes>().ReverseMap();
             //Order 
             CreateMap<OrderDTO, Order>().ReverseMap();
-            
             //Cart Item
             CreateMap<CreateCartItemDTO, ServiceCheckout>().ReverseMap();
             CreateMap<ResponseCartItemDTO, ServiceCheckout>().ReverseMap();

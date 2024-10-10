@@ -23,7 +23,7 @@ namespace BusinessObject
             
 
             services.AddScoped<IWashServiceService, WashServiceService>();
-            
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
