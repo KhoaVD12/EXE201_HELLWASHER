@@ -14,7 +14,7 @@ namespace HELLWASHER_Controller.Controllers
             _service = service;
         }
         [HttpPost]
-        public async Task<IActionResult>CreateItem(CreateCartItemDTO itemDTO)
+        public async Task<IActionResult>CreateItem(CreateServiceCheckoutDTO itemDTO)
         {
             var result = await _service.CreateCartItem(itemDTO);
             if (result.Success)

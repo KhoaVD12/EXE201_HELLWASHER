@@ -28,7 +28,7 @@ namespace BusinessObject
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
             
-            services.AddScoped<ICartItemService, CartItemService>();
+            services.AddScoped<ICartItemService, ServiceCheckoutService>();
             return services;
         }
     }

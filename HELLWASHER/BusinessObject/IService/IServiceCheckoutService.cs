@@ -10,7 +10,7 @@ namespace BusinessObject.IService
 {
     public interface ICartItemService
     {
-        Task<ServiceResponse<ResponseCartItemDTO>> CreateCartItem(CreateCartItemDTO itemDTO);
-        Task<ServiceResponse<ResponseCartItemDTO>> UpdateCartItemQuantity(int id, int quantity);
+        Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateServiceCheckoutDTO itemDTO);
+        Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateCartItemQuantity(int id, int quantity);
     }
 }

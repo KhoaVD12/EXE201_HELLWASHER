@@ -29,9 +29,9 @@ namespace BusinessObject.Service
             
         }
 
-        public async Task<ServiceResponse<ResponseCartItemDTO>> CreateCartItem(CreateCartItemDTO itemDTO)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateCartItemDTO itemDTO)
         {
-            var res = new ServiceResponse<ResponseCartItemDTO>();
+            var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
             {
                 var items = await _repo.GetAllAsync();
@@ -51,7 +51,7 @@ namespace BusinessObject.Service
                 var mapp = _mapper.Map<ServiceCheckout>(itemDTO);
                 mapp.TotalPricePerService = serviceExist.Price * itemDTO.QuantityPerService;
                 await _repo.AddAsync(mapp);
-                var result = _mapper.Map<ResponseCartItemDTO>(mapp);
+                var result = _mapper.Map<ResponseServiceCheckoutDTO>(mapp);
                 res.Success = true;
                 res.Message = "Create item successfully";
                 res.Data = result;
@@ -65,9 +65,9 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<ResponseCartItemDTO>> UpdateCartItemQuantity(int id, int quantity)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateCartItemQuantity(int id, int quantity)
         {
-            var res = new ServiceResponse<ResponseCartItemDTO>();
+            var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
             {
                 if (quantity <= 0)
@@ -85,7 +85,7 @@ namespace BusinessObject.Service
                     exist.TotalPricePerService = quantity * service.Price;
                     await _repo.UpdateAsync(exist);
                     
-                    var result = _mapper.Map<ResponseCartItemDTO>(exist);
+                    var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);
                     res.Success = true;
                     res.Data = result;
                     res.Message = "Update Item Successfully";
