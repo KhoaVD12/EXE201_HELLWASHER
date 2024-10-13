@@ -17,10 +17,10 @@ namespace DataAccess.Entity
         public DateTime OrderDate { get; set; }
         public string Address { get; set; }
         public decimal TotalPrice { get; set; }
-        public DateTime PickUpDate { get; set; }
+        public DateTime? PickUpDate { get; set; }
         public OrderEnum OrderStatus { get; set; }
         public WashEnum WashStatus { get; set; }
-        
+        public string? ConfirmImage {  get; set; }
         public User User { get; set; }
         public ICollection<ServiceCheckout>? ServiceCheckouts { get; set; }
         public ICollection<ProductCheckout>? ProductCheckouts { get; set; }

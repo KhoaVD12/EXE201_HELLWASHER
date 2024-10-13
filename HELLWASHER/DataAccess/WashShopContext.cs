@@ -20,7 +20,7 @@ namespace DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
-
+        public DbSet<Feedback> Feedbacks { get; set; }
 
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)

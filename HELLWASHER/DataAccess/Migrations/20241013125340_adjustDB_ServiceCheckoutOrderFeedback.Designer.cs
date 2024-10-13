@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241010133849_Khoa-enumUser")]
-    partial class KhoaenumUser
+    [Migration("20241013125340_adjustDB_ServiceCheckoutOrderFeedback")]
+    partial class adjustDB_ServiceCheckoutOrderFeedback
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,43 @@ namespace DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
+                {
+                    b.Property<int>("FeedbackId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WashServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FeedbackId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WashServiceId");
+
+                    b.ToTable("Feedbacks");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -56,6 +93,9 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -65,7 +105,7 @@ namespace DataAccess.Migrations
                     b.Property<int>("PaymentMethodId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PickUpDate")
+                    b.Property<DateTime?>("PickUpDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ProductCheckoutId")
@@ -267,6 +307,29 @@ namespace DataAccess.Migrations
                     b.HasKey("WashServiceId");
 
                     b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
+                {
+                    b.HasOne("DataAccess.Entity.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("DataAccess.Entity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataAccess.Entity.WashService", "WashService")
+                        .WithMany()
+                        .HasForeignKey("WashServiceId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+
+                    b.Navigation("WashService");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Order", b =>

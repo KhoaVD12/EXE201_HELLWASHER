@@ -31,7 +31,7 @@ namespace BusinessObject.Mapper
             //Order 
             CreateMap<OrderDTO, Order>().ReverseMap();
             //Cart Item
-            CreateMap<CreateCartItemDTO, ServiceCheckout>().ReverseMap();
+            CreateMap<CreateServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
             CreateMap<ResponseServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
         }
     }

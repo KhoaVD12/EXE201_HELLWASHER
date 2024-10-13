@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class KhoaenumUser : Migration
+    public partial class adjustDB_ServiceCheckoutOrderFeedback : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -111,9 +111,10 @@ namespace DataAccess.Migrations
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PickUpDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PickUpDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     OrderStatus = table.Column<int>(type: "int", nullable: false),
-                    WashStatus = table.Column<int>(type: "int", nullable: false)
+                    WashStatus = table.Column<int>(type: "int", nullable: false),
+                    ConfirmImage = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -126,6 +127,40 @@ namespace DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Feedbacks",
+                columns: table => new
+                {
+                    FeedbackId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ServiceId = table.Column<int>(type: "int", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    WashServiceId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedbacks", x => x.FeedbackId);
+                    table.ForeignKey(
+                        name: "FK_Feedbacks_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId");
+                    table.ForeignKey(
+                        name: "FK_Feedbacks_Services_WashServiceId",
+                        column: x => x.WashServiceId,
+                        principalTable: "Services",
+                        principalColumn: "WashServiceId");
+                    table.ForeignKey(
+                        name: "FK_Feedbacks_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -168,8 +203,8 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ServiceId = table.Column<int>(type: "int", nullable: false),
                     QuantityPerService = table.Column<int>(type: "int", nullable: false),
-                    TotalPricePerService = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    TotalPricePerService = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -187,6 +222,21 @@ namespace DataAccess.Migrations
                         principalColumn: "WashServiceId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedbacks_ProductId",
+                table: "Feedbacks",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedbacks_UserId",
+                table: "Feedbacks",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedbacks_WashServiceId",
+                table: "Feedbacks",
+                column: "WashServiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_PaymentMethodId",
@@ -227,6 +277,9 @@ namespace DataAccess.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Feedbacks");
+
             migrationBuilder.DropTable(
                 name: "ProductCheckouts");
 

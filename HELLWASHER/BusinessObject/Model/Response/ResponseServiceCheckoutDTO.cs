@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Model.Response
 {
-    public class ResponseCartItemDTO
+    public class ResponseServiceCheckoutDTO
     {
         public int Id { get; set; }
         public int CartId { get; set; }

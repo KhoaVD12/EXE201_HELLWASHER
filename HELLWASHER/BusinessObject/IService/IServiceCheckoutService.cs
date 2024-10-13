@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.IService
 {
-    public interface ICartItemService
+    public interface IServiceCheckoutService
     {
         Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateServiceCheckoutDTO itemDTO);
         Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateCartItemQuantity(int id, int quantity);
