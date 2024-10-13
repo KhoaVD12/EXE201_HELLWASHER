@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Model.Request.CreateRequest
 {
-    public class CreateCartItemDTO
+    public class CreateServiceCheckoutDTO
     {
         public int CartId { get; set; }
         public int ServiceId { get; set; }

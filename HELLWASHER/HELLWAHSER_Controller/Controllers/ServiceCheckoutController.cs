@@ -6,10 +6,10 @@ namespace HELLWASHER_Controller.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CartItemController : Controller
+    public class ServiceCheckoutController : ControllerBase
     {
-        private readonly ICartItemService _service;
-        public CartItemController(ICartItemService service)
+        private readonly IServiceCheckoutService _service;
+        public ServiceCheckoutController(IServiceCheckoutService service)
         {
             _service = service;
         }

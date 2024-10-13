@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Service
 {
-    public class CartItemService:ICartItemService
+    public class ServiceCheckoutService:IServiceCheckoutService
     {
         private readonly IBaseRepo<ServiceCheckout> _repo;
         private readonly IBaseRepo<WashService> _washServiceRepo;
         
         private readonly IMapper _mapper;
-        public CartItemService(IBaseRepo<ServiceCheckout> repo, 
+        public ServiceCheckoutService(IBaseRepo<ServiceCheckout> repo, 
             IMapper mapper,
             IBaseRepo<WashService> washServiceRepo
             )
@@ -29,7 +29,7 @@ namespace BusinessObject.Service
             
         }
 
-        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateCartItemDTO itemDTO)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateServiceCheckoutDTO itemDTO)
         {
             var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
