@@ -24,6 +24,7 @@ namespace DataAccess.Repo
                 .ThenInclude(sc => sc.Service)
                 .Include(o => o.ProductCheckouts)
                 .ThenInclude(sc => sc.Product)
+                .Include(o => o.User)
                 .FirstOrDefaultAsync(o => o.OrderId == id);
         }
     }

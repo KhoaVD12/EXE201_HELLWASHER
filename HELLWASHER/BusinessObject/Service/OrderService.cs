@@ -66,24 +66,8 @@ namespace BusinessObject.Service
                 // Map DTO to entity
                 var OrderEntity = _mapper.Map<Order>(order);
 
-
-
                 var user = await _userRepo.GetByIdAsync(userId);
-                //var orderEmailDTO = new ShowOrderEmailDTO 
-                //{
-                //    UserName = user.Name,
-                //    Address = OrderEntity.Address,
-                //    ServiceCheckoutId = OrderEntity.ServiceCheckoutId,
-                //    ProductCheckoutId = OrderEntity.ProductCheckoutId,
-                //    PickUpDate = OrderEntity.PickUpDate,
-                //    TotalPrice = totalPrice
-                //};
-                //var userEmail = user.Email;
 
-                //if (!string.IsNullOrEmpty(userEmail))
-                //{
-                //    var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
-                //}
                 OrderEntity.UserId = userId;
                 OrderEntity.OrderStatus = OrderEnum.PENDING;
                 OrderEntity.OrderDate = DateTime.Now;
@@ -143,5 +127,130 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
+        public async Task<ServiceResponse<Order>> GetOrderById(int orderId)
+        {
+            var response = new ServiceResponse<Order>();
+            try
+            {
+                var exist = await _orderRepo.GetByIdAsync(orderId);
+                var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
+                if (exist == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found.";
+                    return response;
+                }
+                var order = _mapper.Map<Order>(exist);
+                response.Data = order;
+                response.Success = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = $"{ex.Message}";
+                return response;
+            }
+        }
+
+        public async Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderEnum status)
+        {
+            var response = new ServiceResponse<OrderStatusRequest>();
+            try
+            {
+                var order = await _orderRepo.GetByIdAsync(orderId);
+                if (order == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found.";
+                    return response;
+                }
+                if (order.ConfirmImage == null)
+                {
+                    response.Success = false;
+                    response.Message = "Please upload confirm image.";
+                    return response;
+                }
+                order.OrderStatus = status;
+                await _orderRepo.UpdateAsync(order);
+                response.Data = new OrderStatusRequest
+                {
+                    OrderId = orderId,
+                    Status = status
+                };
+                response.Success = true;
+                response.Message = "Order Update succesfully.";
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = $"{ex.Message}";
+                return response;
+            }
+        }
+
+        public async Task<ServiceResponse<bool>> SendConfirmOrderEmail(int orderId)
+        {
+            var response = new ServiceResponse<bool>();
+            try
+            {
+                var orderTask = _orderRepo.GetByIdAsync(orderId);
+
+                var order = await orderTask;
+                if (order == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found.";
+                    return response;
+                }
+
+                if (order.OrderStatus != OrderEnum.CONFIRMED || order.OrderStatus == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order needs to be confirmed.";
+                    return response;
+                }
+
+                var user = await _userRepo.GetByIdAsync(order.UserId);
+                var userItem = await _orderRepository.GetOrderWithDetails(orderId);
+
+                decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+
+                var orderEmailDTO = new ShowOrderEmailDTO
+                {
+                    UserName = user.Name,
+                    Address = order.Address,
+                    PaymentDate = order.OrderDate,
+                    OrderDate = order.OrderDate,
+                    User = order.User,
+                    ServiceCheckouts = order.ServiceCheckouts,
+                    ProductCheckouts = order.ProductCheckouts,
+                    TotalService = totalServiceCheckout,
+                    TotalProduct = totalProductCheckout,
+                    PickUpDate = order.PickUpDate,
+                    TotalPrice = order.TotalPrice
+                };
+                var userEmail = user.Email;
+
+                if (!string.IsNullOrEmpty(userEmail))
+                {
+                    var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
+                }
+                response.Success = true;
+                response.Message = "Email sent successfully.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = $"{ex.Message}";
+                return response;
+            }
+        }
+
     }
 }
