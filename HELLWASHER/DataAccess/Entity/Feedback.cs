@@ -10,7 +10,7 @@ namespace DataAccess.Entity
     {
         public int FeedbackId { get; set; }
         public int UserId { get; set; }
-        public int? ServiceId { get; set; }
+        public int? WashServiceId { get; set; }
         public int? ProductId { get; set; }
         public int Rating { get; set; }
         public DateTime Date { get; set; }

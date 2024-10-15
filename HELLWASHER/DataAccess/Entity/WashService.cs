@@ -18,7 +18,7 @@ namespace DataAccess.Entity
         public string? ImageURL { get; set; }
 
         // Navigation properties
-        
+        public ICollection<Feedback> Feedbacks { get; set; }
         public ICollection<ServiceCheckout>? ServiceItems { get; set; }
     }
 }

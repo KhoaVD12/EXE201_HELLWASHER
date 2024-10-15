@@ -58,9 +58,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ServiceId")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -309,7 +306,7 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
                 {
                     b.HasOne("DataAccess.Entity.Product", "Product")
-                        .WithMany()
+                        .WithMany("Feedbacks")
                         .HasForeignKey("ProductId");
 
                     b.HasOne("DataAccess.Entity.User", "User")
@@ -319,7 +316,7 @@ namespace DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("DataAccess.Entity.WashService", "WashService")
-                        .WithMany()
+                        .WithMany("Feedbacks")
                         .HasForeignKey("WashServiceId");
 
                     b.Navigation("Product");
@@ -416,6 +413,8 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
                 {
+                    b.Navigation("Feedbacks");
+
                     b.Navigation("ProductCheckouts");
                 });
 
@@ -426,6 +425,8 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.WashService", b =>
                 {
+                    b.Navigation("Feedbacks");
+
                     b.Navigation("ServiceItems");
                 });
 #pragma warning restore 612, 618
