@@ -10,7 +10,10 @@ namespace BusinessObject.ViewModels.OrderDTO
     {
         public int OrderId { get; set; }
         public string UserName { get; set; }
-        
+        public int? ServiceCheckoutId { get; set; }
+        public int? ProductCheckoutId { get; set; }
+        public string Address { get; set; }
+        public DateTime? PickUpDate { get; set; }
         public DateTime PaymentDate { get; set; }
         public decimal TotalPrice { get; set; }
 

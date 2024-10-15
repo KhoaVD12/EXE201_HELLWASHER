@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,15 +10,8 @@ namespace BusinessObject.ViewModels.OrderDTO
 {
     public class OrderDTO
     {
-        public int CartId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public string? Address { get; set; }
-        public string UserName { get; set; }
-
-        [EmailAddress]
-        public string UserEmail { get; set; }
-        public string UserPhone { get; set; }
-        public decimal TotalPrice { get; set; }
+        public int PaymentMethodId { get; set; }
+        public string Address { get; set; }
         public DateTime? PickUpDate { get; set; }
     }
 }

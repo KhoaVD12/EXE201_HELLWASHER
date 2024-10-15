@@ -12,7 +12,7 @@ namespace BusinessObject.Utils
 {
     public class SendEmail
     {
-        public static async Task<bool> SendOrderEmail(OrderDTO orderEmailDto, string toEmail)
+        public static async Task<bool> SendOrderEmail(ShowOrderEmailDTO orderEmailDto, string toEmail)
         {
             var userName = "WashShop";
             var emailFrom = "thongsieusao3@gmail.com";

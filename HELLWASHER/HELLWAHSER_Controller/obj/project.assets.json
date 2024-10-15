@@ -5242,19 +5242,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\duykh\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\HELLWASHER_Controller.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\HELLWASHER_Controller.csproj",
       "projectName": "HELLWASHER_Controller",
-      "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\HELLWASHER_Controller.csproj",
-      "packagesPath": "C:\\Users\\duykh\\.nuget\\packages\\",
-      "outputPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\HELLWASHER_Controller.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\duykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5269,8 +5269,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj"
+            "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\BusinessObject.csproj"
             }
           }
         }
@@ -5374,7 +5374,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
