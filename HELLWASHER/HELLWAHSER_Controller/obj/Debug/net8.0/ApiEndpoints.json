@@ -95,8 +95,24 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
+    "Method": "GetOrderById",
+    "RelativePath": "api/Order/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
     "Method": "AddOrder",
-    "RelativePath": "api/Order/Add",
+    "RelativePath": "api/Order/Add/{userId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -109,6 +125,43 @@
       {
         "Name": "userId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
+    "Method": "SendConfirmOrderEmail",
+    "RelativePath": "api/Order/Confirm-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
+    "Method": "UpdateOrderStatus",
+    "RelativePath": "api/Order/update-status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -117,7 +170,7 @@
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
     "Method": "UpdateOrder",
-    "RelativePath": "api/Order/update",
+    "RelativePath": "api/Order/update/{orderId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -130,7 +183,7 @@
       {
         "Name": "orderId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

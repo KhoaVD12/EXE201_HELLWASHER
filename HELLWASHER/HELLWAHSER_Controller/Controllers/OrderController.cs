@@ -1,5 +1,6 @@
 ﻿using BusinessObject.IService;
 using BusinessObject.ViewModels.OrderDTO;
+using DataAccess.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,16 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetOrderById(int orderId)
+        {
+            var result = await _orderService.GetOrderById(orderId);
+            if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
+
         [HttpPost("Add/{userId}")]
         public async Task<IActionResult> AddOrder([FromBody] OrderDTO orderDTO, int userId)
         {
@@ -40,13 +51,22 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
 
-        //[HttpPut("updateStatus/{orderId}")]
-        //public async Task<IActionResult> UpdateOrderStatus(int orderId, string status)
-        //{
-        //    var result = await _orderService.UpdateOrderStatus(orderId, status);
-        //    if (!result.Success) return BadRequest(result);
+        [HttpPatch("update-status")]
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, OrderEnum status)
+        {
+            var result = await _orderService.UpdateOrderStatus(orderId, status);
+            if (!result.Success) return BadRequest(result);
 
-        //    return Ok(result);
-        //}
+            return Ok(result);
+        }
+
+        [HttpPost("Confirm-email")]
+        public async Task<IActionResult> SendConfirmOrderEmail(int orderId)
+        {
+            var result = await _orderService.SendConfirmOrderEmail(orderId);
+            if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
     }
 }
