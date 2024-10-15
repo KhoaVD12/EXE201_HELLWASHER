@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessObject.Model.Request.CreateRequest;
+using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Request.UpdateRequest.Status;
 using BusinessObject.Model.Response;
 using BusinessObject.Model.Response.Login_SignUp;
@@ -33,6 +34,11 @@ namespace BusinessObject.Mapper
             //Cart Item
             CreateMap<CreateServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
             CreateMap<ResponseServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
+            //Product Item
+            CreateMap<CreateProductDTO, Product>().ReverseMap();
+            CreateMap<ResponseProductDTO, Product>().ReverseMap();
+            CreateMap<UpdateProductDTO, Product>().ReverseMap();
+
         }
     }
 }
