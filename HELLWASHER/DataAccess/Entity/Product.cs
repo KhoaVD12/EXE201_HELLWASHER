@@ -17,6 +17,7 @@ namespace DataAccess.Entity
         public string? ImageURL { get; set; }
 
         public ICollection<ProductCheckout> ProductCheckouts { get; set; }
+        public ICollection<Feedback> Feedbacks { get; set; }
         public Category Category { get; set; }
     }
 }

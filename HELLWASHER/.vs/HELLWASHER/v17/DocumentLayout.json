@@ -3,16 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241015022525_First.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataAccess\\Migrations\\20241015022525_First.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\washservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\washservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\productcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\productcheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\servicecheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\servicecheckout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\serviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\serviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\productenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\productenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\businessobject\\mapper\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\mapper\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\productenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\productenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\businessobject\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,20 +98,12 @@
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\request\\createrequest\\createcategorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\serviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\serviceenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\desktop\\fpt\\hk8\\exe201\\exe201_hellwasher\\hellwasher\\dataaccess\\enum\\washenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,6 +146,83 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20241015022525_First.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241015022525_First.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Migrations\\20241015022525_First.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Migrations\\20241015022525_First.cs",
+              "RelativeToolTip": "DataAccess\\Migrations\\20241015022525_First.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T02:25:25.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WashService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashService.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entity\\WashService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\WashService.cs",
+              "RelativeToolTip": "DataAccess\\Entity\\WashService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T02:24:47.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductCheckout.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\ProductCheckout.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entity\\ProductCheckout.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\ProductCheckout.cs",
+              "RelativeToolTip": "DataAccess\\Entity\\ProductCheckout.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T02:24:46.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceCheckout.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\ServiceCheckout.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entity\\ServiceCheckout.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\ServiceCheckout.cs",
+              "RelativeToolTip": "DataAccess\\Entity\\ServiceCheckout.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T02:24:44.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAGYTAAAAAAAAAAAewHETAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-15T02:03:08.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Feedback.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entity\\Feedback.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Feedback.cs",
+              "RelativeToolTip": "DataAccess\\Entity\\Feedback.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T02:00:22.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "BusinessObject\\DependencyInjection.cs",
@@ -130,12 +230,11 @@
               "RelativeToolTip": "BusinessObject\\DependencyInjection.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T01:29:11.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T01:29:11.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "MapperConfig.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Mapper\\MapperConfig.cs",
@@ -143,12 +242,11 @@
               "RelativeToolTip": "BusinessObject\\Mapper\\MapperConfig.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAQwCcAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T01:27:21.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T01:27:21.43Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "IProductService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\IService\\IProductService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\IService\\IProductService.cs",
@@ -160,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "ResponseWashServiceStatusDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseWashServiceStatusDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseWashServiceStatusDTO.cs",
@@ -172,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "ResponseWashServiceDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseWashServiceDTO.cs",
@@ -184,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "ResponseUserDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseUserDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseUserDTO.cs",
@@ -196,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "ResponseServiceCheckoutDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseServiceCheckoutDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseServiceCheckoutDTO.cs",
@@ -208,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "ResponseCategoryDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseCategoryDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseCategoryDTO.cs",
@@ -220,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "CreateWashServiceStatusDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceStatusDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceStatusDTO.cs",
@@ -232,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "CreateWashServiceDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateWashServiceDTO.cs",
@@ -244,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "CreateUserDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateUserDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateUserDTO.cs",
@@ -256,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "CreateServiceCheckoutDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateServiceCheckoutDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateServiceCheckoutDTO.cs",
@@ -268,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "CreateCategoryDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateCategoryDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateCategoryDTO.cs",
@@ -280,19 +378,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Product.cs",
               "RelativeDocumentMoniker": "DataAccess\\Entity\\Product.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Product.cs",
               "RelativeToolTip": "DataAccess\\Entity\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T15:06:57.523Z"
+              "WhenOpened": "2024-10-14T15:06:57.523Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "CreateProductDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Request\\CreateRequest\\CreateProductDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\CreateRequest\\CreateProductDTO.cs",
@@ -304,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "WashEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\WashEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\WashEnum.cs",
@@ -316,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "UserEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\UserEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\UserEnum.cs",
@@ -328,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 6,
               "Title": "ServiceEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\ServiceEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\ServiceEnum.cs",
@@ -336,11 +435,12 @@
               "RelativeToolTip": "DataAccess\\Enum\\ServiceEnum.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T03:08:55.565Z"
+              "WhenOpened": "2024-10-14T03:08:55.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "OrderEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\OrderEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\OrderEnum.cs",
@@ -352,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "RoleEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\RoleEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\RoleEnum.cs",
@@ -364,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ProductEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\ProductEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\ProductEnum.cs",
@@ -377,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "Pagination.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Utils\\Pagination.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Utils\\Pagination.cs",
@@ -389,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\FPT\\HK8\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\ProductService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\ProductService.cs",
