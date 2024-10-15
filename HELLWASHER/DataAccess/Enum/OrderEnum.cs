@@ -9,6 +9,8 @@ namespace DataAccess.Enum
     public enum OrderEnum
     {
         CONFIRMED,
+        UPDATED,
+        PENDING,
         CANCELLED
     }
 }

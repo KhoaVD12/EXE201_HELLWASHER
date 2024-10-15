@@ -13,21 +13,6 @@ C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\ne
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.deps.json
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.runtimeconfig.json
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.dll
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.pdb
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.csproj.AssemblyReference.cache
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfoInputs.cache
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.AssemblyInfo.cs
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.dll
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.pdb
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\DataAccess.genruntimeconfig.cache
-C:\Users\ADMIN\OneDrive\Desktop\FPT university\KY-8 NET1713\EXE201\EXE201_HELLWASHER\HELLWASHER\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
 D:\My project\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.deps.json
 D:\My project\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.runtimeconfig.json
 D:\My project\EXE201_HELLWASHER\HELLWASHER\DataAccess\bin\Debug\net8.0\DataAccess.dll

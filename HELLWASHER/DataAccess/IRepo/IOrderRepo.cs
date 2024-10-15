@@ -10,8 +10,6 @@ namespace DataAccess.IRepo
 {
     public interface IOrderRepo : IGenericRepo<Order>
     {
-        Task AddOrder(Order order);
-        Task<Order?> GetOrderWithDetailsAsync(int orderId);
-        Task<IEnumerable<Order>> GetAllOrders();
+        Task<Order> GetOrderWithDetails(int id);
     }
 }

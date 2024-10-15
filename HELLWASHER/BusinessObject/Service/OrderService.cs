@@ -2,6 +2,7 @@
 using BusinessObject.IService;
 using BusinessObject.ViewModels.OrderDTO;
 using DataAccess;
+using DataAccess.BaseRepo;
 using DataAccess.Entity;
 using DataAccess.Enum;
 using DataAccess.IRepo;
@@ -15,15 +16,23 @@ namespace BusinessObject.Service
 {
     public class OrderService : IOrderService
     {
-        private readonly IOrderRepo _orderRepo;
+        private readonly IBaseRepo<User> _userRepo;
+        private readonly IBaseRepo<Order> _orderRepo;
+        private readonly IBaseRepo<ServiceCheckout> _serviceCheckoutRepo;
+        private readonly IBaseRepo<ProductCheckout> _productCheckoutRepo;
+        private readonly IOrderRepo _orderRepository;
         private readonly IMapper _mapper;
         private readonly WashShopContext _dbcontext;
 
-        public OrderService(IOrderRepo orderRepo, IMapper mapper, WashShopContext dbcontext)
+        public OrderService(IMapper mapper, WashShopContext dbcontext, IBaseRepo<User> userRepo, IBaseRepo<Order> orderRepo, IBaseRepo<ServiceCheckout> serviceCheckoutRepo, IBaseRepo<ProductCheckout> productCheckoutRepo, IOrderRepo orderRepository)
         {
-            _orderRepo = orderRepo ?? throw new ArgumentNullException(nameof(orderRepo));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _dbcontext = dbcontext ?? throw new ArgumentNullException(nameof(dbcontext));
+            _userRepo = userRepo ?? throw new ArgumentNullException(nameof(userRepo));
+            _orderRepo = orderRepo ?? throw new ArgumentNullException(nameof(orderRepo));
+            _serviceCheckoutRepo = serviceCheckoutRepo;
+            _productCheckoutRepo = productCheckoutRepo;
+            _orderRepository = orderRepository;
         }
         public async Task<ServiceResponse<IEnumerable<OrderDTO>>> GetAllOrder()
         {
@@ -31,7 +40,7 @@ namespace BusinessObject.Service
 
             try
             {
-                var orders = await _orderRepo.GetAllOrders();
+                var orders = await _orderRepo.GetAllAsync();
 
 
                 var orderDtOs = _mapper.Map<IEnumerable<OrderDTO>>(orders); // Map orders to OrderDTO
@@ -48,45 +57,44 @@ namespace BusinessObject.Service
         }
 
 
-        /*public async Task<ServiceResponse<int>> AddOrder(OrderDTO order)
+        public async Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId)
         {
-            var serviceResponse = new ServiceResponse<int>();
+            var serviceResponse = new ServiceResponse<OrderDTO>();
 
             try
             {
                 // Map DTO to entity
                 var OrderEntity = _mapper.Map<Order>(order);
-                //if (OrderEntity.OrderStatusId == 0 || OrderEntity.OrderStatusId == null)
+
+
+
+                var user = await _userRepo.GetByIdAsync(userId);
+                //var orderEmailDTO = new ShowOrderEmailDTO 
                 //{
-                //    throw new Exception("Failed to generate order status ID.");
-                //}
-                //if (OrderEntity.WashStatusId == 0 || OrderEntity.WashStatusId == null)
+                //    UserName = user.Name,
+                //    Address = OrderEntity.Address,
+                //    ServiceCheckoutId = OrderEntity.ServiceCheckoutId,
+                //    ProductCheckoutId = OrderEntity.ProductCheckoutId,
+                //    PickUpDate = OrderEntity.PickUpDate,
+                //    TotalPrice = totalPrice
+                //};
+                //var userEmail = user.Email;
+
+                //if (!string.IsNullOrEmpty(userEmail))
                 //{
-                //    throw new Exception("Failed to generate wash status ID.");
+                //    var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
                 //}
-                if (OrderEntity.CartId == 0 || OrderEntity.CartId == null)
-                {
-                    throw new Exception("Failed to generate cart ID.");
-                }
-                // Add zodiac product to repository
-                // Ensure the product ID is set after adding to the repository
-                var orderEmailDTO = new OrderDTO 
-                {
-                    UserName = OrderEntity.UserName,
-                    Address = OrderEntity.Address,
-                    PickUpDate = OrderEntity.PickUpDate,
-                    TotalPrice = OrderEntity.TotalPrice
-                };
-                var userEmail = OrderEntity.UserEmail;
-                if (!string.IsNullOrEmpty(userEmail))
-                {
-                    var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
-                }
-                await _orderRepo.AddOrder(OrderEntity);
+                OrderEntity.UserId = userId;
+                OrderEntity.OrderStatus = OrderEnum.PENDING;
+                OrderEntity.OrderDate = DateTime.Now;
+                OrderEntity.WashStatus = WashEnum.PENDING;
+                OrderEntity.TotalPrice = 0;
+
+                await _orderRepo.AddAsync(OrderEntity);
                 // Prepare success response
-                serviceResponse.Data = OrderEntity.OrderId;
+                serviceResponse.Data = order;
                 serviceResponse.Success = true;
-                serviceResponse.Message = "Order created successfully! Please check your email for order details.";
+                serviceResponse.Message = "Order created successfully!";
             }
             catch (Exception ex)
             {
@@ -95,44 +103,45 @@ namespace BusinessObject.Service
             }
 
             return serviceResponse;
-        }*/
+        }
 
 
-        /*public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest)
+        public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId)
         {
             var response = new ServiceResponse<UpdateOrderRequest>();
             try
             {
-                var order = await _orderRepo.GetOrderWithDetailsAsync(orderRequest.OrderId);
+                var order = await _orderRepo.GetByIdAsync(orderId);
+
+                var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
+                decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalPrice = totalServiceCheckout + totalProductCheckout;
                 if (order == null)
                 {
                     response.Success = false;
                     response.Message = "Order not found.";
                     return response;
                 }
-                order.OrderStatus = OrderEnum.CONFIRMED;
+
+                order.TotalPrice = totalPrice;
+                order.OrderStatus = OrderEnum.UPDATED;
                 order.Address = orderRequest.Address;
-                order.UserName = orderRequest.UserName;
-                order.OrderDate = orderRequest.OrderDate;
-                order.UserEmail = orderRequest.UserEmail;
-                order.UserPhone = orderRequest.UserPhone;
-                order.TotalPrice = orderRequest.TotalPrice;
-                order.WashStatus = WashEnum.WASHING;
+                order.WashStatus = WashEnum.PENDING;
                 order.PickUpDate = orderRequest.PickUpDate;
-                await _orderRepo.Update(order);
+                await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;
                 response.Message = "Order updated successfully.";
                 response.Data = orderRequest;
                 return response;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = $"{ex.Message}";
                 return response;
             }
-            
-        }*/
+        }
     }
 }

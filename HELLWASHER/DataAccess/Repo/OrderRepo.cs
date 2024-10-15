@@ -17,20 +17,14 @@ namespace DataAccess.Repo
             _dbContext = context;
         }
 
-        public async Task AddOrder(Order order)
+        public async Task<Order> GetOrderWithDetails(int id)
         {
-            _dbContext.Orders.Add(order);
-            await _dbContext.SaveChangesAsync();
-        }
-        public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
-        {
-            return await _dbContext.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
-
-        }
-        public async Task<IEnumerable<Order>> GetAllOrders()
-        {
-            var orders = await _dbContext.Orders.ToListAsync();
-            return orders;
+            return await _dbContext.Orders
+                .Include(o => o.ServiceCheckouts)
+                .ThenInclude(sc => sc.Service)
+                .Include(o => o.ProductCheckouts)
+                .ThenInclude(sc => sc.Product)
+                .FirstOrDefaultAsync(o => o.OrderId == id);
         }
     }
 }

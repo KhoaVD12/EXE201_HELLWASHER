@@ -8,6 +8,7 @@ namespace DataAccess.Enum
 {
     public enum WashEnum
     {
+        PENDING,
         WASHING,
         WASHED,
         CANCLED
