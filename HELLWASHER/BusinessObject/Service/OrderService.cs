@@ -6,6 +6,7 @@ using DataAccess.BaseRepo;
 using DataAccess.Entity;
 using DataAccess.Enum;
 using DataAccess.IRepo;
+using MailKit.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,6 +114,7 @@ namespace BusinessObject.Service
                 order.Address = orderRequest.Address;
                 order.WashStatus = WashEnum.PENDING;
                 order.PickUpDate = orderRequest.PickUpDate;
+                order.ConfirmImage = orderRequest.ConfirmImage;
                 await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;
@@ -170,6 +172,18 @@ namespace BusinessObject.Service
                 {
                     response.Success = false;
                     response.Message = "Please upload confirm image.";
+                    return response;
+                }
+                if (order.OrderStatus == OrderEnum.CONFIRMED)
+                {
+                    response.Success = false;
+                    response.Message = "The order has been confirmed.";
+                    return response;
+                }
+                if (order.OrderStatus == OrderEnum.CANCELLED)
+                {
+                    response.Success = false;
+                    response.Message = "The order has been cancelled.";
                     return response;
                 }
                 order.OrderStatus = status;

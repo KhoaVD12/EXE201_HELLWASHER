@@ -11,10 +11,10 @@ namespace BusinessObject.IService
 {
     public interface IProductService
     {
-        Task<ServiceResponse<PaginationModel<ResponseProductDTO>>> GetAllProducts(int page, int pageSize, string? search, string sort);
-        Task<ServiceResponse<ResponseProductDTO>> GetProductById(int id);
+        Task<ServiceResponse<IEnumerable<ResponseProductDTO>>> GetAllProduct();
+        Task<ServiceResponse<ResponseProductDTO>> GetProductById(int productId);
         Task<ServiceResponse<ResponseProductDTO>> CreateProduct(CreateProductDTO userDTO);
-        Task<ServiceResponse<ResponseProductDTO>> UpdateProduct(int id, UpdateProductDTO userDTO);
+        Task<ServiceResponse<UpdateProductDTO>> UpdateProduct(UpdateProductDTO productDTO, int productId);
         Task<ServiceResponse<bool>> DeleteProduct(int id);
         Task<ServiceResponse<ResponseProductDTO>> ChangeProductStatus(int id, string status);
     }

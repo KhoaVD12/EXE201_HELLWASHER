@@ -7,10 +7,10 @@ namespace HELLWASHER_Controller.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class WashServiceController : Controller
+    public class ServiceController : Controller
     {
         private readonly IWashServiceService _washServiceService;
-        public WashServiceController(IWashServiceService service)
+        public ServiceController(IWashServiceService service)
         {
             _washServiceService = service;
         }

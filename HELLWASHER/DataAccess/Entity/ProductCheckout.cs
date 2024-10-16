@@ -11,6 +11,7 @@ namespace DataAccess.Entity
         public int ProductCheckoutId { get; set; }
         public int ProductId { get; set; }
         public int QuantityPerService { get; set; }
+        public int orderId { get; set; }
         public decimal TotalPricePerService { get; set; }
         // Navigation properties
         public Order Order { get; set; }

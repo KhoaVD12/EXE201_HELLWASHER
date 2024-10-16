@@ -21,10 +21,13 @@ namespace BusinessObject
             services.AddScoped<IWashServiceService, WashServiceService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
-            
+            services.AddScoped<IProductCheckoutService, ProductCheckoutService>();
+
+            services.AddScoped<IProductRepo, ProductRepo>();
+            services.AddScoped<IOrderRepo, OrderRepo>();
+
             services.AddScoped<IServiceCheckoutService, ServiceCheckoutService>();
             return services;
         }
