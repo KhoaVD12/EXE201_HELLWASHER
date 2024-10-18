@@ -8,7 +8,7 @@ namespace BusinessObject.Model.Request.CreateRequest
 {
     public class CreateServiceCheckoutDTO
     {
-        public int CartId { get; set; }
+        public int OrderId { get; set; }
         public int ServiceId { get; set; }
         public int QuantityPerService { get; set; }
         

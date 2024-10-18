@@ -16,7 +16,7 @@ namespace HELLWASHER_Controller.Controllers
         [HttpPost]
         public async Task<IActionResult>CreateItem(CreateServiceCheckoutDTO itemDTO)
         {
-            var result = await _service.CreateCartItem(itemDTO);
+            var result = await _service.CreateServiceCheckout(itemDTO);
             if (result.Success)
             {
                 return Ok(result);
@@ -26,10 +26,10 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest(result.Message);
             }
         }
-        [HttpPut("ChangeItemQuantity/{id}&&{quantity}")]
-        public async Task<IActionResult>UpdateCartItemQuantity(int id, int quantity)
+        [HttpPut("UpdateClothWeight/{id}&&{weight}")]
+        public async Task<IActionResult> UpdateClothWeight(int id, int weight)
         {
-            var result = await _service.UpdateCartItemQuantity(id, quantity);
+            var result = await _service.UpdateClothWeight(id, weight);
             if (result.Success)
             {
                 return Ok(result);
@@ -37,6 +37,32 @@ namespace HELLWASHER_Controller.Controllers
             else
             {
                 return BadRequest(result.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult>Delete(int id)
+        {
+            var result= await _service.DeleteCheckout(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result.Message);
+            }
+        }
+        [HttpGet("OrderId/{id}")]
+        public async Task<IActionResult> GetByOrderId(int id)
+        {
+            var result=await _service.GetCheckoutByOrderId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound(result.Message);
             }
         }
     }

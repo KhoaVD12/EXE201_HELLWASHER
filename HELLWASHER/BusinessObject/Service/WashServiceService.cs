@@ -3,8 +3,10 @@ using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using BusinessObject.Utils;
+using BusinessObject.ViewModels.ServiceDTO;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
+using DataAccess.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -140,12 +142,67 @@ namespace BusinessObject.Service
                     
                     exist.ClothUnit = serviceDTO.ClothUnit;
                     exist.Price = serviceDTO.Price;
-                    /*exist.ServiceStatus = serviceDTO.ServiceStatus;*/
+                    if (serviceDTO.ServiceStatus.ToUpper().Trim() == ServiceEnum.AVAILABLE.ToString())
+                    {
+                        exist.ServiceStatus = ServiceEnum.AVAILABLE;
+                    }
+                    else if (serviceDTO.ServiceStatus.ToUpper().Trim() == ServiceEnum.UNAVAILABLE.ToString())
+                    {
+                        exist.ServiceStatus = ServiceEnum.UNAVAILABLE;
+                    }
+                    else
+                    {
+                        res.Success = false;
+                        res.Message = "Invalid Status";
+                        return res;
+                    }
                     exist.ImageURL = serviceDTO.ImageURL;
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;
                     res.Message = "Update service Successfully";
                     res.Data=serviceDTO;
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to update Service:{ex.Message}";
+                return res;
+            }
+        }
+
+        public async Task<ServiceResponse<bool>> UpdateWashStatus(int id, string status)
+        {
+            var res = new ServiceResponse<bool>();
+            try
+            {
+                var exist = await _baseRepo.GetByIdAsync(id);
+                if (exist == null)
+                {
+                    res.Success = false;
+                    res.Message = "No service found";
+                    return res;
+                }
+                else
+                {
+                    if (status.ToUpper().Trim() == ServiceEnum.AVAILABLE.ToString())
+                    {
+                        exist.ServiceStatus = ServiceEnum.AVAILABLE;
+                    }
+                    else if(status.ToUpper().Trim() == ServiceEnum.UNAVAILABLE.ToString())
+                    {
+                        exist.ServiceStatus = ServiceEnum.UNAVAILABLE;
+                    }
+                    else
+                    {
+                        res.Success = false;
+                        res.Message = "Invalid Status";
+                        return res;
+                    }
+                    await _baseRepo.UpdateAsync(exist);
+                    res.Success = true;
+                    res.Message ="Update Successfully";
                     return res;
                 }
             }

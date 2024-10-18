@@ -9,7 +9,7 @@ namespace BusinessObject.Model.Response
     public class ResponseServiceCheckoutDTO
     {
         public int Id { get; set; }
-        public int CartId { get; set; }
+        public int OrderId { get; set; }
         public int ServiceId { get; set; }
         public string ServiceName { get; set; }
         public int QuantityPerService { get; set; }

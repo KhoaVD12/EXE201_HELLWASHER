@@ -29,7 +29,7 @@ namespace BusinessObject.Service
             
         }
 
-        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateCartItem(CreateServiceCheckoutDTO itemDTO)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateServiceCheckout(CreateServiceCheckoutDTO itemDTO)
         {
             var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
@@ -38,7 +38,7 @@ namespace BusinessObject.Service
                 if (items.Any(i => i.ServiceId == itemDTO.ServiceId))
                 {
                     res.Success = false;
-                    res.Message = "You haved added this service before, now you can only update Quantity inside";
+                    res.Message = "You haved added this service before, now you can only update Weight inside";
                     return res;
                 }
                 var serviceExist = await _washServiceRepo.GetByIdAsync(itemDTO.ServiceId);
@@ -65,15 +65,75 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateCartItemQuantity(int id, int quantity)
+        public async Task<ServiceResponse<bool>> DeleteCheckout(int id)
+        {
+            var res = new ServiceResponse<bool>();
+            try
+            {
+                
+                var exist = await _repo.GetByIdAsync(id);
+                if (exist != null)
+                {
+                    await _repo.DeleteAsync(id);
+                    res.Success = true;
+                    res.Message = "Delete Item Successfully";
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = "No Item with this Id";
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to Delete item:{ex.Message}";
+                return res;
+            }
+        }
+
+        public async Task<ServiceResponse<IEnumerable<ResponseServiceCheckoutDTO>>> GetCheckoutByOrderId(int id)
+        {
+            var res = new ServiceResponse<IEnumerable<ResponseServiceCheckoutDTO>>();
+            try
+            {
+
+                var checkouts = await _repo.GetAllAsync();
+                if (checkouts.Any(s=>s.OrderId==id))
+                {
+                    checkouts=checkouts.Where(s=>s.OrderId==id).ToList();
+                    var list = _mapper.Map<IEnumerable<ResponseServiceCheckoutDTO>>(checkouts);
+                    res.Success = true;
+                    res.Data=list;
+                    res.Message = "Get Item Successfully";
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = "No Item with this OrderId";
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to Delete item:{ex.Message}";
+                return res;
+            }
+        }
+
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateClothWeight(int id, int weight)
         {
             var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
             {
-                if (quantity <= 0)
+                if (weight <= 0)
                 {
                     res.Success = false;
-                    res.Message = "Quantity must not be less than 1";
+                    res.Message = "Weight must not be less than 1";
                     return res;
                 }
                 var exist = await _repo.GetByIdAsync(id);
@@ -81,8 +141,8 @@ namespace BusinessObject.Service
                 {
                     var service = await _washServiceRepo.GetByIdAsync(exist.ServiceId);
                     var mapp = _mapper.Map<ServiceCheckout>(exist);
-                    exist.QuantityPerService = quantity;
-                    exist.TotalPricePerService = quantity * service.Price;
+                    exist.QuantityPerService = weight;
+                    exist.TotalPricePerService = weight * service.Price;
                     await _repo.UpdateAsync(exist);
                     
                     var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);

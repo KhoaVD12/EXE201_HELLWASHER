@@ -15,5 +15,6 @@ namespace BusinessObject.IService
         Task<ServiceResponse<PaginationModel<ResponseWashServiceDTO>>> GetAllWashService(int page, int pageSize,
             string? search, string sort);
         Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, ResponseWashServiceDTO serviceDTO);
+        Task<ServiceResponse<bool>> UpdateWashStatus(int id, string status);
     }
 }
