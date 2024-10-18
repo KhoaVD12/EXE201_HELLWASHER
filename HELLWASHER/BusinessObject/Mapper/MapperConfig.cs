@@ -32,9 +32,12 @@ namespace BusinessObject.Mapper
             CreateMap<User, LoginRes>().ReverseMap();
             //Order 
             CreateMap<OrderDTO, Order>().ReverseMap();
-            //Cart Item
+            //Service Checkout
             CreateMap<CreateServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
-            CreateMap<ResponseServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
+            CreateMap<ServiceCheckout, ResponseServiceCheckoutDTO>()
+                .ForMember(a=>a.Name, d=>d.MapFrom(s=>s.Service))
+                .ReverseMap();
+            //Product Checkout
             CreateMap<ProductCheckoutDTO, ProductCheckout>().ReverseMap();
             //Product Item
             CreateMap<CreateProductDTO, Product>().ReverseMap();

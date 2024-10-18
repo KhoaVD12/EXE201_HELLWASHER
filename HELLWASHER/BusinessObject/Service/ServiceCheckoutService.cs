@@ -4,6 +4,7 @@ using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
+using DataAccess.IRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace BusinessObject.Service
 {
     public class ServiceCheckoutService:IServiceCheckoutService
     {
-        private readonly IBaseRepo<ServiceCheckout> _repo;
+        private readonly IServiceCheckoutRepo _repo;
         private readonly IBaseRepo<WashService> _washServiceRepo;
         
         private readonly IMapper _mapper;
-        public ServiceCheckoutService(IBaseRepo<ServiceCheckout> repo, 
+        public ServiceCheckoutService(IServiceCheckoutRepo repo, 
             IMapper mapper,
             IBaseRepo<WashService> washServiceRepo
             )
@@ -100,7 +101,7 @@ namespace BusinessObject.Service
             try
             {
 
-                var checkouts = await _repo.GetAllAsync();
+                var checkouts = await _repo.GetAll();
                 if (checkouts.Any(s=>s.OrderId==id))
                 {
                     checkouts=checkouts.Where(s=>s.OrderId==id).ToList();
