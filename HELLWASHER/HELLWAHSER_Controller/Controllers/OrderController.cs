@@ -52,7 +52,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpPatch("update-status")]
-        public async Task<IActionResult> UpdateOrderStatus(int orderId, OrderEnum status)
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status)
         {
             var result = await _orderService.UpdateOrderStatus(orderId, status);
             if (!result.Success) return BadRequest(result);

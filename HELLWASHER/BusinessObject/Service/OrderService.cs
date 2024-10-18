@@ -113,6 +113,7 @@ namespace BusinessObject.Service
                 order.Address = orderRequest.Address;
                 order.WashStatus = WashEnum.PENDING;
                 order.PickUpDate = orderRequest.PickUpDate;
+                order.ConfirmImage = orderRequest.ConfirmImage;
                 await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;
@@ -154,7 +155,7 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderEnum status)
+        public async Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status)
         {
             var response = new ServiceResponse<OrderStatusRequest>();
             try
@@ -172,12 +173,24 @@ namespace BusinessObject.Service
                     response.Message = "Please upload confirm image.";
                     return response;
                 }
-                order.OrderStatus = status;
+                if (order.OrderStatus == OrderEnum.CONFIRMED)
+                {
+                    response.Success = false;
+                    response.Message = "Order has already been confirmed.";
+                    return response;
+                }
+                if (order.OrderStatus == OrderEnum.CANCELLED)
+                {
+                    response.Success = false;
+                    response.Message = "Order has already been cancelled.";
+                    return response;
+                }
+                order.OrderStatus = (OrderEnum)status;
                 await _orderRepo.UpdateAsync(order);
                 response.Data = new OrderStatusRequest
                 {
                     OrderId = orderId,
-                    Status = status
+                    Status = (OrderEnum)status
                 };
                 response.Success = true;
                 response.Message = "Order Update succesfully.";
@@ -206,7 +219,12 @@ namespace BusinessObject.Service
                     response.Message = "Order not found.";
                     return response;
                 }
-
+                if (order.ConfirmImage == null)
+                {
+                    response.Success = false;
+                    response.Message = "Please upload confirm image.";
+                    return response;
+                }
                 if (order.OrderStatus != OrderEnum.CONFIRMED || order.OrderStatus == null)
                 {
                     response.Success = false;

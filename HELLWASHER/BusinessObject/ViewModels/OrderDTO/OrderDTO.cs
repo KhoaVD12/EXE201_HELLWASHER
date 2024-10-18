@@ -11,6 +11,7 @@ namespace BusinessObject.ViewModels.OrderDTO
     public class OrderDTO
     {
         public int PaymentMethodId { get; set; }
+        [Required]
         public string Address { get; set; }
         public DateTime? PickUpDate { get; set; }
     }
