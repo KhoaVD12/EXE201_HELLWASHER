@@ -18,7 +18,7 @@ namespace HELLWASHER_Controller.Controllers
         public async Task<IActionResult> CreateService(CreateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.CreateWashService(serviceDTO);
-            if (result != null)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -32,7 +32,7 @@ namespace HELLWASHER_Controller.Controllers
             string search = "", string sort = "")
         {
             var result = await _washServiceService.GetAllWashService(page, pageSize, search, sort);
-            if (result != null)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -45,7 +45,20 @@ namespace HELLWASHER_Controller.Controllers
         public async Task<IActionResult> UpdateService(int id, ResponseWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.UpdateWashService(id, serviceDTO);
-            if (result != null)
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPut("UpdateStatus/{id}&&{status}")]
+        public async Task<IActionResult> ChangeStatusService(int id, string status)
+        {
+            var result = await _washServiceService.UpdateWashStatus(id, status);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -58,7 +71,7 @@ namespace HELLWASHER_Controller.Controllers
         public async Task<IActionResult>DeleteService(int id)
         {
             var result = await _washServiceService.DeleteWashService(id);
-            if (result != null)
+            if (result.Success)
             {
                 return Ok(result);
             }

@@ -8,5 +8,7 @@ namespace DataAccess.Enum
 {
     public enum ServiceEnum
     {
+        AVAILABLE,
+        UNAVAILABLE
     }
 }

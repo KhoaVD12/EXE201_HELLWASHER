@@ -11,7 +11,7 @@ namespace BusinessObject.Model.Response
     {
         public int Id { get; set; }
         [Required]
-        public int CartId { get; set; }
+        public int OrderId { get; set; }
         [Required]
         public int ServiceId { get; set; }
         [Required]
