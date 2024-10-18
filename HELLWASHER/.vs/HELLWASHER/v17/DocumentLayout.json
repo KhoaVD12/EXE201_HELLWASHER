@@ -73,6 +73,18 @@
           "SelectedChildIndex": 14,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\IService\\IOrderService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\IService\\IOrderService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\IService\\IOrderService.cs",
+              "RelativeToolTip": "BusinessObject\\IService\\IOrderService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T00:59:25.126Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },

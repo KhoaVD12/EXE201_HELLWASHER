@@ -15,7 +15,7 @@ namespace BusinessObject.IService
         Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId);
         Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId);
         Task<ServiceResponse<Order>> GetOrderById(int orderId);
-        Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderEnum status);
+        Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);
         Task<ServiceResponse<bool>> SendConfirmOrderEmail(int orderId);
     }
 }
