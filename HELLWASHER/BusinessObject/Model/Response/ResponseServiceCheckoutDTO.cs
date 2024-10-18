@@ -16,7 +16,7 @@ namespace BusinessObject.Model.Response
         public int ServiceId { get; set; }
         [Required]
         [StringLength(100)]
-        public string ServiceName { get; set; }
+        public string Name { get; set; }
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Quantity must be greater than 0")]
         public int QuantityPerService { get; set; }
