@@ -17,9 +17,9 @@ namespace BusinessObject.Service
 {
     public class WashServiceService:IWashServiceService
     {
-        private readonly IBaseRepo<WashService> _baseRepo;
+        private readonly IBaseRepo<DataAccess.Entity.Service> _baseRepo;
         private readonly IMapper _mapper;
-        public WashServiceService(IBaseRepo<WashService> repo, IMapper mapper)
+        public WashServiceService(IBaseRepo<DataAccess.Entity.Service> repo, IMapper mapper)
         {
             _baseRepo = repo;
             _mapper = mapper;
@@ -37,7 +37,7 @@ namespace BusinessObject.Service
                     res.Message = "Name existed";
                     return res;
                 }
-                var mapp = _mapper.Map<WashService>(serviceDTO);
+                var mapp = _mapper.Map<DataAccess.Entity.Service>(serviceDTO);
                 /*mapp.ServiceStatus = 1;*/
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseWashServiceDTO>(mapp);
@@ -97,7 +97,7 @@ namespace BusinessObject.Service
                 {
                     "name" => services.OrderBy(e => e.Name),
                     "price" => services.OrderBy(e => e.Price),
-                    _ => services.OrderBy(e => e.WashServiceId)
+                    _ => services.OrderBy(e => e.ServiceId)
                 };
                 var mapp = _mapper.Map<IEnumerable<ResponseWashServiceDTO>>(services);
                 if (mapp.Any())

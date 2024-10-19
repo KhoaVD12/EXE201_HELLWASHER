@@ -19,10 +19,10 @@ namespace BusinessObject.Mapper
     {
         public MapperConfig()
         {
-            
+
             //Wash Service
-            CreateMap<CreateWashServiceDTO, WashService>().ReverseMap();
-            CreateMap<ResponseWashServiceDTO, WashService>().ReverseMap();
+            CreateMap<CreateWashServiceDTO, DataAccess.Entity.Service>().ReverseMap();
+            CreateMap<ResponseWashServiceDTO, DataAccess.Entity.Service>().ReverseMap();
             //Category
             CreateMap<CreateCategoryDTO, Category>().ReverseMap();
             CreateMap<ResponseCategoryDTO, Category>().ReverseMap();

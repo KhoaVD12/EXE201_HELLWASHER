@@ -16,12 +16,12 @@ namespace BusinessObject.Service
     public class ServiceCheckoutService:IServiceCheckoutService
     {
         private readonly IServiceCheckoutRepo _repo;
-        private readonly IBaseRepo<WashService> _washServiceRepo;
+        private readonly IBaseRepo<DataAccess.Entity.Service> _washServiceRepo;
         
         private readonly IMapper _mapper;
         public ServiceCheckoutService(IServiceCheckoutRepo repo, 
             IMapper mapper,
-            IBaseRepo<WashService> washServiceRepo
+            IBaseRepo<DataAccess.Entity.Service> washServiceRepo
             )
         {
             _mapper = mapper;

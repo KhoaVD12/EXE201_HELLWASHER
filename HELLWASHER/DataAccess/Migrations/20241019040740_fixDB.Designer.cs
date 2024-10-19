@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241016070139_updateDatabase")]
-    partial class updateDatabase
+    [Migration("20241019040740_fixDB")]
+    partial class fixDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,9 +99,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentMethodId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("PickUpDate")
                         .HasColumnType("datetime2");
 
@@ -122,28 +119,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("PaymentMethodId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.PaymentMethod", b =>
-                {
-                    b.Property<int>("PaymentMethodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentMethodId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PaymentMethodId");
-
-                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
@@ -194,9 +172,6 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductCheckoutId"));
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -206,13 +181,49 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("TotalPricePerService")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("ProductCheckoutId");
+                    b.Property<int>("orderId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("OrderId");
+                    b.HasKey("ProductCheckoutId");
 
                     b.HasIndex("ProductId");
 
+                    b.HasIndex("orderId");
+
                     b.ToTable("ProductCheckouts");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.Service", b =>
+                {
+                    b.Property<int>("ServiceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"));
+
+                    b.Property<string>("ClothUnit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ServiceStatus")
+                        .HasColumnType("int");
+
+                    b.HasKey("ServiceId");
+
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.ServiceCheckout", b =>
@@ -279,39 +290,6 @@ namespace DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.WashService", b =>
-                {
-                    b.Property<int>("WashServiceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WashServiceId"));
-
-                    b.Property<string>("ClothUnit")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ServiceStatus")
-                        .HasColumnType("int");
-
-                    b.HasKey("WashServiceId");
-
-                    b.ToTable("Services");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
                 {
                     b.HasOne("DataAccess.Entity.Product", "Product")
@@ -324,7 +302,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Entity.WashService", "WashService")
+                    b.HasOne("DataAccess.Entity.Service", "WashService")
                         .WithMany("Feedbacks")
                         .HasForeignKey("WashServiceId");
 
@@ -337,19 +315,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.Order", b =>
                 {
-                    b.HasOne("DataAccess.Entity.PaymentMethod", "PaymentMethod")
-                        .WithMany("Orders")
-                        .HasForeignKey("PaymentMethodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DataAccess.Entity.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("PaymentMethod");
 
                     b.Navigation("User");
                 });
@@ -367,15 +337,15 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.ProductCheckout", b =>
                 {
-                    b.HasOne("DataAccess.Entity.Order", "Order")
-                        .WithMany("ProductCheckouts")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DataAccess.Entity.Product", "Product")
                         .WithMany("ProductCheckouts")
                         .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataAccess.Entity.Order", "Order")
+                        .WithMany("ProductCheckouts")
+                        .HasForeignKey("orderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -392,7 +362,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Entity.WashService", "Service")
+                    b.HasOne("DataAccess.Entity.Service", "Service")
                         .WithMany("ServiceItems")
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -415,11 +385,6 @@ namespace DataAccess.Migrations
                     b.Navigation("ServiceCheckouts");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.PaymentMethod", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
                 {
                     b.Navigation("Feedbacks");
@@ -427,16 +392,16 @@ namespace DataAccess.Migrations
                     b.Navigation("ProductCheckouts");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.User", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("DataAccess.Entity.WashService", b =>
+            modelBuilder.Entity("DataAccess.Entity.Service", b =>
                 {
                     b.Navigation("Feedbacks");
 
                     b.Navigation("ServiceItems");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
