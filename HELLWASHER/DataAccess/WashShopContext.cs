@@ -16,10 +16,10 @@ namespace DataAccess
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCheckout> ProductCheckouts { get; set; }
         public DbSet<ServiceCheckout> ServiceCheckouts { get; set; }
-        public DbSet<WashService> Services { get; set; }
+        public DbSet<Service> Services { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        
         public DbSet<Feedback> Feedbacks { get; set; }
 
 

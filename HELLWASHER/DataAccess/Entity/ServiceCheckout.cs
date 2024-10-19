@@ -15,7 +15,7 @@ namespace DataAccess.Entity
         public decimal TotalPricePerService { get; set; }
         // Navigation properties
         public Order Order { get; set; }
-        public WashService Service { get; set; }
+        public Service Service { get; set; }
     }
 
 }

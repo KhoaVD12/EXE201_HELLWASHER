@@ -13,7 +13,6 @@ namespace DataAccess.Entity
         public int? ServiceCheckoutId { get; set; }
         public int? ProductCheckoutId { get; set; }
         public int UserId { get; set; }
-        public int PaymentMethodId { get; set; }
         public DateTime OrderDate { get; set; }
         public string Address { get; set; }
         public decimal TotalPrice { get; set; }
@@ -24,6 +23,5 @@ namespace DataAccess.Entity
         public User User { get; set; }
         public ICollection<ServiceCheckout>? ServiceCheckouts { get; set; }
         public ICollection<ProductCheckout>? ProductCheckouts { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
     }
 }

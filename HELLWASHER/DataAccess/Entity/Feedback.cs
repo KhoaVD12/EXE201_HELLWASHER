@@ -16,7 +16,7 @@ namespace DataAccess.Entity
         public DateTime Date { get; set; }
 
         public User User { get; set; }
-        public WashService? WashService { get; set; }
+        public Service? WashService { get; set; }
         public Product? Product { get; set; }
     }
 }
