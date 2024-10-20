@@ -1,5 +1,6 @@
 ﻿using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
+using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace HELLWASHER_Controller.Controllers
             _washServiceService = service;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateService(CreateWashServiceDTO serviceDTO)
+        public async Task<IActionResult> CreateService([FromForm] CreateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.CreateWashService(serviceDTO);
             if (result.Success)
@@ -42,7 +43,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateService(int id, ResponseWashServiceDTO serviceDTO)
+        public async Task<IActionResult> UpdateService(int id, UpdateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.UpdateWashService(id, serviceDTO);
             if (result.Success)

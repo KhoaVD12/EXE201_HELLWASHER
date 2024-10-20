@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
+using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using BusinessObject.Utils;
 using BusinessObject.ViewModels.ServiceDTO;
@@ -42,18 +43,18 @@ namespace BusinessObject.Service
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
 
-                if (!string.IsNullOrEmpty(serviceDTO.ImageURL))
+                if (serviceDTO.ImageFile != null)
                 {
-                    if (Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                    // Image is a local file uploaded via a form
+                    using (var stream = serviceDTO.ImageFile.OpenReadStream())
                     {
-                        // Image is a URL, upload from link
-                        uploadedImageUrl = imageService.UploadImageFromUrl(serviceDTO.ImageURL);
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName);
                     }
-                    else
-                    {
-                        // Image is a local file path, upload from local
-                        uploadedImageUrl = imageService.UploadImage(serviceDTO.ImageURL);
-                    }
+                }
+                else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                {
+                    // Image is an online URL
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL);
                 }
 
                 var mapp = _mapper.Map<DataAccess.Entity.Service>(serviceDTO);
@@ -142,26 +143,27 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, ResponseWashServiceDTO serviceDTO)
+        public async Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, UpdateWashServiceDTO serviceDTO)
         {
             var res = new ServiceResponse<ResponseWashServiceDTO>();
             try
             {
+                // Handle image upload (either local or from a link)
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
 
-                if (!string.IsNullOrEmpty(serviceDTO.ImageURL))
+                if (serviceDTO.ImageFile != null)
                 {
-                    if (Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                    // Image is a local file uploaded via a form
+                    using (var stream = serviceDTO.ImageFile.OpenReadStream())
                     {
-                        // Image is a URL, upload from link
-                        uploadedImageUrl = imageService.UploadImageFromUrl(serviceDTO.ImageURL);
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName);
                     }
-                    else
-                    {
-                        // Image is a local file path, upload from local
-                        uploadedImageUrl = imageService.UploadImage(serviceDTO.ImageURL);
-                    }
+                }
+                else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                {
+                    // Image is an online URL
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL);
                 }
                 var exist = await _baseRepo.GetByIdAsync(id);
                 if (exist == null)
@@ -193,9 +195,10 @@ namespace BusinessObject.Service
                     }
                     exist.ImageURL = serviceDTO.ImageURL;
                     await _baseRepo.UpdateAsync(exist);
+                    var result = _mapper.Map<ResponseWashServiceDTO>(serviceDTO);
                     res.Success = true;
                     res.Message = "Update service Successfully";
-                    res.Data=serviceDTO;
+                    res.Data=result;
                     return res;
                 }
             }
