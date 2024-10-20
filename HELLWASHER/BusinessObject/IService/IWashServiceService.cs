@@ -1,4 +1,5 @@
 ﻿using BusinessObject.Model.Request.CreateRequest;
+using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace BusinessObject.IService
         Task<ServiceResponse<bool>> DeleteWashService(int id);
         Task<ServiceResponse<PaginationModel<ResponseWashServiceDTO>>> GetAllWashService(int page, int pageSize,
             string? search, string sort);
-        Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, ResponseWashServiceDTO serviceDTO);
+        Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, UpdateWashServiceDTO serviceDTO);
         Task<ServiceResponse<bool>> UpdateWashStatus(int id, string status);
     }
 }
