@@ -5,6 +5,17 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5000")  // Allow any domain (you can restrict this to specific domains)
+                   .AllowAnyHeader()  // Allow any headers
+                   .AllowAnyMethod(); // Allow any HTTP methods
+        });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers()
