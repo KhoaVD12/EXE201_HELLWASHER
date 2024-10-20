@@ -1,6 +1,7 @@
 ﻿using BusinessObject.ViewModels.OrderDTO;
 using DataAccess.Entity;
 using DataAccess.Enum;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace BusinessObject.IService
         Task<ServiceResponse<Order>> GetOrderById(int orderId);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);
         Task<ServiceResponse<bool>> SendConfirmOrderEmail(int orderId);
+        Task<ServiceResponse<bool>> AddConfirmImage(int orderId, string image);
     }
 }
