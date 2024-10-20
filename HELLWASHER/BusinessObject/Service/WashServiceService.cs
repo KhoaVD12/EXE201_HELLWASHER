@@ -37,8 +37,27 @@ namespace BusinessObject.Service
                     res.Message = "Name existed";
                     return res;
                 }
+
+                // Handle image upload (either local or from a link)
+                var imageService = new ImageService();
+                string uploadedImageUrl = string.Empty;
+
+                if (!string.IsNullOrEmpty(serviceDTO.ImageURL))
+                {
+                    if (Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                    {
+                        // Image is a URL, upload from link
+                        uploadedImageUrl = imageService.UploadImageFromUrl(serviceDTO.ImageURL);
+                    }
+                    else
+                    {
+                        // Image is a local file path, upload from local
+                        uploadedImageUrl = imageService.UploadImage(serviceDTO.ImageURL);
+                    }
+                }
+
                 var mapp = _mapper.Map<DataAccess.Entity.Service>(serviceDTO);
-                /*mapp.ServiceStatus = 1;*/
+                mapp.ServiceStatus = ServiceEnum.AVAILABLE;
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseWashServiceDTO>(mapp);
                 res.Success = true;
@@ -128,6 +147,22 @@ namespace BusinessObject.Service
             var res = new ServiceResponse<ResponseWashServiceDTO>();
             try
             {
+                var imageService = new ImageService();
+                string uploadedImageUrl = string.Empty;
+
+                if (!string.IsNullOrEmpty(serviceDTO.ImageURL))
+                {
+                    if (Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
+                    {
+                        // Image is a URL, upload from link
+                        uploadedImageUrl = imageService.UploadImageFromUrl(serviceDTO.ImageURL);
+                    }
+                    else
+                    {
+                        // Image is a local file path, upload from local
+                        uploadedImageUrl = imageService.UploadImage(serviceDTO.ImageURL);
+                    }
+                }
                 var exist = await _baseRepo.GetByIdAsync(id);
                 if (exist == null)
                 {
@@ -139,7 +174,7 @@ namespace BusinessObject.Service
                 {
                     exist.Name = serviceDTO.Name;
                     exist.Description = serviceDTO.Description;
-                    
+                    exist.ImageURL= serviceDTO.ImageURL;
                     exist.ClothUnit = serviceDTO.ClothUnit;
                     exist.Price = serviceDTO.Price;
                     if (serviceDTO.ServiceStatus.ToUpper().Trim() == ServiceEnum.AVAILABLE.ToString())
