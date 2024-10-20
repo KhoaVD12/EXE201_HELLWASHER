@@ -148,6 +148,27 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
+    "Method": "AddImage",
+    "RelativePath": "api/Order/image",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "image",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
     "Method": "UpdateOrderStatus",
     "RelativePath": "api/Order/update-status",
     "HttpMethod": "PATCH",
@@ -176,9 +197,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "orderRequest",
-        "Type": "BusinessObject.ViewModels.OrderDTO.UpdateOrderRequest",
-        "IsRequired": true
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PickUpDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "ConfirmImage",
+        "Type": "System.String",
+        "IsRequired": false
       },
       {
         "Name": "orderId",

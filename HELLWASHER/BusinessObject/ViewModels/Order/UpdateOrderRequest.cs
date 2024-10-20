@@ -9,7 +9,6 @@ namespace BusinessObject.ViewModels.OrderDTO
 {
     public class UpdateOrderRequest
     {
-        public int PaymentMethodId { get; set; }
         [Required]
         [MaxLength(255)]
         public string Address { get; set; }
