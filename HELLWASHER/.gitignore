@@ -10,6 +10,36 @@ Release/
 *.user
 *.userosscache
 *.sln.docstates
+# Ignore .vs folder (Visual Studio)
+.vs/
+*.v17/
+
+# Ignore build directories
+bin/
+obj/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore auto-generated files by NuGet and MSBuild
+*.cache
+*.ide
+*.FileListAbsolute.txt
+
+# Ignore other temporary files
+*.log
+*.tmp
+
+# Ignore design-time build artifacts
+DesignTimeBuild/
+
+# Ignore JSON configuration files generated at runtime
+apphost.exe
+*.dbcache.*
+DocumentLayout.json
 
 # Mono auto generated files
 mono_crash.*
@@ -63,6 +93,7 @@ node_modules/
 *.log
 
 # Configuration files
+appsettings.json
 appsettings.Development.json
 appsettings.Staging.json
 appsettings.Production.json

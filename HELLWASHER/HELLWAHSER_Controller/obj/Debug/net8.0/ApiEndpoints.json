@@ -161,7 +161,7 @@
       },
       {
         "Name": "image",
-        "Type": "System.String",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
     ],
@@ -197,19 +197,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Address",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "PickUpDate",
-        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "ConfirmImage",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "orderRequest",
+        "Type": "BusinessObject.ViewModels.OrderDTO.UpdateOrderRequest",
+        "IsRequired": true
       },
       {
         "Name": "orderId",

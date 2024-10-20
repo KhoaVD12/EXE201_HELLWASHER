@@ -12,7 +12,6 @@ namespace HELLWASHER_Controller.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly Cloudinary _cloudinary;
         private readonly IOrderService _orderService;
         private readonly WashShopContext _context;
         public OrderController(IOrderService orderService, WashShopContext context)
@@ -46,28 +45,8 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
-        //[HttpPatch("add-confirm-image/{orderId}")]
-        //public async Task<IActionResult> AddConfirmImage(int orderId,[FromForm] List<IFormFile> files)
-        //{
-        //    var order = await _context.Orders.FindAsync(orderId);
-        //    if (order == null)
-        //        return NotFound("Order not found");
-
-        //    var uploadedImage = new List<string>();
-
-        //    foreach (var file in files)
-        //    {
-        //        if (file.Length > 0)
-        //        {
-        //            using (var stream = file.OpenReadStream())
-        //            {
-        //                File = new FileDescription(file.FileName, stream);
-        //            }
-        //        }
-        //    }
-        //}
         [HttpPut("update/{orderId}")]
-        public async Task<IActionResult> UpdateOrder([FromForm] UpdateOrderRequest orderRequest, int orderId)
+        public async Task<IActionResult> UpdateOrder( UpdateOrderRequest orderRequest, int orderId)
         {
             var result = await _orderService.UpdateOrder(orderRequest, orderId);
             if (!result.Success) return BadRequest(result);
@@ -84,7 +63,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPatch("image")]
-        public async Task<IActionResult> AddImage(int orderId, string image)
+        public async Task<IActionResult> AddImage(int orderId, IFormFile image)
         {
             var result = await _orderService.AddConfirmImage(orderId, image);
             if (!result.Success) return BadRequest(result);
