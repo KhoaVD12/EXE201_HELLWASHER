@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\utils\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\utils\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\hellwahser_controller\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\servicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\washserviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|d:\\my project\\exe201_hellwasher\\hellwasher\\businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,21 +74,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 398,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 14,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ImageService.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Utils\\ImageService.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\Utils\\ImageService.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Utils\\ImageService.cs",
-              "RelativeToolTip": "BusinessObject\\Utils\\ImageService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAUwEsAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T08:23:47.054Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -151,16 +134,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\appsettings.json",
+              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
+              "RelativeToolTip": "HELLWAHSER_Controller\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-20T08:52:33.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Program.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Program.cs",
               "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Program.cs",
               "RelativeToolTip": "HELLWAHSER_Controller\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwAgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T08:00:02.289Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T08:00:02.289Z"
             },
             {
               "$type": "Document",
@@ -170,14 +165,13 @@
               "RelativeDocumentMoniker": "BusinessObject\\Service\\WashServiceService.cs",
               "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\WashServiceService.cs",
               "RelativeToolTip": "BusinessObject\\Service\\WashServiceService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAlwDYAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAlwCkAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T04:07:19.906Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T04:07:19.906Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Service.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Service.cs",
               "RelativeDocumentMoniker": "DataAccess\\Entity\\Service.cs",
@@ -185,12 +179,11 @@
               "RelativeToolTip": "DataAccess\\Entity\\Service.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T04:06:42.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T04:06:42.889Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\Order.cs",
               "RelativeDocumentMoniker": "DataAccess\\Entity\\Order.cs",
@@ -198,12 +191,11 @@
               "RelativeToolTip": "DataAccess\\Entity\\Order.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAIBJwA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T04:03:20.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T04:03:20.286Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "WashShopContext.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\WashShopContext.cs",
               "RelativeDocumentMoniker": "DataAccess\\WashShopContext.cs",
@@ -211,12 +203,11 @@
               "RelativeToolTip": "DataAccess\\WashShopContext.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAqwAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T04:02:26.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-19T04:02:26.854Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "BusinessObject\\DependencyInjection.cs",
@@ -224,12 +215,11 @@
               "RelativeToolTip": "BusinessObject\\DependencyInjection.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:47:23.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:47:23.741Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "IServiceCheckoutRepo.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\IRepo\\IServiceCheckoutRepo.cs",
               "RelativeDocumentMoniker": "DataAccess\\IRepo\\IServiceCheckoutRepo.cs",
@@ -237,12 +227,11 @@
               "RelativeToolTip": "DataAccess\\IRepo\\IServiceCheckoutRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:44:04.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:44:04.048Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "MapperConfig.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Mapper\\MapperConfig.cs",
@@ -250,12 +239,11 @@
               "RelativeToolTip": "BusinessObject\\Mapper\\MapperConfig.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAIBJwCUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:40:31.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:40:31.492Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "ServiceCheckout.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Entity\\ServiceCheckout.cs",
               "RelativeDocumentMoniker": "DataAccess\\Entity\\ServiceCheckout.cs",
@@ -263,12 +251,11 @@
               "RelativeToolTip": "DataAccess\\Entity\\ServiceCheckout.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:08:07.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:08:07.13Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "ResponseServiceCheckoutDTO.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Model\\Response\\ResponseServiceCheckoutDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Response\\ResponseServiceCheckoutDTO.cs",
@@ -276,12 +263,11 @@
               "RelativeToolTip": "BusinessObject\\Model\\Response\\ResponseServiceCheckoutDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:07:57.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:07:57.264Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "ServiceCheckoutController.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ServiceCheckoutController.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\ServiceCheckoutController.cs",
@@ -289,12 +275,11 @@
               "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\ServiceCheckoutController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T03:02:51.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T03:02:51.877Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ServiceCheckoutService.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\ServiceCheckoutService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\ServiceCheckoutService.cs",
@@ -302,12 +287,11 @@
               "RelativeToolTip": "BusinessObject\\Service\\ServiceCheckoutService.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAAAgwG8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T02:07:33.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T02:07:33.643Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ServiceEnum.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\Enum\\ServiceEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\ServiceEnum.cs",
@@ -315,12 +299,11 @@
               "RelativeToolTip": "DataAccess\\Enum\\ServiceEnum.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T01:14:21.835Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T01:14:21.835Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "ProductCheckoutController.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ProductCheckoutController.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\ProductCheckoutController.cs",
@@ -328,12 +311,11 @@
               "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\ProductCheckoutController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:52:43.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T08:52:43.503Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "ProductCheckoutService.cs",
               "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\BusinessObject\\Service\\ProductCheckoutService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\ProductCheckoutService.cs",
@@ -341,21 +323,7 @@
               "RelativeToolTip": "BusinessObject\\Service\\ProductCheckoutService.cs",
               "ViewState": "AgIAAEEAAAAAAAAAAAAgwEkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T04:24:57.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServiceController.cs",
-              "DocumentMoniker": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
-              "ToolTip": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
-              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAIA3wBcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T03:01:00.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T04:24:57.381Z"
             }
           ]
         },
