@@ -18,6 +18,6 @@ namespace BusinessObject.IService
         Task<ServiceResponse<Order>> GetOrderById(int orderId);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);
         Task<ServiceResponse<bool>> SendConfirmOrderEmail(int orderId);
-        Task<ServiceResponse<bool>> AddConfirmImage(int orderId, string image);
+        Task<ServiceResponse<bool>> AddConfirmImage(int orderId, IFormFile image);
     }
 }

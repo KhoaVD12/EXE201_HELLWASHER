@@ -127,17 +127,17 @@ namespace BusinessObject.Service
                 order.PickUpDate = orderRequest.PickUpDate;
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
-                if (!string.IsNullOrEmpty(orderRequest.ConfirmImage))
-                {
-                    if (Uri.IsWellFormedUriString(orderRequest.ConfirmImage, UriKind.Absolute))
-                    {
-                        uploadedImageUrl = imageService.UploadImageFromUrl(orderRequest.ConfirmImage);
-                    }
-                    else
-                    {
-                        uploadedImageUrl = imageService.UploadImage(orderRequest.ConfirmImage);
-                    }
-                }
+                //if (!string.IsNullOrEmpty(orderRequest.ConfirmImage))
+                //{
+                //    if (Uri.IsWellFormedUriString(orderRequest.ConfirmImage, UriKind.Absolute))
+                //    {
+                //        uploadedImageUrl = imageService.UploadImageFromUrlAsync(orderRequest.ConfirmImage);
+                //    }
+                //    else
+                //    {
+                //        uploadedImageUrl = imageService.UploadImage(orderRequest.ConfirmImage);
+                //    }
+                //}
                 await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;
@@ -294,7 +294,7 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<bool>> AddConfirmImage(int orderId, string image)
+        public async Task<ServiceResponse<bool>> AddConfirmImage(int orderId, IFormFile image)
         {
             var response = new ServiceResponse<bool>();
             try
@@ -309,19 +309,19 @@ namespace BusinessObject.Service
 
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
-                if (!string.IsNullOrEmpty(image))
+                if (image != null)
                 {
-                    if (Uri.IsWellFormedUriString(image, UriKind.Absolute))
+                    using (var stream = image.OpenReadStream())
                     {
-                        uploadedImageUrl = imageService.UploadImageFromUrl(image);
-                    }
-                    else
-                    {
-                        uploadedImageUrl = imageService.UploadImage(image);
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, image.FileName);
                     }
                 }
+                if (!string.IsNullOrEmpty(image.ToString()) && Uri.IsWellFormedUriString(image.ToString(), UriKind.Absolute))
+                {
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
+                }
 
-                order.ConfirmImage = image;
+                order.ConfirmImage = image.ToString();
                 await _orderRepo.UpdateAsync(order);
                 response.Data = true;
                 response.Success = true;
