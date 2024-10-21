@@ -12,8 +12,8 @@ namespace BusinessObject.IService
 {
     public interface IOrderService
     {
-        Task<ServiceResponse<IEnumerable<OrderDTO>>> GetAllOrder();
-        Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId);
+        Task<ServiceResponse<IEnumerable<Order>>> GetAllOrder();
+        Task<ServiceResponse<Order>> AddOrder(OrderDTO order, int userId);
         Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId);
         Task<ServiceResponse<Order>> GetOrderById(int orderId);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);

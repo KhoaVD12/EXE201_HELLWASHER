@@ -23,9 +23,9 @@ namespace BusinessObject.Service
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<ResponseCategoryDTO>> CreateCategory(CreateCategoryDTO categoryDTO)
+        public async Task<ServiceResponse<Category>> CreateCategory(CreateCategoryDTO categoryDTO)
         {
-            var res = new ServiceResponse<ResponseCategoryDTO>();
+            var res = new ServiceResponse<Category>();
             try
             {
                 var existList = await _baseRepo.GetAllAsync();
@@ -39,7 +39,7 @@ namespace BusinessObject.Service
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseCategoryDTO>(mapp);
                 res.Success = true;
-                res.Data = result;
+                res.Data = mapp;
                 res.Message = "Category Created Successfully";
                 return res;
             }
@@ -79,9 +79,9 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<PaginationModel<ResponseCategoryDTO>>> GetAllCategory(int page, int pageSize, string? search, string sort)
+        public async Task<ServiceResponse<PaginationModel<Category>>> GetAllCategory(int page, int pageSize, string? search, string sort)
         {
-            var res = new ServiceResponse<PaginationModel<ResponseCategoryDTO>>();
+            var res = new ServiceResponse<PaginationModel<Category>>();
             try
             {
                 var services = await _baseRepo.GetAllAsync();
@@ -95,7 +95,7 @@ namespace BusinessObject.Service
                     "name" => services.OrderBy(e => e.Name),
                     _ => services.OrderBy(e => e.CategoryId)
                 };
-                var mapp = _mapper.Map<IEnumerable<ResponseCategoryDTO>>(services);
+                var mapp = _mapper.Map<IEnumerable<Category>>(services);
                 if (mapp.Any())
                 {
                     var paginationModel = await Pagination.GetPaginationEnum(mapp, page, pageSize);

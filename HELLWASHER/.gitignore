@@ -97,6 +97,8 @@ appsettings.json
 appsettings.Development.json
 appsettings.Staging.json
 appsettings.Production.json
+
+# Other files based on the image contents
 *.v2
 *.json
 *.cache
