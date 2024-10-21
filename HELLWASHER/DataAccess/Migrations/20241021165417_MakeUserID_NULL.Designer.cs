@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241021013805_updateFeedback")]
-    partial class updateFeedback
+    [Migration("20241021165417_MakeUserID_NULL")]
+    partial class MakeUserID_NULL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,6 +97,18 @@ namespace DataAccess.Migrations
                     b.Property<string>("ConfirmImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CusomterPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
@@ -115,7 +127,7 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<int>("WashStatus")
@@ -321,9 +333,7 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("DataAccess.Entity.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });

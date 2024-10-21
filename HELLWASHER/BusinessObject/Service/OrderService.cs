@@ -245,7 +245,7 @@ namespace BusinessObject.Service
                     return response;
                 }
 
-                var user = await _userRepo.GetByIdAsync(order.UserId);
+                var user = await _userRepo.GetByIdAsync((int)order.UserId);//NEED CONSIDERING
                 var userItem = await _orderRepository.GetOrderWithDetails(orderId);
 
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
