@@ -31,6 +31,8 @@ namespace BusinessObject
             services.AddScoped<IOrderRepo, OrderRepo>();
 
             services.AddScoped<IServiceCheckoutService, ServiceCheckoutService>();
+
+            services.AddScoped<IFeedbackService, FeedbackService>();
             return services;
         }
     }

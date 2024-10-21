@@ -64,6 +64,10 @@ namespace DataAccess.Migrations
                     b.Property<int?>("WashServiceId")
                         .HasColumnType("int");
 
+                    b.Property<string>("comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("FeedbackId");
 
                     b.HasIndex("ProductId");

@@ -41,9 +41,9 @@ namespace BusinessObject.Service
             _productCheckoutRepo = productCheckoutRepo;
             _orderRepository = orderRepository;
         }
-        public async Task<ServiceResponse<IEnumerable<OrderDTO>>> GetAllOrder()
+        public async Task<ServiceResponse<IEnumerable<Order>>> GetAllOrder()
         {
-            var response = new ServiceResponse<IEnumerable<OrderDTO>>();
+            var response = new ServiceResponse<IEnumerable<Order>>();
 
             try
             {
@@ -51,7 +51,7 @@ namespace BusinessObject.Service
 
 
                 var orderDtOs = _mapper.Map<IEnumerable<OrderDTO>>(orders); // Map orders to OrderDTO
-                response.Data = orderDtOs;
+                response.Data = orders;
                 response.Success = true;
             }
             catch (Exception ex)
@@ -64,9 +64,9 @@ namespace BusinessObject.Service
         }
 
 
-        public async Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId)
+        public async Task<ServiceResponse<Order>> AddOrder(OrderDTO order, int userId)
         {
-            var serviceResponse = new ServiceResponse<OrderDTO>();
+            var serviceResponse = new ServiceResponse<Order>();
 
             try
             {
@@ -88,7 +88,7 @@ namespace BusinessObject.Service
 
                 await _orderRepo.AddAsync(OrderEntity);
                 // Prepare success response
-                serviceResponse.Data = order;
+                serviceResponse.Data = OrderEntity;
                 serviceResponse.Success = true;
                 serviceResponse.Message = "Order created successfully!";
             }
@@ -127,17 +127,6 @@ namespace BusinessObject.Service
                 order.PickUpDate = orderRequest.PickUpDate;
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
-                //if (!string.IsNullOrEmpty(orderRequest.ConfirmImage))
-                //{
-                //    if (Uri.IsWellFormedUriString(orderRequest.ConfirmImage, UriKind.Absolute))
-                //    {
-                //        uploadedImageUrl = imageService.UploadImageFromUrlAsync(orderRequest.ConfirmImage);
-                //    }
-                //    else
-                //    {
-                //        uploadedImageUrl = imageService.UploadImage(orderRequest.ConfirmImage);
-                //    }
-                //}
                 await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;

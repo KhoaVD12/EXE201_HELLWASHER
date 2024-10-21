@@ -4,6 +4,7 @@ using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Request.UpdateRequest.Status;
 using BusinessObject.Model.Response;
 using BusinessObject.Model.Response.Login_SignUp;
+using BusinessObject.ViewModels.Feedback;
 using BusinessObject.ViewModels.OrderDTO;
 using BusinessObject.ViewModels.ProductCheckoutDTO;
 using DataAccess.Entity;
@@ -45,6 +46,10 @@ namespace BusinessObject.Mapper
             CreateMap<ResponseProductDTO, Product>().ReverseMap();
             CreateMap<UpdateProductDTO, Product>().ReverseMap();
 
+            //Feedback
+            CreateMap<FeedbackDTO, Feedback>().ReverseMap();
+            CreateMap<FeedbackRequest, Feedback>().ReverseMap();
+            //CreateMap<Feedback, FeedbackDTO>().ReverseMap();
         }
     }
 }
