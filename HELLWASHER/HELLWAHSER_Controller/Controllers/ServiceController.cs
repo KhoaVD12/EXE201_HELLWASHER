@@ -2,6 +2,7 @@
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
@@ -25,7 +26,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest(result.Message);
             }
         }
         [HttpGet]
@@ -39,7 +40,20 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return NotFound();
+                return NotFound(result.Message);
+            }
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult>GetById(int id)
+        {
+            var result = await _washServiceService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound(result.Message);
             }
         }
         [HttpPut("{id}")]
@@ -52,7 +66,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest(result.Message);
             }
         }
         [HttpPut("UpdateStatus/{id}&&{status}")]
@@ -65,7 +79,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest(result.Message);
             }
         }
         [HttpDelete("{id}")]
@@ -78,7 +92,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest(result.Message);
             }
         }
     }
