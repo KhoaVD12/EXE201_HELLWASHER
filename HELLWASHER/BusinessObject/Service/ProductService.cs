@@ -3,16 +3,20 @@ using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
+using BusinessObject.Utils;
+using BusinessObject.ViewModels.Product;
 using DataAccess;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
 using DataAccess.Enum;
 using DataAccess.IRepo;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessObject.Service
 {
@@ -31,14 +35,10 @@ namespace BusinessObject.Service
             _productRepo = productRepo;
             _categoryRepo = categoryRepo;
         }
-        public Task<ServiceResponse<ResponseProductDTO>> ChangeProductStatus(int id, string status)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<ServiceResponse<ResponseProductDTO>> CreateProduct(CreateProductDTO productDTO)
+        public async Task<ServiceResponse<CreateProductResponse>> CreateProduct(CreateProductDTO productDTO, IFormFile image)
         {
-            var response = new ServiceResponse<ResponseProductDTO>();
+            var response = new ServiceResponse<CreateProductResponse>();
             try
             {
                 var product = _mapper.Map<Product>(productDTO);
@@ -53,12 +53,31 @@ namespace BusinessObject.Service
                 product.Description = productDTO.Description;
                 product.Price = productDTO.Price;
                 product.Quantity = productDTO.Quantity;
-                product.ImageURL = productDTO.ImageURL;
                 product.CategoryId = productDTO.CategoryId;
                 product.IsDeleted = false;
+
+                var imageService = new ImageService();
+                string uploadedImageUrl = string.Empty;
+                if (image != null)
+                {
+                    using (var stream = image.OpenReadStream())
+                    {
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, image.FileName);
+                    }
+                }
+                if (!string.IsNullOrEmpty(image.ToString()) && Uri.IsWellFormedUriString(image.ToString(), UriKind.Absolute))
+                {
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
+                }
+                product.ImageURL = uploadedImageUrl;
                 await _baseRepo.AddAsync(product);
 
-                response.Data = _mapper.Map<ResponseProductDTO>(product);
+                response.Data = new CreateProductResponse
+                {
+                    productId = product.ProductId,
+                    Product = productDTO,
+                    ImageUrl = uploadedImageUrl
+                };
                 response.Message = "Product created successfully";
                 response.Success = true;
 
@@ -142,9 +161,9 @@ namespace BusinessObject.Service
                 return response;
             }
         }
-        public async Task<ServiceResponse<UpdateProductDTO>> UpdateProduct(UpdateProductDTO productDTO, int productId)
+        public async Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId, IFormFile image)
         {
-            var response = new ServiceResponse<UpdateProductDTO>();
+            var response = new ServiceResponse<UpdateProductResponse>();
             try
             {
                 var product = await _baseRepo.GetByIdAsync(productId);
@@ -155,7 +174,6 @@ namespace BusinessObject.Service
                     return response;
                 }
 
-
                 var category = await _categoryRepo.GetByIdAsync(productDTO.CategoryId);
                 if (category == null)
                 {
@@ -163,17 +181,38 @@ namespace BusinessObject.Service
                     response.Message = "Category not found";
                     return response;
                 }
+
                 product.Name = productDTO.Name;
                 product.Description = productDTO.Description;
                 product.Price = productDTO.Price;
                 product.Quantity = productDTO.Quantity;
-                product.ImageURL = productDTO.ImageURL;
                 product.CategoryId = productDTO.CategoryId;
 
+                var imageService = new ImageService();
+                string uploadedImageUrl = string.Empty;
+                if (image != null)
+                {
+                    using (var stream = image.OpenReadStream())
+                    {
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, image.FileName);
+                    }
+                }
+                if (!string.IsNullOrEmpty(image.ToString()) && Uri.IsWellFormedUriString(image.ToString(), UriKind.Absolute))
+                {
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
+                }
+                product.ImageURL = uploadedImageUrl;
+
                 await _baseRepo.UpdateAsync(product);
+
+                response.Data = new UpdateProductResponse
+                {
+                    productId = product.ProductId,
+                    Product = productDTO,
+                    ImageUrl = uploadedImageUrl
+                };
                 response.Success = true;
                 response.Message = "Product updated successfully";
-                response.Data = productDTO;
                 return response;
             }
             catch (Exception ex)
@@ -183,5 +222,6 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
     }
 }

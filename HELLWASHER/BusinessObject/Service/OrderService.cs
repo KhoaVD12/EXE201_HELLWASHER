@@ -64,9 +64,9 @@ namespace BusinessObject.Service
         }
 
 
-        public async Task<ServiceResponse<Order>> AddOrder(OrderDTO order, int userId)
+        public async Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId)
         {
-            var serviceResponse = new ServiceResponse<Order>();
+            var serviceResponse = new ServiceResponse<OrderDTO>();
 
             try
             {
@@ -88,7 +88,7 @@ namespace BusinessObject.Service
 
                 await _orderRepo.AddAsync(OrderEntity);
                 // Prepare success response
-                serviceResponse.Data = OrderEntity;
+                serviceResponse.Data = order;
                 serviceResponse.Success = true;
                 serviceResponse.Message = "Order created successfully!";
             }

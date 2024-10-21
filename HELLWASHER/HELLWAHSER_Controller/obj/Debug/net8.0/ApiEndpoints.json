@@ -336,8 +336,49 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.ProductController",
+    "Method": "AddProduct",
+    "RelativePath": "api/Product/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.ProductController",
     "Method": "DeleteProduct",
-    "RelativePath": "api/Product/{productId}",
+    "RelativePath": "api/Product/Delete/{productId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -352,22 +393,6 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.ProductController",
-    "Method": "AddProduct",
-    "RelativePath": "api/Product/Add",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "productDTO",
-        "Type": "BusinessObject.Model.Request.CreateRequest.CreateProductDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HELLWASHER_Controller.Controllers.ProductController",
     "Method": "UpdateProduct",
     "RelativePath": "api/Product/update/{productId}",
     "HttpMethod": "PUT",
@@ -375,14 +400,39 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "productDTO",
-        "Type": "BusinessObject.Model.Request.UpdateRequest.Entity.UpdateProductDTO",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       },
       {
         "Name": "productId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

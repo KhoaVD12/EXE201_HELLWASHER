@@ -33,24 +33,24 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPost("Add")]
-        public async Task<IActionResult> AddProduct([FromBody] CreateProductDTO productDTO)
+        public async Task<IActionResult> AddProduct([FromForm] CreateProductDTO productDTO, IFormFile image)
         {
-            var result = await _productService.CreateProduct(productDTO);
+            var result = await _productService.CreateProduct(productDTO, image);
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
 
         [HttpPut("update/{productId}")]
-        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductDTO productDTO, int productId)
+        public async Task<IActionResult> UpdateProduct([FromForm] UpdateProductDTO productDTO, int productId, IFormFile image)
         {
-            var result = await _productService.UpdateProduct(productDTO, productId);
+            var result = await _productService.UpdateProduct(productDTO, productId, image);
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
 
-        [HttpDelete("{productId}")]
+        [HttpDelete("Delete/{productId}")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             var result = await _productService.DeleteProduct(productId);
