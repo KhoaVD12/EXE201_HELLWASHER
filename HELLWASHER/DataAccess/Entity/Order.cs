@@ -12,7 +12,10 @@ namespace DataAccess.Entity
         public int OrderId { get; set; }
         public int? ServiceCheckoutId { get; set; }
         public int? ProductCheckoutId { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CusomterPhone { get; set; }
         public DateTime OrderDate { get; set; }
         public string Address { get; set; }
         public decimal TotalPrice { get; set; }
