@@ -48,13 +48,13 @@ namespace BusinessObject.Service
                     // Image is a local file uploaded via a form
                     using (var stream = serviceDTO.ImageFile.OpenReadStream())
                     {
-                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName);
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName.ToString());
                     }
                 }
                 else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
                 {
                     // Image is an online URL
-                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL);
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL.ToString());
                 }
 
                 var mapp = _mapper.Map<DataAccess.Entity.Service>(serviceDTO);
@@ -143,6 +143,35 @@ namespace BusinessObject.Service
             }
         }
 
+        public async Task<ServiceResponse<ResponseWashServiceDTO>> GetById(int id)
+        {
+            var res = new ServiceResponse<ResponseWashServiceDTO>();
+            try
+            {
+                var exist = await _baseRepo.GetByIdAsync(id);
+                if (exist != null)
+                {
+                    var result = _mapper.Map<ResponseWashServiceDTO>(exist);
+                    res.Data = result;
+                    res.Success = true;
+                    res.Message = "Get Service Successfully";
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = "No Service with this ID";
+                    return res;
+                }
+            }
+            catch(Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to get Service:{ex.Message}";
+                return res;
+            }
+        }
+
         public async Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, UpdateWashServiceDTO serviceDTO)
         {
             var res = new ServiceResponse<ResponseWashServiceDTO>();
@@ -157,13 +186,13 @@ namespace BusinessObject.Service
                     // Image is a local file uploaded via a form
                     using (var stream = serviceDTO.ImageFile.OpenReadStream())
                     {
-                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName);
+                        uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName.ToString());
                     }
                 }
                 else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
                 {
                     // Image is an online URL
-                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL);
+                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL.ToString());
                 }
                 var exist = await _baseRepo.GetByIdAsync(id);
                 if (exist == null)
