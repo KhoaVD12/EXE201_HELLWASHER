@@ -13,6 +13,5 @@ namespace BusinessObject.ViewModels.OrderDTO
         [MaxLength(255)]
         public string Address { get; set; }
         public DateTime? PickUpDate { get; set; }
-
     }
 }

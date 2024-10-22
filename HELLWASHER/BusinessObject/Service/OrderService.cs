@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
+using BusinessObject.ViewModels.Order;
 
 namespace BusinessObject.Service
 {
@@ -64,9 +65,9 @@ namespace BusinessObject.Service
         }
 
 
-        public async Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId)
+        public async Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, int userId)
         {
-            var serviceResponse = new ServiceResponse<OrderDTO>();
+            var serviceResponse = new ServiceResponse<AddOrderResponse>();
 
             try
             {
@@ -74,7 +75,7 @@ namespace BusinessObject.Service
                 var OrderEntity = _mapper.Map<Order>(order);
 
                 var user = await _userRepo.GetByIdAsync(userId);
-                if (user.UserId == null)
+                if (user == null)
                 {
                     serviceResponse.Success = false;
                     serviceResponse.Message = "User not found.";
@@ -84,11 +85,19 @@ namespace BusinessObject.Service
                 OrderEntity.OrderStatus = OrderEnum.PENDING;
                 OrderEntity.OrderDate = DateTime.Now;
                 OrderEntity.WashStatus = WashEnum.PENDING;
+                OrderEntity.CusomterPhone = user.Phone;
+                OrderEntity.CustomerEmail = user.Email;
+                OrderEntity.CustomerName = user.Name;
+                OrderEntity.Address = order.Address;
                 OrderEntity.TotalPrice = 0;
 
                 await _orderRepo.AddAsync(OrderEntity);
                 // Prepare success response
-                serviceResponse.Data = order;
+                serviceResponse.Data = new AddOrderResponse
+                {
+                    OrderId = OrderEntity.OrderId,
+                    Order = order
+                };
                 serviceResponse.Success = true;
                 serviceResponse.Message = "Order created successfully!";
             }
@@ -108,7 +117,13 @@ namespace BusinessObject.Service
             try
             {
                 var order = await _orderRepo.GetByIdAsync(orderId);
-
+                if (order.UserId != null)
+                {
+                    var user = await _userRepo.GetByIdAsync((int)order.UserId);
+                    order.CustomerEmail = user.Email;
+                    order.CusomterPhone = user.Phone;
+                    order.CustomerName = user.Name;
+                }
                 var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
                 decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
@@ -245,32 +260,58 @@ namespace BusinessObject.Service
                     return response;
                 }
 
-                var user = await _userRepo.GetByIdAsync((int)order.UserId);//NEED CONSIDERING
                 var userItem = await _orderRepository.GetOrderWithDetails(orderId);
 
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
                 decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
-
-                var orderEmailDTO = new ShowOrderEmailDTO
+                if (order.UserId == null) 
                 {
-                    UserName = user.Name,
-                    Address = order.Address,
-                    PaymentDate = order.OrderDate,
-                    OrderDate = order.OrderDate,
-                    User = order.User,
-                    ServiceCheckouts = order.ServiceCheckouts,
-                    ProductCheckouts = order.ProductCheckouts,
-                    TotalService = totalServiceCheckout,
-                    TotalProduct = totalProductCheckout,
-                    PickUpDate = order.PickUpDate,
-                    TotalPrice = order.TotalPrice
-                };
-                var userEmail = user.Email;
-
-                if (!string.IsNullOrEmpty(userEmail))
-                {
-                    var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
+                    var orderEmailDTO = new ShowOrderEmailDTO
+                    {
+                        CusomterPhone = order.CusomterPhone,
+                        CustomerEmail = order.CustomerEmail,
+                        CustomerName = order.CustomerName,
+                        Address = order.Address,
+                        OrderDate = order.OrderDate,
+                        PickUpDate = order.PickUpDate,
+                        TotalPrice = order.TotalPrice,
+                        ServiceCheckouts = order.ServiceCheckouts,
+                        ProductCheckouts = order.ProductCheckouts,
+                        TotalService = totalServiceCheckout,
+                        TotalProduct = totalProductCheckout
+                    };
+                    var userEmail = order.CustomerEmail;
+                    if (!string.IsNullOrEmpty(userEmail))
+                    {
+                        var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
+                    }
                 }
+                else
+                {
+                    var user = await _userRepo.GetByIdAsync((int)order.UserId);
+                    var orderEmailDTO = new ShowOrderEmailDTO
+                    {
+                        CustomerName = user.Name,
+                        CustomerEmail = user.Email,
+                        CusomterPhone = user.Phone,
+                        Address = order.Address,
+                        OrderDate = order.OrderDate,
+                        ServiceCheckouts = order.ServiceCheckouts,
+                        ProductCheckouts = order.ProductCheckouts,
+                        TotalService = totalServiceCheckout,
+                        TotalProduct = totalProductCheckout,
+                        PickUpDate = order.PickUpDate,
+                        TotalPrice = order.TotalPrice
+                    };
+                    var userEmail = user.Email;
+                    if (!string.IsNullOrEmpty(userEmail))
+                    {
+                        var emailSent = await Utils.SendEmail.SendOrderEmail(orderEmailDTO, userEmail);
+                    }
+                }
+                
+
+
                 response.Success = true;
                 response.Message = "Email sent successfully.";
                 return response;
@@ -315,6 +356,35 @@ namespace BusinessObject.Service
                 response.Data = true;
                 response.Success = true;
                 response.Message = "Image uploaded succesfully.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = $"{ex.Message}";
+                return response;
+            }
+        }
+
+        public async Task<ServiceResponse<QuickOrderDTO>> QuickAddOrder(QuickOrderDTO orderDTO)
+        {
+            var response = new ServiceResponse<QuickOrderDTO>();
+            try
+            {
+                var order = _mapper.Map<Order>(orderDTO);
+                order.OrderStatus = OrderEnum.PENDING;
+                order.OrderDate = DateTime.Now;
+                order.WashStatus = WashEnum.PENDING;
+                order.TotalPrice = 0;
+                order.CusomterPhone = orderDTO.CusomterPhone;
+                order.CustomerEmail = orderDTO.CustomerEmail;
+                order.CustomerName = orderDTO.CustomerName;
+                order.Address = orderDTO.Address;
+                await _orderRepo.AddAsync(order);
+
+                response.Data = orderDTO;
+                response.Success = true;
+                response.Message = "Order created successfully!";
                 return response;
             }
             catch (Exception ex)

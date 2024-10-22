@@ -1,4 +1,5 @@
 ﻿using BusinessObject.IService;
+using BusinessObject.ViewModels.Order;
 using BusinessObject.ViewModels.OrderDTO;
 using CloudinaryDotNet;
 using DataAccess;
@@ -36,7 +37,14 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
+        [HttpPost("QuickAdd")]
+        public async Task<IActionResult> QuickAddOrder([FromBody] QuickOrderDTO orderDTO)
+        {
+            var result = await _orderService.QuickAddOrder(orderDTO);
+            if (!result.Success) return BadRequest(result);
 
+            return Ok(result);
+        }
         [HttpPost("Add/{userId}")]
         public async Task<IActionResult> AddOrder([FromBody] OrderDTO orderDTO, int userId)
         {

@@ -1,4 +1,5 @@
-﻿using BusinessObject.ViewModels.OrderDTO;
+﻿using BusinessObject.ViewModels.Order;
+using BusinessObject.ViewModels.OrderDTO;
 using DataAccess.Entity;
 using DataAccess.Enum;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +14,8 @@ namespace BusinessObject.IService
     public interface IOrderService
     {
         Task<ServiceResponse<IEnumerable<Order>>> GetAllOrder();
-        Task<ServiceResponse<OrderDTO>> AddOrder(OrderDTO order, int userId);
+        Task<ServiceResponse<QuickOrderDTO>> QuickAddOrder(QuickOrderDTO orderDTO);
+        Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, int userId);
         Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId);
         Task<ServiceResponse<Order>> GetOrderById(int orderId);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);

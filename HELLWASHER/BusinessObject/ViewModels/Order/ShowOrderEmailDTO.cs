@@ -10,11 +10,13 @@ namespace BusinessObject.ViewModels.OrderDTO
     public class ShowOrderEmailDTO
     {
         public int OrderId { get; set; }
-        public string UserName { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CusomterPhone { get; set; }
         public string Address { get; set; }
+        public int? UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime? PickUpDate { get; set; }
-        public DateTime PaymentDate { get; set; }
         public decimal TotalPrice { get; set; }
         public decimal TotalProduct { get; set; }
         public decimal TotalService { get; set; }

@@ -127,15 +127,15 @@ namespace BusinessObject.Utils
                 <table class='info-table'>
                     <tr>
                         <th>Name</th>
-                        <td>{orderEmailDto.UserName}</td>
+                        <td>{orderEmailDto.CustomerName}</td>
                     </tr>
                     <tr>
                         <th>Phone</th>
-                        <td>{orderEmailDto.User.Phone}</td>
+                        <td>{orderEmailDto.CusomterPhone}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td>{orderEmailDto.User.Email}</td>
+                        <td>{orderEmailDto.CustomerEmail}</td>
                     </tr>
                     <tr>
                         <th>Delivery Address</th>

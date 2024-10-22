@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\duykh\\.nuget\\packages\\",
-        "outputPath": "D:\\My project\\EXE201_HELLWASHER\\HELLWASHER\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\duykh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -127,7 +127,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
