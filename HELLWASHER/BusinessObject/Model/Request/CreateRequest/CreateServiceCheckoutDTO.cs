@@ -10,7 +10,7 @@ namespace BusinessObject.Model.Request.CreateRequest
     {
         public int OrderId { get; set; }
         public int ServiceId { get; set; }
-        public int QuantityPerService { get; set; }
+        public decimal Weight { get; set; }
         
     }
 }

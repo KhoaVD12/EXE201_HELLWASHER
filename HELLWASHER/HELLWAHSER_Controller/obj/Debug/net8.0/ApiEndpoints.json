@@ -538,11 +538,6 @@
         "Name": "ImageFile",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
-      },
-      {
-        "Name": "ImageURL",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -628,18 +623,8 @@
         "IsRequired": false
       },
       {
-        "Name": "ServiceStatus",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "ImageFile",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageURL",
-        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -745,7 +730,7 @@
       },
       {
         "Name": "weight",
-        "Type": "System.Int32",
+        "Type": "System.Decimal",
         "IsRequired": true
       }
     ],

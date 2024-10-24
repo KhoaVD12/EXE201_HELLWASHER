@@ -36,10 +36,10 @@ namespace BusinessObject.Service
             try
             {
                 var items = await _repo.GetAllAsync();
-                if (items.Any(i => i.ServiceId == itemDTO.ServiceId))
+                if (items.Any(i => i.ServiceId == itemDTO.ServiceId&&i.OrderId==itemDTO.OrderId))
                 {
                     res.Success = false;
-                    res.Message = "You haved added this service before, now you can only update Weight inside";
+                    res.Message = "You haved added this service in the Order before, now you can only update Weight inside";
                     return res;
                 }
                 var serviceExist = await _washServiceRepo.GetByIdAsync(itemDTO.ServiceId);
@@ -50,7 +50,7 @@ namespace BusinessObject.Service
                     return res;
                 }
                 var mapp = _mapper.Map<ServiceCheckout>(itemDTO);
-                mapp.TotalPricePerService = serviceExist.Price * itemDTO.QuantityPerService;
+                mapp.TotalPricePerService = serviceExist.Price * itemDTO.Weight;
                 await _repo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseServiceCheckoutDTO>(mapp);
                 res.Success = true;
@@ -126,43 +126,56 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateClothWeight(int id, int weight)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateClothWeight(int id, decimal weight)
         {
             var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
+
             try
             {
+                // Validate weight
                 if (weight <= 0)
                 {
                     res.Success = false;
-                    res.Message = "Weight must not be less than 1";
+                    res.Message = "Weight must be greater than 0";
                     return res;
                 }
+
+                
                 var exist = await _repo.GetByIdAsync(id);
-                if (exist != null)
-                {
-                    var service = await _washServiceRepo.GetByIdAsync(exist.ServiceId);
-                    var mapp = _mapper.Map<ServiceCheckout>(exist);
-                    exist.QuantityPerService = weight;
-                    exist.TotalPricePerService = weight * service.Price;
-                    await _repo.UpdateAsync(exist);
-                    
-                    var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);
-                    res.Success = true;
-                    res.Data = result;
-                    res.Message = "Update Item Successfully";
-                    return res;
-                }
-                else
+                if (exist == null)
                 {
                     res.Success = false;
-                    res.Message = "No Item with this Id";
+                    res.Message = "No Item found with this ID";
                     return res;
                 }
+
+                
+                var service = await _washServiceRepo.GetByIdAsync(exist.ServiceId);
+                if (service == null)
+                {
+                    res.Success = false;
+                    res.Message = "Associated service not found";
+                    return res;
+                }
+
+                
+                exist.Weight = weight;
+                exist.TotalPricePerService = Math.Round(weight * service.Price, 2); 
+
+               
+                await _repo.UpdateAsync(exist);
+
+                var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);
+
+                res.Success = true;
+                res.Data = result;
+                res.Message = "Item updated successfully";
+                return res;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to update item:{ex.Message}";
+                res.Message = $"Failed to update item: {ex.Message}";
                 return res;
             }
         }
