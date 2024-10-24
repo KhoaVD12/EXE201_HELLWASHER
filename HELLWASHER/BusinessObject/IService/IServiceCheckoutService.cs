@@ -12,7 +12,7 @@ namespace BusinessObject.IService
     {
         Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateServiceCheckout(CreateServiceCheckoutDTO itemDTO);
         Task<ServiceResponse<IEnumerable<ResponseServiceCheckoutDTO>>> GetCheckoutByOrderId(int id);
-        Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateClothWeight(int id, int weight);
+        Task<ServiceResponse<ResponseServiceCheckoutDTO>> UpdateClothWeight(int id, decimal weight);
         Task<ServiceResponse<bool>> DeleteCheckout(int id);
     }
 }

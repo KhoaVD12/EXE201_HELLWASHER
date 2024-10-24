@@ -51,14 +51,9 @@ namespace BusinessObject.Service
                         uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName.ToString());
                     }
                 }
-                else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
-                {
-                    // Image is an online URL
-                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL.ToString());
-                }
-
                 var mapp = _mapper.Map<DataAccess.Entity.Service>(serviceDTO);
                 mapp.ServiceStatus = ServiceEnum.AVAILABLE;
+                mapp.ImageURL=uploadedImageUrl;
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseWashServiceDTO>(mapp);
                 res.Success = true;
@@ -189,52 +184,71 @@ namespace BusinessObject.Service
                         uploadedImageUrl = await imageService.UploadImageAsync(stream, serviceDTO.ImageFile.FileName.ToString());
                     }
                 }
-                else if (!string.IsNullOrEmpty(serviceDTO.ImageURL) && Uri.IsWellFormedUriString(serviceDTO.ImageURL, UriKind.Absolute))
-                {
-                    // Image is an online URL
-                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(serviceDTO.ImageURL.ToString());
-                }
+
                 var exist = await _baseRepo.GetByIdAsync(id);
                 if (exist == null)
                 {
-                    res.Success=false;
+                    res.Success = false;
                     res.Message = "No service found";
                     return res;
                 }
-                else
+
+                // Flag to track if anything was updated
+                bool isUpdated = false;
+
+                // Check each field for changes and update accordingly
+                if (exist.Name != serviceDTO.Name)
                 {
                     exist.Name = serviceDTO.Name;
+                    isUpdated = true;
+                }
+
+                if (exist.Description != serviceDTO.Description)
+                {
                     exist.Description = serviceDTO.Description;
-                    exist.ImageURL= serviceDTO.ImageURL;
+                    isUpdated = true;
+                }
+
+                if (!string.IsNullOrEmpty(uploadedImageUrl) && exist.ImageURL != uploadedImageUrl)
+                {
+                    exist.ImageURL = uploadedImageUrl;
+                    isUpdated = true;
+                }
+
+                if (exist.ClothUnit != serviceDTO.ClothUnit)
+                {
                     exist.ClothUnit = serviceDTO.ClothUnit;
+                    isUpdated = true;
+                }
+
+                if (exist.Price != serviceDTO.Price)
+                {
                     exist.Price = serviceDTO.Price;
-                    if (serviceDTO.ServiceStatus.ToUpper().Trim() == ServiceEnum.AVAILABLE.ToString())
-                    {
-                        exist.ServiceStatus = ServiceEnum.AVAILABLE;
-                    }
-                    else if (serviceDTO.ServiceStatus.ToUpper().Trim() == ServiceEnum.UNAVAILABLE.ToString())
-                    {
-                        exist.ServiceStatus = ServiceEnum.UNAVAILABLE;
-                    }
-                    else
-                    {
-                        res.Success = false;
-                        res.Message = "Invalid Status";
-                        return res;
-                    }
-                    exist.ImageURL = serviceDTO.ImageURL;
-                    await _baseRepo.UpdateAsync(exist);
-                    var result = _mapper.Map<ResponseWashServiceDTO>(serviceDTO);
-                    res.Success = true;
-                    res.Message = "Update service Successfully";
-                    res.Data=result;
+                    isUpdated = true;
+                }
+
+                // If nothing was changed, return a response indicating no changes were made
+                if (!isUpdated)
+                {
+                    res.Success = false;
+                    res.Message = "No changes were made to the service.";
                     return res;
                 }
+
+                // Otherwise, save the updated entity
+                await _baseRepo.UpdateAsync(exist);
+
+                // Return success response
+                var result = _mapper.Map<ResponseWashServiceDTO>(exist); // Note: map the updated entity, not DTO
+                res.Success = true;
+                res.Message = "Service updated successfully";
+                res.Data = result;
+                return res;
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to update Service:{ex.Message}";
+                res.Message = $"Failed to update Service: {ex.Message}";
                 return res;
             }
         }
@@ -253,20 +267,23 @@ namespace BusinessObject.Service
                 }
                 else
                 {
-                    if (status.ToUpper().Trim() == ServiceEnum.AVAILABLE.ToString())
-                    {
-                        exist.ServiceStatus = ServiceEnum.AVAILABLE;
-                    }
-                    else if(status.ToUpper().Trim() == ServiceEnum.UNAVAILABLE.ToString())
-                    {
-                        exist.ServiceStatus = ServiceEnum.UNAVAILABLE;
-                    }
-                    else
+                    
+                    string normalizedStatus = status.ToUpper().Trim();
+
+                    
+                    if (!Enum.TryParse<ServiceEnum>(normalizedStatus, out var newStatus))
                     {
                         res.Success = false;
                         res.Message = "Invalid Status";
                         return res;
                     }
+                    if (exist.ServiceStatus == newStatus)
+                    {
+                        res.Success = false;
+                        res.Message = "No changes were made. Status is already set to the same value.";
+                        return res;
+                    }
+
                     await _baseRepo.UpdateAsync(exist);
                     res.Success = true;
                     res.Message ="Update Successfully";

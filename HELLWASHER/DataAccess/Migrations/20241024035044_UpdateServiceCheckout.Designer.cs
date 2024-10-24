@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241021165417_MakeUserID_NULL")]
-    partial class MakeUserID_NULL
+    [Migration("20241024035044_UpdateServiceCheckout")]
+    partial class UpdateServiceCheckout
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -253,13 +253,13 @@ namespace DataAccess.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("QuantityPerService")
-                        .HasColumnType("int");
-
                     b.Property<int>("ServiceId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPricePerService")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Weight")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ServiceCheckoutId");

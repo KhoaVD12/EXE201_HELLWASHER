@@ -30,7 +30,7 @@ namespace BusinessObject.Utils
                 serviceRows.Append($@"
         <tr>
             <td>{serviceCheckout.Service.Name}</td>
-            <td>{serviceCheckout.QuantityPerService}</td>
+            <td>{serviceCheckout.Weight}</td>
             <td>{serviceCheckout.TotalPricePerService:C}</td>
         </tr>");
             }

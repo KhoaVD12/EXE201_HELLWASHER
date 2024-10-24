@@ -14,7 +14,7 @@ namespace HELLWASHER_Controller.Controllers
             _service = service;
         }
         [HttpPost]
-        public async Task<IActionResult>CreateItem(CreateServiceCheckoutDTO itemDTO)
+        public async Task<IActionResult>CreateItem([FromBody]CreateServiceCheckoutDTO itemDTO)
         {
             var result = await _service.CreateServiceCheckout(itemDTO);
             if (result.Success)
@@ -23,11 +23,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpPut("UpdateClothWeight/{id}&&{weight}")]
-        public async Task<IActionResult> UpdateClothWeight(int id, int weight)
+        public async Task<IActionResult> UpdateClothWeight([FromRoute]int id, [FromRoute]decimal weight)
         {
             var result = await _service.UpdateClothWeight(id, weight);
             if (result.Success)
@@ -36,11 +36,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult>Delete(int id)
+        public async Task<IActionResult>Delete([FromRoute] int id)
         {
             var result= await _service.DeleteCheckout(id);
             if (result.Success)
@@ -49,11 +49,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpGet("OrderId/{id}")]
-        public async Task<IActionResult> GetByOrderId(int id)
+        public async Task<IActionResult> GetByOrderId([FromRoute] int id)
         {
             var result=await _service.GetCheckoutByOrderId(id);
             if (result.Success)
@@ -62,7 +62,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return NotFound(result.Message);
+                return NotFound(result);
             }
         }
     }
