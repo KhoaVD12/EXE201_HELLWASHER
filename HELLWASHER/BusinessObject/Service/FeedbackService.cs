@@ -15,6 +15,7 @@ namespace BusinessObject.Service
     {
         private readonly IBaseRepo<Feedback> _feedbackRepo;
         private readonly IBaseRepo<User> _userRepo;
+        private readonly IBaseRepo<Order> _orderRepo;
         private readonly IMapper _mapper;
 
         public FeedbackService(IBaseRepo<Feedback> feedbackRepo, IMapper mapper, IBaseRepo<User> userRepo)

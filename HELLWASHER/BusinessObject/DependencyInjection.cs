@@ -33,6 +33,8 @@ namespace BusinessObject
             services.AddScoped<IServiceCheckoutService, ServiceCheckoutService>();
 
             services.AddScoped<IFeedbackService, FeedbackService>();
+
+            services.AddScoped<IAuthenService, AuthenService>();
             return services;
         }
     }

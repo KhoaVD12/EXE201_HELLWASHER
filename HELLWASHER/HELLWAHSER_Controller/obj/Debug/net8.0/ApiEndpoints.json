@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "HELLWASHER_Controller.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/authentication/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "BusinessObject.ViewModels.Authen.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HELLWASHER_Controller.Controllers.CategoryController",
     "Method": "CreateCategory",
     "RelativePath": "api/Category",

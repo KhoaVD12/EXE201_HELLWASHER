@@ -4,6 +4,7 @@ using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Request.UpdateRequest.Status;
 using BusinessObject.Model.Response;
 using BusinessObject.Model.Response.Login_SignUp;
+using BusinessObject.ViewModels.Authen;
 using BusinessObject.ViewModels.Feedback;
 using BusinessObject.ViewModels.Order;
 using BusinessObject.ViewModels.OrderDTO;
@@ -53,6 +54,9 @@ namespace BusinessObject.Mapper
             CreateMap<FeedbackDTO, Feedback>().ReverseMap();
             CreateMap<FeedbackRequest, Feedback>().ReverseMap();
             //CreateMap<Feedback, FeedbackDTO>().ReverseMap();
+
+            //Authen
+            CreateMap<RegisterRequest, User>().ReverseMap();
         }
     }
 }

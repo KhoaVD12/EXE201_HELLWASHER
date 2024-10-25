@@ -9,6 +9,7 @@ namespace DataAccess.Enum
     public enum RoleEnum
     {
         Customer,
+        Staff,
         Admin
     }
 }
