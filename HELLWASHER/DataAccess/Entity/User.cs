@@ -14,7 +14,8 @@ namespace DataAccess.Entity
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
-        public RoleEnum Role { get; set; }
+        public string Token { get; set; }
+        public string Role { get; set; }
         public UserEnum Status { get; set; }
 
         public ICollection<Order> Orders { get; set; }

@@ -29,6 +29,7 @@ namespace BusinessObject
 
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
 
             services.AddScoped<IServiceCheckoutService, ServiceCheckoutService>();
 

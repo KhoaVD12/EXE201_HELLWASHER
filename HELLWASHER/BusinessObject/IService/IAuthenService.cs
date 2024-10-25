@@ -10,6 +10,6 @@ namespace BusinessObject.IService
     public interface IAuthenService
     {
         public Task<ServiceResponse<RegisterRequest>> RegisterAsync(RegisterRequest request);
-        public Task<ServiceResponse<LoginRequest>> LoginAsync(LoginRequest request);
+        public Task<TokenResponse<string>> LoginAsync(LoginRequest request);
     }
 }

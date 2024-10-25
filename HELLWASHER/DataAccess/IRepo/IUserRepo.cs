@@ -11,5 +11,6 @@ namespace DataAccess.IRepo
     {
         Task<bool> CheckExistedEmailAddress(string email);
         Task<User> GetUserByEmailAddressAndPasswordHash(string email, string passwordHash);
+        Task<string> GetTokenByUserIdAsync(int userId);
     }
 }

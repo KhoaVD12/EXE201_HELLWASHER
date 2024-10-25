@@ -57,6 +57,7 @@ namespace BusinessObject.Mapper
 
             //Authen
             CreateMap<RegisterRequest, User>().ReverseMap();
+            CreateMap<LoginRequest, User>().ReverseMap();
         }
     }
 }

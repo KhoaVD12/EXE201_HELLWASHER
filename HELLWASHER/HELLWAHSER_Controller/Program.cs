@@ -12,16 +12,29 @@ using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-var configuration = builder.Configuration;
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Bind configuration
+var appConfig = new AppConfiguration();
+builder.Configuration.Bind(appConfig);
+
+// Generate a new secret key if needed
+if (string.IsNullOrEmpty(appConfig.JWTSection.SecretKey))
+{
+    appConfig.JWTSection.SecretKey = JwtSecretKeyGenerator.GenerateSecretKey();
+}
+
+builder.Services.Configure<AppConfiguration>(builder.Configuration);
+builder.Services.AddSingleton(appConfig);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
+    options.AddPolicy("AllowAll",
         builder =>
         {
-            builder.WithOrigins()  // Allow any domain (you can restrict this to specific domains)
-                   .AllowAnyHeader()  // Allow any headers
-                   .AllowAnyMethod(); // Allow any HTTP methods
+            builder.AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
         });
 });
 builder.Services.AddAuthorization(options =>
@@ -40,12 +53,6 @@ builder.Services.AddSession(options =>
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
-    IConfiguration config = (IConfiguration)configuration;
-    var secretKey = config["JWTSection:SecretKey"];
-    if (string.IsNullOrEmpty(secretKey))
-    {
-        throw new InvalidOperationException("JWT SecretKey is not configured.");
-    }
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -53,9 +60,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
 
-        ValidIssuer = configuration["JWTSection:Issuer"],
-        ValidAudience = configuration["JWTSection:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        ValidIssuer = appConfig.JWTSection.Issuer,
+        ValidAudience = appConfig.JWTSection.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appConfig.JWTSection.SecretKey))
     };
     options.Events = new JwtBearerEvents
     {
@@ -74,7 +81,7 @@ builder.Services.AddControllers()
         {
             options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
             options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-        }); ;
+        });
 
 builder.Services.AddDbContext<WashShopContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
@@ -149,8 +156,9 @@ app.Use(async (context, next) =>
     }
     await next();
 });
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowAll");
 
+app.UseAuthentication(); // Ensure this is added before UseAuthorization
 app.UseAuthorization();
 
 app.MapControllers();

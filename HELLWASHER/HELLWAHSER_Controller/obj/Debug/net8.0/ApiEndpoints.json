@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "BusinessObject.ViewModels.Authen.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/authentication/Register",
     "HttpMethod": "POST",

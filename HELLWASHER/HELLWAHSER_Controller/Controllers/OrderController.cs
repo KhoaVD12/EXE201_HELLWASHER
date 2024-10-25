@@ -4,13 +4,17 @@ using BusinessObject.ViewModels.OrderDTO;
 using CloudinaryDotNet;
 using DataAccess;
 using DataAccess.Enum;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
+    [EnableCors("Allow")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -21,6 +25,7 @@ namespace HELLWASHER_Controller.Controllers
             _context = context;
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllOrders()
         {
             var result = await _orderService.GetAllOrder();

@@ -86,7 +86,7 @@ namespace BusinessObject.Service
                 {
                     var mapp = _mapper.Map<User>(userDTO);
                     mapp.Status = UserEnum.Active;
-                    mapp.Role =RoleEnum.Customer;
+                    mapp.Role = "Customer";
                     await _repo.AddAsync(mapp);
                     var result = _mapper.Map<ResponseUserDTO>(mapp);
                     res.Success = true;
@@ -208,7 +208,7 @@ namespace BusinessObject.Service
             try
             {
                 var accounts = await _repo.GetAllAsync();
-                if(accounts.Any(u=>u.Email==email&&u.Password==pass&&u.Role==RoleEnum.Customer&&
+                if(accounts.Any(u=>u.Email==email&&u.Password==pass&&u.Role=="customer"&&
                 u.Status == UserEnum.Active))
                 {
                     var account = accounts.Where(u => u.Email == email && u.Password == pass).FirstOrDefault();
@@ -254,11 +254,11 @@ namespace BusinessObject.Service
 
                     if (RoleEnum.Admin.ToString().Equals(userDTO.Role, StringComparison.OrdinalIgnoreCase))
                     {
-                        exist.Role = RoleEnum.Admin;
+                        exist.Role = "Admin";
                     }
                     else if (RoleEnum.Customer.ToString().Equals(userDTO.Role, StringComparison.OrdinalIgnoreCase))
                     {
-                        exist.Role = RoleEnum.Customer;
+                        exist.Role = "Customer";
                     }
                     else
                     {

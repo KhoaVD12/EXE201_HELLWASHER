@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\baserepo\\ibaserepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\baserepo\\ibaserepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\repo\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repo\\orderrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\mapper\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,12 +27,12 @@
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\utils\\generatejsonwebtokenstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\utils\\generatejsonwebtokenstring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,24 +43,56 @@
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\iservice\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\utils\\sendemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\utils\\sendemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\commons\\appconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\commons\\appconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\utils\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\utils\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\utils\\jwtsecretkeygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\utils\\jwtsecretkeygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\washshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\washshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\iservice\\iauthenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\viewmodels\\authen\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\viewmodels\\authen\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\viewmodels\\order\\addorderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\viewmodels\\order\\addorderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\hellwahser_controller\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{718043E3-0188-4486-B8BE-4414B4EDF7F5}|HELLWAHSER_Controller\\HELLWASHER_Controller.csproj|solutionrelative:hellwahser_controller\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\enum\\orderenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -101,6 +125,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\businessobject\\model\\request\\updaterequest\\entity\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C58A716-513E-4E8A-848A-1D2D85A9A0EF}|BusinessObject\\BusinessObject.csproj|solutionrelative:businessobject\\model\\request\\updaterequest\\entity\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|c:\\users\\admin\\onedrive\\desktop\\fpt university\\ky-8 net1713\\exe201\\hellwasher\\dataaccess\\migrations\\20241025022737_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5C341C5-5F55-4A81-A6D4-36A50FB6BF92}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\migrations\\20241025022737_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,32 +138,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 204,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 14,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderRepo.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Repo\\OrderRepo.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Repo\\OrderRepo.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Repo\\OrderRepo.cs",
-              "RelativeToolTip": "DataAccess\\Repo\\OrderRepo.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T00:54:32.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IBaseRepo.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\BaseRepo\\IBaseRepo.cs",
-              "RelativeDocumentMoniker": "DataAccess\\BaseRepo\\IBaseRepo.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\BaseRepo\\IBaseRepo.cs",
-              "RelativeToolTip": "DataAccess\\BaseRepo\\IBaseRepo.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T00:49:12.607Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -194,154 +198,261 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
-              "RelativeToolTip": "BusinessObject\\DependencyInjection.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T15:37:08.958Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Program.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Program.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Program.cs",
               "RelativeToolTip": "HELLWAHSER_Controller\\Program.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T15:21:13.925Z",
+              "WhenOpened": "2024-10-25T02:15:46.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthenService.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\AuthenService.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\Service\\AuthenService.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\AuthenService.cs",
-              "RelativeToolTip": "BusinessObject\\Service\\AuthenService.cs",
+              "DocumentIndex": 5,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\DependencyInjection.cs",
+              "RelativeToolTip": "BusinessObject\\DependencyInjection.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T11:15:29.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IAuthenService.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IAuthenService.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\IService\\IAuthenService.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IAuthenService.cs",
-              "RelativeToolTip": "BusinessObject\\IService\\IAuthenService.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T11:15:12.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\AuthController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T11:09:34.709Z",
+              "WhenOpened": "2024-10-25T02:11:34.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T02:26:10.903Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SendEmail.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\SendEmail.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\Utils\\SendEmail.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\SendEmail.cs",
-              "RelativeToolTip": "BusinessObject\\Utils\\SendEmail.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T01:07:38.566Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MapperConfig.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\Mapper\\MapperConfig.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
-              "RelativeToolTip": "BusinessObject\\Mapper\\MapperConfig.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T01:35:45.291Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\appsettings.json",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
-              "RelativeToolTip": "HELLWAHSER_Controller\\appsettings.json",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-23T13:47:44.228Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\UserController.cs",
-              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\UserController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T13:44:41.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\OrderController.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T03:05:23.414Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IFeedbackService.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IFeedbackService.cs",
-              "RelativeDocumentMoniker": "BusinessObject\\IService\\IFeedbackService.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IFeedbackService.cs",
-              "RelativeToolTip": "BusinessObject\\IService\\IFeedbackService.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T02:58:57.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "FeedbackService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\FeedbackService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\FeedbackService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\FeedbackService.cs",
               "RelativeToolTip": "BusinessObject\\Service\\FeedbackService.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T02:59:08.243Z"
+              "WhenOpened": "2024-10-21T02:59:08.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\ImageService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Utils\\ImageService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\ImageService.cs",
+              "RelativeToolTip": "BusinessObject\\Utils\\ImageService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T07:36:51.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\AuthController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:10:30.073Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "JwtSecretKeyGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\JwtSecretKeyGenerator.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Utils\\JwtSecretKeyGenerator.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\JwtSecretKeyGenerator.cs",
+              "RelativeToolTip": "BusinessObject\\Utils\\JwtSecretKeyGenerator.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T07:09:12.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\OrderController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:56:30.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServiceResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ServiceResponse.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\ServiceResponse.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ServiceResponse.cs",
+              "RelativeToolTip": "BusinessObject\\ServiceResponse.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:54:52.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "HELLWAHSER_Controller\\Controllers\\FeedbackController.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T07:42:21.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\UserService.cs",
+              "RelativeToolTip": "BusinessObject\\Service\\UserService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:08:36.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthenService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\AuthenService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Service\\AuthenService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\AuthenService.cs",
+              "RelativeToolTip": "BusinessObject\\Service\\AuthenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T01:34:45.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MapperConfig.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Mapper\\MapperConfig.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Mapper\\MapperConfig.cs",
+              "RelativeToolTip": "BusinessObject\\Mapper\\MapperConfig.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T16:17:42.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GenerateJsonWebTokenString.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\GenerateJsonWebTokenString.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Utils\\GenerateJsonWebTokenString.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Utils\\GenerateJsonWebTokenString.cs",
+              "RelativeToolTip": "BusinessObject\\Utils\\GenerateJsonWebTokenString.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T01:56:21.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
+              "RelativeDocumentMoniker": "HELLWAHSER_Controller\\appsettings.json",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\appsettings.json",
+              "RelativeToolTip": "HELLWAHSER_Controller\\appsettings.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-25T02:49:10.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Commons\\AppConfiguration.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\Commons\\AppConfiguration.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Commons\\AppConfiguration.cs",
+              "RelativeToolTip": "BusinessObject\\Commons\\AppConfiguration.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T06:57:22.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IFeedbackService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IFeedbackService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\IService\\IFeedbackService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IFeedbackService.cs",
+              "RelativeToolTip": "BusinessObject\\IService\\IFeedbackService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T08:01:34.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Entity\\User.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Entity\\User.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Entity\\User.cs",
+              "RelativeToolTip": "DataAccess\\Entity\\User.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:00:24.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "WashShopContext.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\WashShopContext.cs",
+              "RelativeDocumentMoniker": "DataAccess\\WashShopContext.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\WashShopContext.cs",
+              "RelativeToolTip": "DataAccess\\WashShopContext.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T04:05:56.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Repo\\UserRepo.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repo\\UserRepo.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Repo\\UserRepo.cs",
+              "RelativeToolTip": "DataAccess\\Repo\\UserRepo.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:24:27.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAuthenService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IAuthenService.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\IService\\IAuthenService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IAuthenService.cs",
+              "RelativeToolTip": "BusinessObject\\IService\\IAuthenService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:17:45.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ViewModels\\Authen\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "BusinessObject\\ViewModels\\Authen\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ViewModels\\Authen\\LoginRequest.cs",
+              "RelativeToolTip": "BusinessObject\\ViewModels\\Authen\\LoginRequest.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:31:53.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "20241025022737_init.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Migrations\\20241025022737_init.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Migrations\\20241025022737_init.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Migrations\\20241025022737_init.cs",
+              "RelativeToolTip": "DataAccess\\Migrations\\20241025022737_init.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T02:27:37.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "AddOrderResponse.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ViewModels\\Order\\AddOrderResponse.cs",
               "RelativeDocumentMoniker": "BusinessObject\\ViewModels\\Order\\AddOrderResponse.cs",
@@ -352,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "OrderEnum.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\DataAccess\\Enum\\OrderEnum.cs",
               "RelativeDocumentMoniker": "DataAccess\\Enum\\OrderEnum.cs",
@@ -363,18 +474,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\OrderService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\OrderService.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\OrderService.cs",
               "RelativeToolTip": "BusinessObject\\Service\\OrderService.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T16:46:57.539Z"
+              "WhenOpened": "2024-10-21T16:46:57.539Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IOrderService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\IService\\IOrderService.cs",
@@ -385,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "OrderDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\ViewModels\\Order\\OrderDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\ViewModels\\Order\\OrderDTO.cs",
@@ -396,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "IWashServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\IService\\IWashServiceService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\IService\\IWashServiceService.cs",
@@ -407,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "WashServiceService.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Service\\WashServiceService.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Service\\WashServiceService.cs",
@@ -418,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "ServiceController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\ServiceController.cs",
@@ -429,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\HELLWAHSER_Controller\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "HELLWAHSER_Controller\\Controllers\\ProductController.cs",
@@ -440,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 30,
               "Title": "UpdateProductDTO.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\FPT university\\KY-8 NET1713\\EXE201\\HELLWASHER\\BusinessObject\\Model\\Request\\UpdateRequest\\Entity\\UpdateProductDTO.cs",
               "RelativeDocumentMoniker": "BusinessObject\\Model\\Request\\UpdateRequest\\Entity\\UpdateProductDTO.cs",

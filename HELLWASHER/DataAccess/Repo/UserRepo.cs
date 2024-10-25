@@ -12,15 +12,18 @@ namespace DataAccess.Repo
     public class UserRepo : IUserRepo
     {
         private readonly WashShopContext _dbContext;
-        private readonly UserRepo _userRepo;
-        public UserRepo(WashShopContext context, UserRepo userRepo)
+        public UserRepo(WashShopContext context)
         {
             _dbContext = context;
-            _userRepo = userRepo;
         }
         public async Task<bool> CheckExistedEmailAddress(string email)
         {
             return await _dbContext.Users.AnyAsync(e => e.Email == email);
+        }
+
+        public async Task<string> GetTokenByUserIdAsync(int userId)
+        {
+            return await _dbContext.Users.Where(e => e.UserId == userId).Select(e => e.Token).FirstOrDefaultAsync();
         }
 
         public async Task<User> GetUserByEmailAddressAndPasswordHash(string email, string passwordHash)

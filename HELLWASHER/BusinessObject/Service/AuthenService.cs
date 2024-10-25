@@ -29,19 +29,29 @@ namespace BusinessObject.Service
             _appConfig = config;
         }
 
-        public async Task<ServiceResponse<LoginRequest>> LoginAsync(LoginRequest request)
+        public async Task<TokenResponse<string>> LoginAsync(LoginRequest request)
         {
-            var response = new ServiceResponse<LoginRequest>();
+            var response = new TokenResponse<string>();
             try
             {
                 var HashPass = HashPassWithSHA256.HashWithSHA256(request.Password);
-                var userLogin = await _userRepo.GetUserByEmailAddressAndPasswordHash(request.UserName, HashPass);
+                var userLogin = await _userRepo.GetUserByEmailAddressAndPasswordHash(request.Email, HashPass);
                 if(userLogin == null)
                 {
                     response.Success = false;
                     response.Message = "Username or password is incorrect";
                     return response;
                 }
+                var token = await _userRepo.GetTokenByUserIdAsync(userLogin.UserId);
+
+                var auth = userLogin.Role;
+                var userId = userLogin.UserId;
+                var tokenValue = userLogin.GenerateJsonWebToken(_appConfig, _appConfig.JWTSection.SecretKey, DateTime.Now);
+                response.Success = true;
+                response.Message = "Login successfully";
+                response.DataToken = tokenValue;
+                response.Role = auth;
+                response.HintId = userId;
             }
             catch (Exception ex)
             {
@@ -65,7 +75,8 @@ namespace BusinessObject.Service
                 }
                 var userRegister = _mapper.Map<User>(request);
                 userRegister.Password = HashPassWithSHA256.HashWithSHA256(userRegister.Password);
-                userRegister.Role = RoleEnum.Customer;
+                userRegister.Role = "Customer";
+                userRegister.Token = Guid.NewGuid().ToString();
                 await _userBaseRepo.AddAsync(userRegister);
                 response.Success = true;
                 response.Message = "Register successfully";
