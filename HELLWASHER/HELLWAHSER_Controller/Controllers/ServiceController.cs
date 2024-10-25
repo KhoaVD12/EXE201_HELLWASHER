@@ -26,7 +26,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpGet]
@@ -40,11 +40,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return NotFound(result.Message);
+                return NotFound(result);
             }
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult>GetById(int id)
+        public async Task<IActionResult>GetById([FromRoute]int id)
         {
             var result = await _washServiceService.GetById(id);
             if (result.Success)
@@ -53,11 +53,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return NotFound(result.Message);
+                return NotFound(result);
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateService(int id, UpdateWashServiceDTO serviceDTO)
+        public async Task<IActionResult> UpdateService([FromRoute] int id, [FromForm] UpdateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.UpdateWashService(id, serviceDTO);
             if (result.Success)
@@ -66,11 +66,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpPut("UpdateStatus/{id}&&{status}")]
-        public async Task<IActionResult> ChangeStatusService(int id, string status)
+        public async Task<IActionResult> ChangeStatusService([FromRoute] int id, string status)
         {
             var result = await _washServiceService.UpdateWashStatus(id, status);
             if (result.Success)
@@ -79,11 +79,11 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult>DeleteService(int id)
+        public async Task<IActionResult>DeleteService([FromRoute] int id)
         {
             var result = await _washServiceService.DeleteWashService(id);
             if (result.Success)
@@ -92,7 +92,7 @@ namespace HELLWASHER_Controller.Controllers
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
     }

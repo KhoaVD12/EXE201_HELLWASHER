@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Khoa_UpdateOrder : Migration
+    public partial class UpdateServiceCheckout : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -95,7 +95,7 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ServiceCheckoutId = table.Column<int>(type: "int", nullable: true),
                     ProductCheckoutId = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true),
                     CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CusomterPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -114,8 +114,7 @@ namespace DataAccess.Migrations
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
@@ -187,7 +186,7 @@ namespace DataAccess.Migrations
                     ServiceCheckoutId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ServiceId = table.Column<int>(type: "int", nullable: false),
-                    QuantityPerService = table.Column<int>(type: "int", nullable: false),
+                    Weight = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     TotalPricePerService = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
