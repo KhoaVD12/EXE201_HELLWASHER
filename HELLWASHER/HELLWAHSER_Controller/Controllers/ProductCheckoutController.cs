@@ -15,15 +15,15 @@ namespace HELLWASHER_Controller.Controllers
             _productCheckoutService = productCheckoutService;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProductCheckout(ProductCheckoutDTO productCheckoutDTO)
+        public async Task<IActionResult> CreateProductCheckout(int orderId, [FromBody]ProductCheckoutDTO productCheckoutDTO)
         {
-            var result = await _productCheckoutService.CreateProductCheckout(productCheckoutDTO);
+            var result = await _productCheckoutService.CreateProductCheckout(orderId, productCheckoutDTO);
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
         [HttpPut("update/{id}&{quantity}")]
-        public async Task<IActionResult> UpdateProductCheckout(int id, int quantity)
+        public async Task<IActionResult> UpdateProductCheckout([FromRoute]int id, [FromRoute]int quantity)
         {
             var result = await _productCheckoutService.UpdateProductCheckout(id, quantity);
             if (!result.Success) return BadRequest(result);

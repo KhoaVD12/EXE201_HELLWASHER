@@ -11,6 +11,7 @@ using DataAccess.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -294,6 +295,25 @@ namespace BusinessObject.Service
                 res.Message = $"Fail to update user:{ex.Message}";
                 return res;
             }
+        }
+        public async Task<User> GetUserByTokenAsync(ClaimsPrincipal claims)
+        {
+            if (claims == null)
+            {
+                throw new ArgumentNullException("Invalid token");
+            }
+            var userId = claims.FindFirst("Id")?.Value;
+            if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out int id))
+            {
+                throw new ArgumentException("No user can be found");
+            }
+
+            var user = await _repo.GetByIdAsync(id);
+            if (user == null)
+            {
+                throw new NullReferenceException("No user can be found");
+            }
+            return user;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace DataAccess.IRepo
     public interface IOrderRepo : IGenericRepo<Order>
     {
         Task<Order> GetOrderWithDetails(int id);
+        Task<List<Order>> GetOrdersByUser(int userId);
     }
 }

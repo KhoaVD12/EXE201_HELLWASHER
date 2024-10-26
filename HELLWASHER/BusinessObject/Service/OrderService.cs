@@ -42,17 +42,40 @@ namespace BusinessObject.Service
             _productCheckoutRepo = productCheckoutRepo;
             _orderRepository = orderRepository;
         }
-        public async Task<ServiceResponse<IEnumerable<Order>>> GetAllOrder()
+        public async Task<ServiceResponse<IEnumerable<OrderResponse>>> GetAllOrder(User user)
         {
-            var response = new ServiceResponse<IEnumerable<Order>>();
-
+            var response = new ServiceResponse<IEnumerable<OrderResponse>>();
             try
             {
-                var orders = await _orderRepo.GetAllAsync();
+                if (user == null || user.UserId <= 0)
+                {
+                    response.Success = false;
+                    response.Message = "Invalid user.";
+                    return response;
+                }
 
+                IEnumerable<Order> orders;
+                if (user.Role == "Admin")
+                {
+                    // Fetch all orders for Admin
+                    orders = await _orderRepo.GetAllAsync();
+                }
+                else if (user.Role == "Customer")
+                {
+                    // Fetch orders for the specific customer
+                    var userEntity = await _userRepo.GetByIdAsync(user.UserId);
+                    orders = await _orderRepo.GetAllByConditionAsync(o => o.UserId == user.UserId);
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Unauthorized role.";
+                    return response;
+                }
 
-                var orderDtOs = _mapper.Map<IEnumerable<OrderDTO>>(orders); // Map orders to OrderDTO
-                response.Data = orders;
+                // Map orders to OrderResponse
+                var orderResponses = _mapper.Map<IEnumerable<OrderResponse>>(orders);
+                response.Data = orderResponses;
                 response.Success = true;
             }
             catch (Exception ex)
@@ -60,42 +83,51 @@ namespace BusinessObject.Service
                 response.Success = false;
                 response.Message = $"{ex.Message}";
             }
-
             return response;
         }
 
 
-        public async Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, int userId)
+
+        public async Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, User user)
         {
             var serviceResponse = new ServiceResponse<AddOrderResponse>();
 
             try
             {
-                // Map DTO to entity
-                var OrderEntity = _mapper.Map<Order>(order);
+                if (user == null || user.UserId <= 0)
+                {
+                    serviceResponse.Success = false;
+                    serviceResponse.Message = "Invalid user.";
+                    return serviceResponse;
+                }
 
-                var user = await _userRepo.GetByIdAsync(userId);
-                if (user == null)
+                // Map DTO to entity
+                var orderEntity = _mapper.Map<Order>(order);
+
+                var userEntity = await _userRepo.GetByIdAsync(user.UserId);
+                if (userEntity == null)
                 {
                     serviceResponse.Success = false;
                     serviceResponse.Message = "User not found.";
                     return serviceResponse;
                 }
-                OrderEntity.UserId = userId;
-                OrderEntity.OrderStatus = OrderEnum.PENDING;
-                OrderEntity.OrderDate = DateTime.Now;
-                OrderEntity.WashStatus = WashEnum.PENDING;
-                OrderEntity.CusomterPhone = user.Phone;
-                OrderEntity.CustomerEmail = user.Email;
-                OrderEntity.CustomerName = user.Name;
-                OrderEntity.Address = order.Address;
-                OrderEntity.TotalPrice = 0;
 
-                await _orderRepo.AddAsync(OrderEntity);
+                orderEntity.UserId = user.UserId;
+                orderEntity.OrderStatus = OrderEnum.PENDING;
+                orderEntity.OrderDate = DateTime.Now;
+                orderEntity.WashStatus = WashEnum.PENDING;
+                orderEntity.CusomterPhone = userEntity.Phone;
+                orderEntity.CustomerEmail = userEntity.Email;
+                orderEntity.CustomerName = userEntity.Name;
+                orderEntity.Address = order.Address;
+                orderEntity.TotalPrice = 0;
+
+                await _orderRepo.AddAsync(orderEntity);
+
                 // Prepare success response
                 serviceResponse.Data = new AddOrderResponse
                 {
-                    OrderId = OrderEntity.OrderId,
+                    OrderId = orderEntity.OrderId,
                     Order = order
                 };
                 serviceResponse.Success = true;
@@ -111,76 +143,93 @@ namespace BusinessObject.Service
         }
 
 
-        public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId)
+
+        public async Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId, User user)
         {
             var response = new ServiceResponse<UpdateOrderRequest>();
             try
             {
-                var order = await _orderRepo.GetByIdAsync(orderId);
-                if (order.UserId != null)
+                if (user == null || user.UserId <= 0)
                 {
-                    var user = await _userRepo.GetByIdAsync((int)order.UserId);
-                    order.CustomerEmail = user.Email;
-                    order.CusomterPhone = user.Phone;
-                    order.CustomerName = user.Name;
+                    response.Success = false;
+                    response.Message = "Invalid user.";
+                    return response;
                 }
+
+                var order = await _orderRepo.GetByIdAsync(orderId);
+                if (order == null || order.UserId != user.UserId)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found or does not belong to the user.";
+                    return response;
+                }
+
+                var userEntity = await _userRepo.GetByIdAsync(user.UserId);
+                if (userEntity != null)
+                {
+                    order.CustomerEmail = userEntity.Email;
+                    order.CusomterPhone = userEntity.Phone;
+                    order.CustomerName = userEntity.Name;
+                }
+
                 var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
                 decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
                 decimal totalPrice = totalServiceCheckout + totalProductCheckout;
-                if (order == null)
-                {
-                    response.Success = false;
-                    response.Message = "Order not found.";
-                    return response;
-                }
 
                 order.TotalPrice = totalPrice;
                 order.OrderStatus = OrderEnum.UPDATED;
                 order.Address = orderRequest.Address;
                 order.WashStatus = WashEnum.PENDING;
                 order.PickUpDate = orderRequest.PickUpDate;
-                var imageService = new ImageService();
-                string uploadedImageUrl = string.Empty;
+
                 await _orderRepo.UpdateAsync(order);
 
                 response.Success = true;
                 response.Message = "Order updated successfully.";
                 response.Data = orderRequest;
-                return response;
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = $"{ex.Message}";
-                return response;
             }
+            return response;
         }
 
-        public async Task<ServiceResponse<Order>> GetOrderById(int orderId)
+
+        public async Task<ServiceResponse<OrderResponse>> GetOrderById(int orderId, User user)
         {
-            var response = new ServiceResponse<Order>();
+            var response = new ServiceResponse<OrderResponse>();
             try
             {
-                var exist = await _orderRepo.GetByIdAsync(orderId);
-                var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
-                if (exist == null)
+                if (user == null || user.UserId <= 0 || orderId <= 0)
                 {
                     response.Success = false;
-                    response.Message = "Order not found.";
+                    response.Message = "Invalid user or order ID.";
                     return response;
                 }
-                var order = _mapper.Map<Order>(exist);
-                response.Data = order;
+
+                // Fetch the order by orderId
+                var order = await _orderRepo.GetByIdAsync(orderId);
+                if (order == null || order.UserId != user.UserId)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found or does not belong to the user.";
+                    return response;
+                }
+
+                // Map the order to OrderResponse
+                var orderResponse = _mapper.Map<OrderResponse>(order);
+                response.Data = orderResponse;
                 response.Success = true;
-                return response;
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Message = $"{ex.Message}";
-                return response;
             }
+            return response;
         }
 
         public async Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status)

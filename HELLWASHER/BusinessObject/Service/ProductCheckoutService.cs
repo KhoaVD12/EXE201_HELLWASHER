@@ -24,21 +24,36 @@ namespace BusinessObject.Service
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<ProductCheckoutDTO>> CreateProductCheckout(ProductCheckoutDTO productCheckoutDTO)
+        public async Task<ServiceResponse<ProductCheckoutResponse>> CreateProductCheckout(int orderId, ProductCheckoutDTO productCheckoutDTO)
         {
-            var response = new ServiceResponse<ProductCheckoutDTO>();
+            var response = new ServiceResponse<ProductCheckoutResponse>();
             try
             {
+                // Check if the ProductCheckout already exists
+                var existingProductCheckout = await _productCheckoutBaseRepo.FirstOrDefaultAsync(pc => pc.ProductId == productCheckoutDTO.ProductId && pc.orderId == orderId);
+                if (existingProductCheckout != null)
+                {
+                    response.Success = false;
+                    response.Message = "ProductCheckout already exists.";
+                    return response;
+                }
+
                 var productCheckout = _mapper.Map<ProductCheckout>(productCheckoutDTO);
 
                 var product = await _productBaseRepo.GetByIdAsync(productCheckoutDTO.ProductId);
 
                 product.Quantity -= productCheckoutDTO.QuantityPerService;
                 productCheckout.TotalPricePerService = product.Price * productCheckoutDTO.QuantityPerService;
+                productCheckout.orderId = orderId;
 
                 await _productBaseRepo.UpdateAsync(product);
                 await _productCheckoutBaseRepo.AddAsync(productCheckout);
-                response.Data = productCheckoutDTO;
+
+                response.Data = new ProductCheckoutResponse
+                {
+                    Id = productCheckout.ProductCheckoutId,
+                    ProductCheckout = productCheckoutDTO,
+                };
                 response.Success = true;
                 response.Message = "Product checkout created successfully";
                 return response;

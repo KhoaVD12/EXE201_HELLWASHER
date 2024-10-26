@@ -9,7 +9,7 @@ namespace BusinessObject.IService
 {
     public interface IProductCheckoutService
     {
-        Task<ServiceResponse<ProductCheckoutDTO>> CreateProductCheckout(ProductCheckoutDTO productCheckoutDTO);
+        Task<ServiceResponse<ProductCheckoutResponse>> CreateProductCheckout(int orderId, ProductCheckoutDTO productCheckoutDTO);
         Task<ServiceResponse<ProductCheckoutDTO>> UpdateProductCheckout(int id, int quantity);
         Task<ServiceResponse<bool>> DeleteProductCheckout(int id);
     }

@@ -13,11 +13,11 @@ namespace BusinessObject.IService
 {
     public interface IOrderService
     {
-        Task<ServiceResponse<IEnumerable<Order>>> GetAllOrder();
+        Task<ServiceResponse<IEnumerable<OrderResponse>>> GetAllOrder(User user);
         Task<ServiceResponse<QuickOrderDTO>> QuickAddOrder(QuickOrderDTO orderDTO);
-        Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, int userId);
-        Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId);
-        Task<ServiceResponse<Order>> GetOrderById(int orderId);
+        Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, User user);
+        Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId, User user);
+        Task<ServiceResponse<OrderResponse>> GetOrderById(int orderId, User user);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);
         Task<ServiceResponse<bool>> SendConfirmOrderEmail(int orderId);
         Task<ServiceResponse<bool>> AddConfirmImage(int orderId, IFormFile image);

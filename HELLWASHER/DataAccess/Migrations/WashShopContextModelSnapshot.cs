@@ -115,12 +115,6 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("PickUpDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ProductCheckoutId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceCheckoutId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 

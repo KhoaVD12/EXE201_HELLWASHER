@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241025022737_init")]
-    partial class init
+    [Migration("20241026113747_removeUneccessaryStuff")]
+    partial class removeUneccessaryStuff
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,12 +117,6 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime?>("PickUpDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("ProductCheckoutId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServiceCheckoutId")
-                        .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");

@@ -2,9 +2,11 @@
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using BusinessObject.Model.Response.Login_SignUp;
+using DataAccess.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,5 +21,6 @@ namespace BusinessObject.IService
         Task<ServiceResponse<bool>> DeleteUser(int id);
         Task<ServiceResponse<LoginRes>> LoginUser(string email, string pass);
         Task<ServiceResponse<ResponseUserDTO>> ChangeStatus(int id, string status);
+        Task<User> GetUserByTokenAsync(ClaimsPrincipal claims);
     }
 }

@@ -243,7 +243,7 @@
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
     "Method": "AddOrder",
-    "RelativePath": "api/Order/Add/{userId}",
+    "RelativePath": "api/Order/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -251,11 +251,6 @@
       {
         "Name": "orderDTO",
         "Type": "BusinessObject.ViewModels.Order.OrderDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -493,6 +488,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "productCheckoutDTO",
         "Type": "BusinessObject.ViewModels.ProductCheckoutDTO.ProductCheckoutDTO",

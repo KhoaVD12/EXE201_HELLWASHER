@@ -10,6 +10,7 @@ namespace DataAccess.BaseRepo
     public interface IBaseRepo<TEntity> where TEntity : class
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<IEnumerable<TEntity>> GetAllByConditionAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetByIdAsync(int id);
         Task AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);

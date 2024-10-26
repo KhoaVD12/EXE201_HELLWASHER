@@ -38,6 +38,8 @@ namespace BusinessObject.Mapper
             CreateMap<OrderDTO, Order>().ReverseMap();
             CreateMap<QuickOrderDTO, Order>().ReverseMap();
             CreateMap<AddOrderResponse, Order>().ReverseMap();
+            CreateMap<OrderResponse, Order>().ReverseMap();
+            CreateMap<Order, OrderResponse>().ReverseMap();
             //Service Checkout
             CreateMap<CreateServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
             CreateMap<ServiceCheckout, ResponseServiceCheckoutDTO>()

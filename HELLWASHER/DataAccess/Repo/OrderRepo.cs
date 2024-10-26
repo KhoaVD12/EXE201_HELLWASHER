@@ -17,6 +17,13 @@ namespace DataAccess.Repo
             _dbContext = context;
         }
 
+        public async Task<List<Order>> GetOrdersByUser(int userId)
+        {
+            return await _dbContext.Orders
+                .Where(o => o.UserId == userId)
+                .ToListAsync();
+        }
+
         public async Task<Order> GetOrderWithDetails(int id)
         {
             return await _dbContext.Orders
