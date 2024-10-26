@@ -41,7 +41,7 @@ namespace BusinessObject.Mapper
             //Service Checkout
             CreateMap<CreateServiceCheckoutDTO, ServiceCheckout>().ReverseMap();
             CreateMap<ServiceCheckout, ResponseServiceCheckoutDTO>()
-                .ForMember(a=>a.Name, d=>d.MapFrom(s=>s.Service))
+                .ForMember(a=>a.Name, d=>d.MapFrom(s=>s.Service.Name))
                 .ReverseMap();
             //Product Checkout
             CreateMap<ProductCheckoutDTO, ProductCheckout>().ReverseMap();
