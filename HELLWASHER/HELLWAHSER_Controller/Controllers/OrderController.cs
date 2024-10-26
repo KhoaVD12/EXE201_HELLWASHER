@@ -14,7 +14,6 @@ namespace HELLWASHER_Controller.Controllers
     [EnableCors("Allow")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
@@ -35,6 +34,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpGet("{orderId}")]
+        [Authorize(Roles = "Admin, Staff, Customer")]
         public async Task<IActionResult> GetOrderById(int orderId)
         {
             var result = await _orderService.GetOrderById(orderId);
@@ -43,6 +43,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPost("QuickAdd")]
+        [AllowAnonymous]
         public async Task<IActionResult> QuickAddOrder([FromBody] QuickOrderDTO orderDTO)
         {
             var result = await _orderService.QuickAddOrder(orderDTO);
@@ -50,7 +51,9 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
+
         [HttpPost("Add/{userId}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> AddOrder([FromBody] OrderDTO orderDTO, int userId)
         {
             var result = await _orderService.AddOrder(orderDTO, userId);
@@ -59,6 +62,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPut("update/{orderId}")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> UpdateOrder( UpdateOrderRequest orderRequest, int orderId)
         {
             var result = await _orderService.UpdateOrder(orderRequest, orderId);
@@ -68,6 +72,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpPatch("update-status")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status)
         {
             var result = await _orderService.UpdateOrderStatus(orderId, status);
@@ -76,6 +81,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPatch("image")]
+        [Authorize(Roles = "Staff, Customer")]
         public async Task<IActionResult> AddImage(int orderId, IFormFile image)
         {
             var result = await _orderService.AddConfirmImage(orderId, image);
@@ -84,6 +90,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPost("Confirm-email")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> SendConfirmOrderEmail(int orderId)
         {
             var result = await _orderService.SendConfirmOrderEmail(orderId);

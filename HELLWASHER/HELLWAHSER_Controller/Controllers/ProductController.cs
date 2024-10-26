@@ -1,11 +1,14 @@
 ﻿using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
+    [EnableCors("Allow")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -17,6 +20,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllProduct()
         {
             var result = await _productService.GetAllProduct();
@@ -25,6 +29,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpGet("{productId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProductById(int productId)
         {
             var result = await _productService.GetProductById(productId);
@@ -33,6 +38,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
         [HttpPost("Add")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> AddProduct([FromForm] CreateProductDTO productDTO, IFormFile image)
         {
             var result = await _productService.CreateProduct(productDTO, image);
@@ -42,6 +48,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpPut("update/{productId}")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> UpdateProduct([FromForm] UpdateProductDTO productDTO, int productId, IFormFile image)
         {
             var result = await _productService.UpdateProduct(productDTO, productId, image);
@@ -51,6 +58,7 @@ namespace HELLWASHER_Controller.Controllers
         }
 
         [HttpDelete("Delete/{productId}")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             var result = await _productService.DeleteProduct(productId);

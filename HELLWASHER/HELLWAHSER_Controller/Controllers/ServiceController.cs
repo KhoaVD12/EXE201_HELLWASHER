@@ -3,10 +3,13 @@ using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using CloudinaryDotNet;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
+    [EnableCors("Allow")]
     [ApiController]
     [Route("api/[controller]")]
     public class ServiceController : Controller
@@ -17,6 +20,7 @@ namespace HELLWASHER_Controller.Controllers
             _washServiceService = service;
         }
         [HttpPost]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> CreateService([FromForm] CreateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.CreateWashService(serviceDTO);
@@ -30,6 +34,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetServices(int page = 1, int pageSize = 10,
             string search = "", string sort = "")
         {
@@ -44,6 +49,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult>GetById([FromRoute]int id)
         {
             var result = await _washServiceService.GetById(id);
@@ -57,6 +63,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> UpdateService([FromRoute] int id, [FromForm] UpdateWashServiceDTO serviceDTO)
         {
             var result = await _washServiceService.UpdateWashService(id, serviceDTO);
@@ -70,6 +77,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpPut("UpdateStatus/{id}&&{status}")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> ChangeStatusService([FromRoute] int id, string status)
         {
             var result = await _washServiceService.UpdateWashStatus(id, status);
@@ -83,6 +91,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult>DeleteService([FromRoute] int id)
         {
             var result = await _washServiceService.DeleteWashService(id);
