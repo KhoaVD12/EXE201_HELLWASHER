@@ -99,7 +99,7 @@ namespace HELLWASHER_Controller.Controllers
 
         [HttpPatch("update-status")]
         [Authorize(Roles = "Admin, Staff")]
-        public async Task<IActionResult> UpdateOrderStatus([FromRoute] int orderId, OrderStatusEnumRequest status)
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status)
         {
             var result = await _orderService.UpdateOrderStatus(orderId, status);
             if (!result.Success) return BadRequest(result);
@@ -108,7 +108,7 @@ namespace HELLWASHER_Controller.Controllers
         }
         [HttpPatch("image")]
         [Authorize(Roles = "Staff, Customer")]
-        public async Task<IActionResult> AddImage([FromRoute] int orderId, IFormFile image)
+        public async Task<IActionResult> AddImage(int orderId, IFormFile image)
         {
             var result = await _orderService.AddConfirmImage(orderId, image);
             if (!result.Success) return BadRequest(result);
@@ -117,7 +117,7 @@ namespace HELLWASHER_Controller.Controllers
         }
         [HttpPost("Confirm-email")]
         [Authorize(Roles = "Admin, Staff")]
-        public async Task<IActionResult> SendConfirmOrderEmail([FromRoute] int orderId)
+        public async Task<IActionResult> SendConfirmOrderEmail(int orderId)
         {
             var result = await _orderService.SendConfirmOrderEmail(orderId);
             if (!result.Success) return BadRequest(result);

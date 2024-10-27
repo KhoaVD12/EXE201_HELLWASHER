@@ -313,6 +313,7 @@ namespace BusinessObject.Service
 
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
                 decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalPrice = totalServiceCheckout + totalProductCheckout;
                 if (order.UserId == null) 
                 {
                     var orderEmailDTO = new ShowOrderEmailDTO
@@ -323,7 +324,7 @@ namespace BusinessObject.Service
                         Address = order.Address,
                         OrderDate = order.OrderDate,
                         PickUpDate = order.PickUpDate,
-                        TotalPrice = order.TotalPrice,
+                        TotalPrice = totalPrice,
                         ServiceCheckouts = order.ServiceCheckouts,
                         ProductCheckouts = order.ProductCheckouts,
                         TotalService = totalServiceCheckout,
@@ -350,7 +351,7 @@ namespace BusinessObject.Service
                         TotalService = totalServiceCheckout,
                         TotalProduct = totalProductCheckout,
                         PickUpDate = order.PickUpDate,
-                        TotalPrice = order.TotalPrice
+                        TotalPrice = totalPrice
                     };
                     var userEmail = user.Email;
                     if (!string.IsNullOrEmpty(userEmail))
