@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Enum
+namespace BusinessObject.IService
 {
-    public enum UserEnum
+    public interface IClaimService
     {
-        Active,     // =0 
-        Inactive    // =1
+       public Guid GetCurrentUserId { get; }
+
     }
 }
