@@ -11,6 +11,5 @@ namespace BusinessObject.ViewModels.Product
     {
         public int productId { get; set; }
         public UpdateProductDTO Product { get; set; }
-        public string ImageUrl { get; set; }
     }
 }

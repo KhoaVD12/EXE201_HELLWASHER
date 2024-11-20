@@ -36,7 +36,7 @@ namespace BusinessObject.Service
             _categoryRepo = categoryRepo;
         }
 
-        public async Task<ServiceResponse<CreateProductResponse>> CreateProduct(CreateProductDTO productDTO, IFormFile image)
+        public async Task<ServiceResponse<CreateProductResponse>> CreateProduct(CreateProductDTO productDTO)
         {
             var response = new ServiceResponse<CreateProductResponse>();
             try
@@ -56,6 +56,33 @@ namespace BusinessObject.Service
                 product.CategoryId = productDTO.CategoryId;
                 product.IsDeleted = false;
 
+                
+                await _baseRepo.AddAsync(product);
+
+                response.Data = new CreateProductResponse
+                {
+                    productId = product.ProductId,
+                    Product = productDTO
+                };
+                response.Message = "Product created successfully";
+                response.Success = true;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = $"{ex.Message}";
+                return response;
+            }
+        }
+        public async Task<ServiceResponse<ImageResponse>> ProductImage(IFormFile image, int productId)
+        {
+            var response = new ServiceResponse<ImageResponse>();
+            try
+            {
+                var product = await _baseRepo.GetByIdAsync(productId);
+
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
                 if (image != null)
@@ -70,12 +97,11 @@ namespace BusinessObject.Service
                     uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
                 }
                 product.ImageURL = uploadedImageUrl;
-                await _baseRepo.AddAsync(product);
+                await _baseRepo.UpdateAsync(product);
 
-                response.Data = new CreateProductResponse
+                response.Data = new ImageResponse
                 {
-                    productId = product.ProductId,
-                    Product = productDTO,
+                    productId = productId,
                     ImageUrl = uploadedImageUrl
                 };
                 response.Message = "Product created successfully";
@@ -90,7 +116,6 @@ namespace BusinessObject.Service
                 return response;
             }
         }
-
         public async Task<ServiceResponse<bool>> DeleteProduct(int id)
         {
             var response = new ServiceResponse<bool>();
@@ -161,7 +186,7 @@ namespace BusinessObject.Service
                 return response;
             }
         }
-        public async Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId, IFormFile image)
+        public async Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId)
         {
             var response = new ServiceResponse<UpdateProductResponse>();
             try
@@ -188,20 +213,7 @@ namespace BusinessObject.Service
                 product.Quantity = productDTO.Quantity;
                 product.CategoryId = productDTO.CategoryId;
 
-                var imageService = new ImageService();
-                string uploadedImageUrl = string.Empty;
-                if (image != null)
-                {
-                    using (var stream = image.OpenReadStream())
-                    {
-                        uploadedImageUrl = await imageService.UploadImageAsync(stream, image.FileName);
-                    }
-                }
-                if (!string.IsNullOrEmpty(image.ToString()) && Uri.IsWellFormedUriString(image.ToString(), UriKind.Absolute))
-                {
-                    uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
-                }
-                product.ImageURL = uploadedImageUrl;
+                
 
                 await _baseRepo.UpdateAsync(product);
 
@@ -209,7 +221,6 @@ namespace BusinessObject.Service
                 {
                     productId = product.ProductId,
                     Product = productDTO,
-                    ImageUrl = uploadedImageUrl
                 };
                 response.Success = true;
                 response.Message = "Product updated successfully";

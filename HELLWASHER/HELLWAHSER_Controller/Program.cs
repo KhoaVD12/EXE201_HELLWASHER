@@ -86,6 +86,9 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<WashShopContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
+// Register IHttpContextAccessor
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 builder.Services.AddService(builder.Configuration.GetConnectionString("DatabaseConnection"));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

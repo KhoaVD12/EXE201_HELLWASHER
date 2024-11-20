@@ -89,5 +89,33 @@ namespace BusinessObject.Service
             }
             return response;
         }
+        public async Task<ServiceResponse<RegisterRequest>> StaffRegisterAsync(RegisterRequest request)
+        {
+            var response = new ServiceResponse<RegisterRequest>();
+            try
+            {
+                var existEmail = await _userRepo.CheckExistedEmailAddress(request.Email);
+                if (existEmail)
+                {
+                    response.Success = false;
+                    response.Message = "Email is already existed";
+                    return response;
+                }
+                var userRegister = _mapper.Map<User>(request);
+                userRegister.Password = HashPassWithSHA256.HashWithSHA256(userRegister.Password);
+                userRegister.Role = "Staff";
+                userRegister.Token = Guid.NewGuid().ToString();
+                await _userBaseRepo.AddAsync(userRegister);
+                response.Success = true;
+                response.Message = "Register successfully";
+                response.Data = request;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }

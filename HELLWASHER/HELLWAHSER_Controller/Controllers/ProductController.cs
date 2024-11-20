@@ -39,19 +39,27 @@ namespace HELLWASHER_Controller.Controllers
         }
         [HttpPost("Add")]
         [Authorize(Roles = "Admin, Staff")]
-        public async Task<IActionResult> AddProduct([FromForm] CreateProductDTO productDTO, IFormFile image)
+        public async Task<IActionResult> AddProduct([FromForm] CreateProductDTO productDTO)
         {
-            var result = await _productService.CreateProduct(productDTO, image);
+            var result = await _productService.CreateProduct(productDTO);
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);
         }
+        [HttpPut("Update/Image")]
+        [Authorize(Roles = "Admin, Staff")]
+        public async Task<IActionResult> AddProductImage(IFormFile image, int productId)
+        {
+            var result = await _productService.ProductImage(image, productId);
+            if (!result.Success) return BadRequest(result);
 
+            return Ok(result);
+        }
         [HttpPut("update/{productId}")]
         [Authorize(Roles = "Admin, Staff")]
-        public async Task<IActionResult> UpdateProduct([FromForm] UpdateProductDTO productDTO, int productId, IFormFile image)
+        public async Task<IActionResult> UpdateProduct([FromForm] UpdateProductDTO productDTO, int productId)
         {
-            var result = await _productService.UpdateProduct(productDTO, productId, image);
+            var result = await _productService.UpdateProduct(productDTO, productId);
             if (!result.Success) return BadRequest(result);
 
             return Ok(result);

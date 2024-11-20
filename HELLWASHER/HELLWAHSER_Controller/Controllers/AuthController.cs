@@ -32,6 +32,17 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
 
+        [HttpPost("Register-staff")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> StaffRegister(RegisterRequest registerRequest)
+        {
+            var result = await _authenService.StaffRegisterAsync(registerRequest);
+            if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
+
+
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginRequest loginRequest)

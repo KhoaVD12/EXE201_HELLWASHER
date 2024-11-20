@@ -10,6 +10,6 @@ namespace BusinessObject.ViewModels.Order
     public class AddOrderResponse
     {
         public int OrderId { get; set; }
-        public OrderDTO Order { get; set; }
+        public QuickOrderDTO Order { get; set; }
     }
 }

@@ -88,7 +88,7 @@ namespace BusinessObject.Service
 
 
 
-        public async Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, User user)
+        public async Task<ServiceResponse<AddOrderResponse>> AddOrder(QuickOrderDTO order, User user)
         {
             var serviceResponse = new ServiceResponse<AddOrderResponse>();
 

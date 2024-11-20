@@ -15,8 +15,9 @@ namespace BusinessObject.IService
     {
         Task<ServiceResponse<IEnumerable<ResponseProductDTO>>> GetAllProduct();
         Task<ServiceResponse<ResponseProductDTO>> GetProductById(int productId);
-        Task<ServiceResponse<CreateProductResponse>> CreateProduct(CreateProductDTO userDTO, IFormFile image);
-        Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId, IFormFile image);
+        Task<ServiceResponse<CreateProductResponse>> CreateProduct(CreateProductDTO userDTO);
+        Task<ServiceResponse<ImageResponse>> ProductImage(IFormFile image, int productId);
+        Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId);
         Task<ServiceResponse<bool>> DeleteProduct(int id);
     }
 }

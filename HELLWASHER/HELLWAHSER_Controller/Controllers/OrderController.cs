@@ -55,24 +55,27 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
-        [HttpPost("QuickAdd")]
-        [AllowAnonymous]
-        public async Task<IActionResult> QuickAddOrder([FromBody] QuickOrderDTO orderDTO)
-        {
-            var result = await _orderService.QuickAddOrder(orderDTO);
-            if (!result.Success) return BadRequest(result);
+        //[HttpPost("QuickAdd")]
+        //[AllowAnonymous]
+        //public async Task<IActionResult> QuickAddOrder([FromBody] QuickOrderDTO orderDTO)
+        //{
+        //    var result = await _orderService.QuickAddOrder(orderDTO);
+        //    if (!result.Success) return BadRequest(result);
 
-            return Ok(result);
-        }
-
-        [HttpPost("Add")]
-        [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> AddOrder([FromBody] OrderDTO orderDTO)
+        //    return Ok(result);
+        //}
+        [HttpPost("OrderService")]
+        public async Task<IActionResult> AddOrder([FromBody] QuickOrderDTO orderDTO)
         {
             var user = await _userService.GetUserByTokenAsync(User);
             if (user == null)
             {
-                return Unauthorized();
+                var response = new
+                {
+                    Success = false,
+                    Message = "You need to login"
+                };
+                return Unauthorized(response);
             }
 
             var result = await _orderService.AddOrder(orderDTO, user);
@@ -80,6 +83,7 @@ namespace HELLWASHER_Controller.Controllers
 
             return Ok(result);
         }
+
 
         [HttpPut("update/{orderId}")]
         [Authorize(Roles = "Customer")]

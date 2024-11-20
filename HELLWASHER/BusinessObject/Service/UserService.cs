@@ -298,9 +298,11 @@ namespace BusinessObject.Service
         }
         public async Task<User> GetUserByTokenAsync(ClaimsPrincipal claims)
         {
-            if (claims == null)
+            if (claims == null || claims.Identity.IsAuthenticated == false)
             {
+                return null;
                 throw new ArgumentNullException("Invalid token");
+                
             }
             var userId = claims.FindFirst("Id")?.Value;
             if (string.IsNullOrEmpty(userId) || !int.TryParse(userId, out int id))

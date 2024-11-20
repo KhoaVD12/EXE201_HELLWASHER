@@ -15,7 +15,7 @@ namespace BusinessObject.IService
     {
         Task<ServiceResponse<IEnumerable<OrderResponse>>> GetAllOrder(User user);
         Task<ServiceResponse<QuickOrderDTO>> QuickAddOrder(QuickOrderDTO orderDTO);
-        Task<ServiceResponse<AddOrderResponse>> AddOrder(OrderDTO order, User user);
+        Task<ServiceResponse<AddOrderResponse>> AddOrder(QuickOrderDTO order, User user);
         Task<ServiceResponse<UpdateOrderRequest>> UpdateOrder(UpdateOrderRequest orderRequest, int orderId, User user);
         Task<ServiceResponse<OrderResponse>> GetOrderById(int orderId, User user);
         Task<ServiceResponse<OrderStatusRequest>> UpdateOrderStatus(int orderId, OrderStatusEnumRequest status);

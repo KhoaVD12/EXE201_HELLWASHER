@@ -32,6 +32,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HELLWASHER_Controller.Controllers.AuthController",
+    "Method": "StaffRegister",
+    "RelativePath": "api/authentication/Register-staff",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "BusinessObject.ViewModels.Authen.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "HELLWASHER_Controller.Controllers.CategoryController",
     "Method": "CreateCategory",
     "RelativePath": "api/Category",
@@ -242,22 +258,6 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
-    "Method": "AddOrder",
-    "RelativePath": "api/Order/Add",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderDTO",
-        "Type": "BusinessObject.ViewModels.Order.OrderDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
     "Method": "SendConfirmOrderEmail",
     "RelativePath": "api/Order/Confirm-email",
     "HttpMethod": "POST",
@@ -295,8 +295,8 @@
   },
   {
     "ContainingType": "HELLWASHER_Controller.Controllers.OrderController",
-    "Method": "QuickAddOrder",
-    "RelativePath": "api/Order/QuickAdd",
+    "Method": "AddOrder",
+    "RelativePath": "api/Order/OrderService",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -409,11 +409,6 @@
         "Name": "CategoryId",
         "Type": "System.Int32",
         "IsRequired": false
-      },
-      {
-        "Name": "image",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -471,10 +466,26 @@
         "Name": "productId",
         "Type": "System.Int32",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HELLWASHER_Controller.Controllers.ProductController",
+    "Method": "AddProductImage",
+    "RelativePath": "api/Product/Update/Image",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
