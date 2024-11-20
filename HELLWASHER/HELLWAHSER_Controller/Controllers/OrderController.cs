@@ -25,7 +25,7 @@ namespace HELLWASHER_Controller.Controllers
             _context = context;
             _userService = userService;
         }
-        [HttpGet]
+        [HttpGet("getAllOrders")]
         [Authorize(Roles = "Admin, Staff, Customer")]
         public async Task<IActionResult> GetAllOrders()
         {
@@ -41,7 +41,7 @@ namespace HELLWASHER_Controller.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{orderId}")]
+        [HttpGet("GetOrderBy{orderId}")]
         [Authorize(Roles = "Admin, Staff, Customer")]
         public async Task<IActionResult> GetOrderById([FromRoute] int orderId)
         {

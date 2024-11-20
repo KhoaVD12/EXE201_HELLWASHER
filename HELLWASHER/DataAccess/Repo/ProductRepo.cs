@@ -18,9 +18,25 @@ namespace DataAccess.Repo
         }
         public async Task<Product> GetProductWithDetails(int id)
         {
-            return await _dbContext.Products
-                .Include(o => o.Category)
-                .FirstOrDefaultAsync(o => o.ProductId == id);
+            try
+            {
+                var response = await _dbContext.Products
+                                .Include(o => o.Category)
+                                .FirstOrDefaultAsync(o => o.ProductId == id);
+
+                if (response != null)
+                {
+                    return response;
+                }else
+                {
+                    return new Product();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+        
     }
 }
