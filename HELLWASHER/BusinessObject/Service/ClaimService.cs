@@ -8,9 +8,11 @@ namespace BusinessLogicLayer
     {
         public ClaimService(IHttpContextAccessor httpContextAccessor)
         {
-            var Id = httpContextAccessor.HttpContext.User?.FindFirstValue("Id");
-            GetCurrentUserId = string.IsNullOrEmpty(Id) ? Guid.Empty : Guid.Parse(Id);
+            // Fetch the UserId from the claims using the key "UserId"
+            var userIdClaim = httpContextAccessor.HttpContext?.User?.FindFirstValue("UserId");
+
+            GetCurrentUserId = !string.IsNullOrEmpty(userIdClaim) ? int.Parse(userIdClaim) : 0;
         }
-        public Guid GetCurrentUserId { get; }
+        public int GetCurrentUserId { get; }
     }
 }

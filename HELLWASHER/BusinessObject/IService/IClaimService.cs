@@ -8,7 +8,7 @@ namespace BusinessObject.IService
 {
     public interface IClaimService
     {
-       public Guid GetCurrentUserId { get; }
+       public int GetCurrentUserId { get; }
 
     }
 }

@@ -33,6 +33,7 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest();
             }
         }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> GetCategory(int page = 1, int pageSize = 10,
