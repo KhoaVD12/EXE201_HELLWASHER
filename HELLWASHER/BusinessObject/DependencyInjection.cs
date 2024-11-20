@@ -1,8 +1,10 @@
-﻿using BusinessObject.IService;
+﻿using BusinessLogicLayer;
+using BusinessObject.IService;
 using BusinessObject.Service;
 using DataAccess.BaseRepo;
 using DataAccess.IRepo;
 using DataAccess.Repo;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -36,6 +38,9 @@ namespace BusinessObject
             services.AddScoped<IFeedbackService, FeedbackService>();
 
             services.AddScoped<IAuthenService, AuthenService>();
+
+            services.AddScoped<IClaimService, ClaimService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;
         }
     }

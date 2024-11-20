@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BusinessLogicLayer;
 using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
@@ -27,8 +28,11 @@ namespace BusinessObject.Service
         private readonly IMapper _mapper;
         private readonly IProductRepo _productRepo;
         private readonly WashShopContext _dbcontext;
-        public ProductService(IBaseRepo<Product> baseRepo, IMapper mapper, WashShopContext dbContext, IProductRepo productRepo, IBaseRepo<Category> categoryRepo)
+        private readonly IClaimService _claimServices;
+
+        public ProductService(IBaseRepo<Product> baseRepo,IClaimService claimService, IMapper mapper, WashShopContext dbContext, IProductRepo productRepo, IBaseRepo<Category> categoryRepo)
         {
+            _claimServices = claimService;
             _baseRepo = baseRepo;
             _mapper = mapper;
             _dbcontext = dbContext;
@@ -41,20 +45,29 @@ namespace BusinessObject.Service
             var response = new ServiceResponse<CreateProductResponse>();
             try
             {
-                var product = _mapper.Map<Product>(productDTO);
-                var category = await _productRepo.GetProductWithDetails(productDTO.CategoryId);
-                if (product.CategoryId == null)
+                var mapping = _mapper.Map<Product>(productDTO);
+                var getId = _claimServices.GetCurrentUserId;
+                if (getId == null)
                 {
                     response.Success = false;
-                    response.Message = "Category not found";
+                    response.Message = "You need to login first";
+                }else
+                {
+
+                }
+                var productdetail = await _productRepo.GetProductWithDetails(productDTO.ProductId);
+                if (mapping.ProductId == null)
+                {
+                    response.Success = false;
+                    response.Message = "Product not found";
                     return response;
                 }
-                product.Name = productDTO.Name;
-                product.Description = productDTO.Description;
-                product.Price = productDTO.Price;
-                product.Quantity = productDTO.Quantity;
-                product.CategoryId = productDTO.CategoryId;
-                product.IsDeleted = false;
+                mapping.Name = productDTO.Name;
+                mapping.Description = productDTO.Description;
+                mapping.Price = productDTO.Price;
+                mapping.Quantity = productDTO.Quantity;
+                mapping.CategoryId = productDTO.CategoryId;
+                mapping.IsDeleted = false;
 
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
@@ -69,12 +82,12 @@ namespace BusinessObject.Service
                 {
                     uploadedImageUrl = await imageService.UploadImageFromUrlAsync(image.ToString());
                 }
-                product.ImageURL = uploadedImageUrl;
-                await _baseRepo.AddAsync(product);
+                mapping.ImageURL = uploadedImageUrl;
+                await _baseRepo.AddAsync(mapping);
 
                 response.Data = new CreateProductResponse
                 {
-                    productId = product.ProductId,
+                    productId = mapping.ProductId,
                     Product = productDTO,
                     ImageUrl = uploadedImageUrl
                 };
