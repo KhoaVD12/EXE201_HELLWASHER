@@ -28,7 +28,9 @@ namespace BusinessObject
         public string? Hint { get; set; } = null;
         public int? HintId { get; set; } = null;
         public string? Code { get; set; } = null;
-        public T DataToken { get; set; }
+        public T AccessToken { get; set; }
+
+        public T RefreshToken { get; set; }
         public List<string>? ErrorMessages { get; set; } = null;
     }
 }

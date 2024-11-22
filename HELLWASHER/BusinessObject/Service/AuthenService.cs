@@ -34,7 +34,10 @@ namespace BusinessObject.Service
             var response = new TokenResponse<string>();
             try
             {
+                // Hash the provided password
                 var HashPass = HashPassWithSHA256.HashWithSHA256(request.Password);
+
+                // Validate user credentials
                 var userLogin = await _userRepo.GetUserByEmailAddressAndPasswordHash(request.Email, HashPass);
                 if(userLogin == null)
                 {
@@ -42,14 +45,20 @@ namespace BusinessObject.Service
                     response.Message = "Username or password is incorrect";
                     return response;
                 }
-                var token = await _userRepo.GetTokenByUserIdAsync(userLogin.UserId);
+
+                // Generate access token
+                var accessToken = await _userRepo.GetTokenByUserIdAsync(userLogin.UserId);
+
+                // Generate refresh token
+                var refreshToken = GenerateJsonWebTokenString.GenerateRefreshToken();
 
                 var auth = userLogin.Role;
                 var userId = userLogin.UserId;
                 var tokenValue = userLogin.GenerateJsonWebToken(_appConfig, _appConfig.JWTSection.SecretKey, DateTime.Now);
                 response.Success = true;
                 response.Message = "Login successfully";
-                response.DataToken = tokenValue;
+                response.AccessToken  = tokenValue;
+                response.RefreshToken = refreshToken;
                 response.Role = auth;
                 response.HintId = userId;
             }

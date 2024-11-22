@@ -23,7 +23,9 @@ namespace DataAccess.Repo
 
         public async Task<string> GetTokenByUserIdAsync(int userId)
         {
-            return await _dbContext.Users.Where(e => e.UserId == userId).Select(e => e.Token).FirstOrDefaultAsync();
+            return await _dbContext.Users.Where(e => e.UserId == userId)
+                                         .Select(e => e.Token)
+                                         .FirstOrDefaultAsync();
         }
 
         public async Task<User> GetUserByEmailAddressAndPasswordHash(string email, string passwordHash)
