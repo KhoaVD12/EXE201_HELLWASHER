@@ -66,6 +66,14 @@ namespace BusinessObject.Service
             var response = new ServiceResponse<RegisterRequest>();
             try
             {
+                // Check if passwords match
+                if (request.Password != request.ConFirmPassword)
+                {
+                    response.Success = false;
+                    response.Message = "Password and Confirm Password do not match.";
+                    return response;
+                }
+
                 var existEmail = await _userRepo.CheckExistedEmailAddress(request.Email);
                 if (existEmail)
                 {
@@ -73,11 +81,13 @@ namespace BusinessObject.Service
                     response.Message = "Email is already existed";
                     return response;
                 }
+
                 var userRegister = _mapper.Map<User>(request);
                 userRegister.Password = HashPassWithSHA256.HashWithSHA256(userRegister.Password);
                 userRegister.Role = "Customer";
                 userRegister.Token = Guid.NewGuid().ToString();
                 await _userBaseRepo.AddAsync(userRegister);
+
                 response.Success = true;
                 response.Message = "Register successfully";
                 response.Data = request;
@@ -94,6 +104,14 @@ namespace BusinessObject.Service
             var response = new ServiceResponse<RegisterRequest>();
             try
             {
+                // Check if passwords match
+                if (request.Password != request.ConFirmPassword)
+                {
+                    response.Success = false;
+                    response.Message = "Password and Confirm Password do not match.";
+                    return response;
+                }
+
                 var existEmail = await _userRepo.CheckExistedEmailAddress(request.Email);
                 if (existEmail)
                 {
@@ -101,11 +119,13 @@ namespace BusinessObject.Service
                     response.Message = "Email is already existed";
                     return response;
                 }
+
                 var userRegister = _mapper.Map<User>(request);
                 userRegister.Password = HashPassWithSHA256.HashWithSHA256(userRegister.Password);
                 userRegister.Role = "Staff";
                 userRegister.Token = Guid.NewGuid().ToString();
                 await _userBaseRepo.AddAsync(userRegister);
+
                 response.Success = true;
                 response.Message = "Register successfully";
                 response.Data = request;
