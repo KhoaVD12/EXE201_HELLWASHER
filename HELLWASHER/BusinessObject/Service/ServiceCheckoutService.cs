@@ -95,19 +95,26 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<IEnumerable<ResponseServiceCheckoutDTO>>> GetCheckoutByOrderId(int id)
+        public async Task<ServiceResponse<ResponseServiceCheckoutSummaryDTO>> GetCheckoutByOrderId(int id)
         {
-            var res = new ServiceResponse<IEnumerable<ResponseServiceCheckoutDTO>>();
+            var res = new ServiceResponse<ResponseServiceCheckoutSummaryDTO>();
             try
             {
-
                 var checkouts = await _repo.GetAll();
-                if (checkouts.Any(s=>s.OrderId==id))
+                if (checkouts.Any(s => s.OrderId == id))
                 {
-                    checkouts=checkouts.Where(s=>s.OrderId==id).ToList();
+                    checkouts = checkouts.Where(s => s.OrderId == id).ToList();
                     var list = _mapper.Map<IEnumerable<ResponseServiceCheckoutDTO>>(checkouts);
+                    var totalAmount = checkouts.Sum(s => s.TotalPricePerService);
+
+                    var summary = new ResponseServiceCheckoutSummaryDTO
+                    {
+                        Services = list,
+                        TotalAmount = totalAmount
+                    };
+
                     res.Success = true;
-                    res.Data=list;
+                    res.Data = summary;
                     res.Message = "Get Item Successfully";
                     return res;
                 }
@@ -121,7 +128,7 @@ namespace BusinessObject.Service
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to Delete item:{ex.Message}";
+                res.Message = $"Fail to get items: {ex.Message}";
                 return res;
             }
         }

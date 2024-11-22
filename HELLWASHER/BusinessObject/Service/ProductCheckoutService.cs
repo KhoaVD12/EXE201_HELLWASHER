@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessObject.IService;
+using BusinessObject.Model.Response;
 using BusinessObject.ViewModels.ProductCheckoutDTO;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
@@ -95,7 +96,59 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+        //public async Task<ServiceResponse<ProductCheckoutResponse>> UpdateClothWeight(int id, decimal weight)
+        //{
+        //    var res = new ServiceResponse<ProductCheckoutResponse>();
 
+        //    try
+        //    {
+        //        // Validate weight
+        //        if (weight <= 0)
+        //        {
+        //            res.Success = false;
+        //            res.Message = "Weight must be greater than 0";
+        //            return res;
+        //        }
+
+
+        //        var exist = await _productCheckoutBaseRepo.GetByIdAsync(id);
+        //        if (exist == null)
+        //        {
+        //            res.Success = false;
+        //            res.Message = "No Item found with this ID";
+        //            return res;
+        //        }
+
+
+        //        var service = await _productCheckoutBaseRepo.GetByIdAsync(exist.ProductId);
+        //        if (service == null)
+        //        {
+        //            res.Success = false;
+        //            res.Message = "Associated service not found";
+        //            return res;
+        //        }
+
+
+        //        exist.Weight = weight;
+        //        exist.TotalPricePerService = Math.Round(weight * service.Price, 2);
+
+
+        //        await _repo.UpdateAsync(exist);
+
+        //        var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);
+
+        //        res.Success = true;
+        //        res.Data = result;
+        //        res.Message = "Item updated successfully";
+        //        return res;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        res.Success = false;
+        //        res.Message = $"Failed to update item: {ex.Message}";
+        //        return res;
+        //    }
+        //}
         public async Task<ServiceResponse<ProductCheckoutDTO>> UpdateProductCheckout(int id, int quantity)
         {
             var response = new ServiceResponse<ProductCheckoutDTO>();

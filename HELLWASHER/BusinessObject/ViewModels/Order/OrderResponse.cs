@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.Enum;
 
 namespace BusinessObject.ViewModels.Order
 {
@@ -14,6 +10,7 @@ namespace BusinessObject.ViewModels.Order
         public string CusomterPhone { get; set; }
         public DateTime OrderDate { get; set; }
         public string Address { get; set; }
+        public OrderEnum OrderStatus { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime? PickUpDate { get; set; }
         public string? ConfirmImage { get; set; }

@@ -42,8 +42,8 @@ namespace BusinessObject.Service
             try
             {
                 var mapping = _mapper.Map<Product>(productDTO);
-                var category = await _productRepo.GetProductWithDetails(productDTO.CategoryId);
-                if (mapping.CategoryId == null)
+                var category = await _categoryRepo.GetByIdAsync(productDTO.CategoryId);
+                if (category == null)
                 {
                     response.Success = false;
                     response.Message = "Category not found";
@@ -55,7 +55,6 @@ namespace BusinessObject.Service
                 mapping.Quantity = productDTO.Quantity;
                 mapping.CategoryId = productDTO.CategoryId;
                 mapping.IsDeleted = false;
-
 
                 await _baseRepo.AddAsync(mapping);
 
