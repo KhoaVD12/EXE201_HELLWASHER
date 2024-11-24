@@ -42,8 +42,8 @@ namespace BusinessObject.Utils
                 productRows.Append($@"
         <tr>
             <td>{productCheckout.Product.Name}</td>
-            <td>{productCheckout.QuantityPerService}</td>
-            <td>{productCheckout.TotalPricePerService:C}</td>
+            <td>{productCheckout.QuantityPerProduct}</td>
+            <td>{productCheckout.TotalPricePerProduct:C}</td>
         </tr>");
             }
 

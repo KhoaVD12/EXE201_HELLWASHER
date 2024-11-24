@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer;
 using BusinessObject.IService;
 using BusinessObject.Service;
+using BusinessObject.ViewModels.ProductCheckoutDTO;
 using DataAccess.BaseRepo;
 using DataAccess.IRepo;
 using DataAccess.Repo;
@@ -20,6 +21,7 @@ namespace BusinessObject
         {
             services.AddScoped(typeof(IBaseRepo<>), typeof(BaseRepo<>));
 
+            services.AddScoped<IProductCheckoutRepo, ProductCheckoutRepo>();
             services.AddScoped<IServiceCheckoutRepo, ServiceCheckoutRepo>();
 
             services.AddScoped<IWashServiceService, WashServiceService>();

@@ -174,7 +174,7 @@ namespace BusinessObject.Service
 
                 var orderDetails = await _orderRepository.GetOrderWithDetails(orderId);
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
-                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerProduct) ?? 0;
                 decimal totalPrice = totalServiceCheckout + totalProductCheckout;
 
                 order.TotalPrice = totalPrice;
@@ -312,7 +312,7 @@ namespace BusinessObject.Service
                 var userItem = await _orderRepository.GetOrderWithDetails(orderId);
 
                 decimal totalServiceCheckout = order.ServiceCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
-                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerService) ?? 0;
+                decimal totalProductCheckout = order.ProductCheckouts?.Sum(x => x.TotalPricePerProduct) ?? 0;
                 decimal totalPrice = totalServiceCheckout + totalProductCheckout;
                 if (order.UserId == null) 
                 {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessObject.IService;
+using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using BusinessObject.ViewModels.ProductCheckoutDTO;
 using DataAccess.BaseRepo;
@@ -15,12 +16,12 @@ namespace BusinessObject.Service
 {
     public class ProductCheckoutService : IProductCheckoutService
     {
-        private readonly IBaseRepo<ProductCheckout> _productCheckoutBaseRepo;
+        private readonly IProductCheckoutRepo _repo;
         private readonly IBaseRepo<Product> _productBaseRepo;
         private readonly IMapper _mapper;
-        public ProductCheckoutService(IBaseRepo<ProductCheckout> productCheckoutBaseRepo, IBaseRepo<Product> productBaserepo, IMapper mapper)
+        public ProductCheckoutService(IProductCheckoutRepo repo, IBaseRepo<Product> productBaserepo, IMapper mapper)
         {
-            _productCheckoutBaseRepo = productCheckoutBaseRepo;
+            _repo = repo;
             _productBaseRepo = productBaserepo;
             _mapper = mapper;
         }
@@ -31,7 +32,7 @@ namespace BusinessObject.Service
             try
             {
                 // Check if the ProductCheckout already exists
-                var existingProductCheckout = await _productCheckoutBaseRepo.FirstOrDefaultAsync(pc => pc.ProductId == productCheckoutDTO.ProductId && pc.orderId == orderId);
+                var existingProductCheckout = await _repo.FirstOrDefaultAsync(pc => pc.ProductId == productCheckoutDTO.ProductId && pc.OrderId == orderId);
                 if (existingProductCheckout != null)
                 {
                     response.Success = false;
@@ -43,12 +44,12 @@ namespace BusinessObject.Service
 
                 var product = await _productBaseRepo.GetByIdAsync(productCheckoutDTO.ProductId);
 
-                product.Quantity -= productCheckoutDTO.QuantityPerService;
-                productCheckout.TotalPricePerService = product.Price * productCheckoutDTO.QuantityPerService;
-                productCheckout.orderId = orderId;
+                product.Quantity -= productCheckoutDTO.QuantityPerProduct;
+                productCheckout.TotalPricePerProduct = product.Price * productCheckoutDTO.QuantityPerProduct;
+                productCheckout.OrderId = orderId;
 
                 await _productBaseRepo.UpdateAsync(product);
-                await _productCheckoutBaseRepo.AddAsync(productCheckout);
+                await _repo.AddAsync(productCheckout);
 
                 response.Data = new ProductCheckoutResponse
                 {
@@ -72,7 +73,7 @@ namespace BusinessObject.Service
             var response = new ServiceResponse<bool>();
             try
             {
-                var productCheckout = await _productCheckoutBaseRepo.GetByIdAsync(id);
+                var productCheckout = await _repo.GetByIdAsync(id);
                 if (productCheckout == null)
                 {
                     response.Success = false;
@@ -81,10 +82,10 @@ namespace BusinessObject.Service
                 }
 
                 var product = await _productBaseRepo.GetByIdAsync(productCheckout.ProductId);
-                product.Quantity += productCheckout.QuantityPerService;
+                product.Quantity += productCheckout.QuantityPerProduct;
 
                 await _productBaseRepo.UpdateAsync(product);
-                await _productCheckoutBaseRepo.DeleteAsync(id);
+                await _repo.DeleteAsync(id);
                 response.Success = true;
                 response.Message = "Product checkout deleted successfully";
                 return response;
@@ -96,6 +97,45 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
+        public async Task<ServiceResponse<ResponseProductCheckoutSummaryDTO>> GetCheckoutByOrderId(int id)
+        {
+            var res = new ServiceResponse<ResponseProductCheckoutSummaryDTO>();
+            try
+            {
+                var checkouts = await _repo.GetAll();
+                if (checkouts.Any(s => s.OrderId == id))
+                {
+                    checkouts = checkouts.Where(s => s.OrderId == id).ToList();
+                    var list = _mapper.Map<IEnumerable<ResponseProductCheckoutDTO>>(checkouts);
+                    var totalAmount = checkouts.Sum(s => s.TotalPricePerProduct);
+
+                    var summary = new ResponseProductCheckoutSummaryDTO
+                    {
+                        Services = list,
+                        TotalAmount = totalAmount
+                    };
+
+                    res.Success = true;
+                    res.Data = summary;
+                    res.Message = "Get Item Successfully";
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = "No Item with this OrderId";
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to get items: {ex.Message}";
+                return res;
+            }
+        }
+
         //public async Task<ServiceResponse<ProductCheckoutResponse>> UpdateClothWeight(int id, decimal weight)
         //{
         //    var res = new ServiceResponse<ProductCheckoutResponse>();
@@ -111,7 +151,7 @@ namespace BusinessObject.Service
         //        }
 
 
-        //        var exist = await _productCheckoutBaseRepo.GetByIdAsync(id);
+        //        var exist = await _repo.GetByIdAsync(id);
         //        if (exist == null)
         //        {
         //            res.Success = false;
@@ -120,7 +160,7 @@ namespace BusinessObject.Service
         //        }
 
 
-        //        var service = await _productCheckoutBaseRepo.GetByIdAsync(exist.ProductId);
+        //        var service = await _repo.GetByIdAsync(exist.ProductId);
         //        if (service == null)
         //        {
         //            res.Success = false;
@@ -160,7 +200,7 @@ namespace BusinessObject.Service
                     response.Message = "Quantity must be greater than 0";
                     return response;
                 }
-                var productCheckout = await _productCheckoutBaseRepo.GetByIdAsync(id);
+                var productCheckout = await _repo.GetByIdAsync(id);
                 if (productCheckout == null)
                 {
                     response.Success = false;
@@ -169,14 +209,14 @@ namespace BusinessObject.Service
                 }
                 var product = await _productBaseRepo.GetByIdAsync(productCheckout.ProductId);
 
-                productCheckout.QuantityPerService = quantity;
+                productCheckout.QuantityPerProduct = quantity;
 
-                productCheckout.TotalPricePerService = product.Price * quantity;
+                productCheckout.TotalPricePerProduct = product.Price * quantity;
 
-                product.Quantity += productCheckout.QuantityPerService - quantity;
+                product.Quantity += productCheckout.QuantityPerProduct - quantity;
 
                 await _productBaseRepo.UpdateAsync(product);
-                await _productCheckoutBaseRepo.UpdateAsync(productCheckout);
+                await _repo.UpdateAsync(productCheckout);
 
                 response.Data = _mapper.Map<ProductCheckoutDTO>(productCheckout);
                 response.Success = true;
