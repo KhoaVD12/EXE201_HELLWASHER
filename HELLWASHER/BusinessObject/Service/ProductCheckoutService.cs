@@ -39,7 +39,12 @@ namespace BusinessObject.Service
                     response.Message = "ProductCheckout already exists.";
                     return response;
                 }
-
+                if (productCheckoutDTO.QuantityPerProduct > existingProductCheckout.QuantityPerProduct)
+                {
+                    response.Success = false;
+                    response.Message = "Exceed Quantity ?.";
+                    return response;
+                }
                 var productCheckout = _mapper.Map<ProductCheckout>(productCheckoutDTO);
 
                 var product = await _productBaseRepo.GetByIdAsync(productCheckoutDTO.ProductId);
