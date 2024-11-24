@@ -47,6 +47,9 @@ namespace BusinessObject.Mapper
                 .ReverseMap();
             //Product Checkout
             CreateMap<ProductCheckoutDTO, ProductCheckout>().ReverseMap();
+            CreateMap<ProductCheckout, ResponseProductCheckoutDTO>()
+                .ForMember(a => a.Name, d => d.MapFrom(s => s.Product.Name))
+                .ReverseMap();
             //Product Item
             CreateMap<CreateProductDTO, Product>().ReverseMap();
             CreateMap<ResponseProductDTO, Product>().ReverseMap();
