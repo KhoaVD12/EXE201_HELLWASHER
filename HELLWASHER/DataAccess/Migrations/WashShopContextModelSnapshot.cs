@@ -179,23 +179,23 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductCheckoutId"));
 
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("QuantityPerService")
+                    b.Property<int>("QuantityPerProduct")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalPricePerService")
+                    b.Property<decimal>("TotalPricePerProduct")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("orderId")
-                        .HasColumnType("int");
 
                     b.HasKey("ProductCheckoutId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("OrderId");
 
-                    b.HasIndex("orderId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductCheckouts");
                 });
@@ -347,15 +347,15 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.ProductCheckout", b =>
                 {
-                    b.HasOne("DataAccess.Entity.Product", "Product")
+                    b.HasOne("DataAccess.Entity.Order", "Order")
                         .WithMany("ProductCheckouts")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.Entity.Order", "Order")
+                    b.HasOne("DataAccess.Entity.Product", "Product")
                         .WithMany("ProductCheckouts")
-                        .HasForeignKey("orderId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

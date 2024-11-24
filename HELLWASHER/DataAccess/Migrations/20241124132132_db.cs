@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class removeUneccessaryStuff : Migration
+    public partial class db : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -157,16 +157,16 @@ namespace DataAccess.Migrations
                     ProductCheckoutId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    QuantityPerService = table.Column<int>(type: "int", nullable: false),
-                    orderId = table.Column<int>(type: "int", nullable: false),
-                    TotalPricePerService = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    QuantityPerProduct = table.Column<int>(type: "int", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    TotalPricePerProduct = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductCheckouts", x => x.ProductCheckoutId);
                     table.ForeignKey(
-                        name: "FK_ProductCheckouts_Orders_orderId",
-                        column: x => x.orderId,
+                        name: "FK_ProductCheckouts_Orders_OrderId",
+                        column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "OrderId",
                         onDelete: ReferentialAction.Cascade);
@@ -227,9 +227,9 @@ namespace DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCheckouts_orderId",
+                name: "IX_ProductCheckouts_OrderId",
                 table: "ProductCheckouts",
-                column: "orderId");
+                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCheckouts_ProductId",
