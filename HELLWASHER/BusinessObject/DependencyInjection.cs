@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer;
 using BusinessObject.IService;
 using BusinessObject.Service;
+using BusinessObject.Utils.PayOs;
 using BusinessObject.ViewModels.ProductCheckoutDTO;
 using DataAccess.BaseRepo;
 using DataAccess.IRepo;
@@ -43,6 +44,8 @@ namespace BusinessObject
 
             services.AddScoped<IClaimService, ClaimService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<IPayOsService, PayOsService>();
             return services;
         }
     }

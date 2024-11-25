@@ -1,5 +1,7 @@
 using BusinessObject;
 using BusinessObject.Commons;
+using BusinessObject.Utils;
+using BusinessObject.Utils.PayOs;
 using DataAccess;
 using DataAccess.Entity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,7 +15,8 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
+var payOS = PayOs_Init.InitializePayOS(builder.Configuration);
+builder.Services.AddSingleton(payOS);
 // Bind configuration
 var appConfig = new AppConfiguration();
 builder.Configuration.Bind(appConfig);
