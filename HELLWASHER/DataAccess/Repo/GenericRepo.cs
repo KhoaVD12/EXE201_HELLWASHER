@@ -22,9 +22,9 @@ namespace DataAccess.Repo
             return await _dbSet.ToListAsync();
         }
 
-        public Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dbSet.FindAsync(id);
         }
 
         public async Task AddAsync(T entity)

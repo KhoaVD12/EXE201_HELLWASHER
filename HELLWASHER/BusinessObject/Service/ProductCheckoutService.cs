@@ -41,16 +41,14 @@ namespace BusinessObject.Service
                     response.Message = "ProductCheckout already exists.";
                     return response;
                 }
-                if (productCheckoutDTO.QuantityPerProduct > existingProductCheckout.QuantityPerProduct)
+                var product = await _productBaseRepo.GetByIdAsync(productCheckoutDTO.ProductId);
+                if (productCheckoutDTO.QuantityPerProduct > product.Quantity)
                 {
                     response.Success = false;
                     response.Message = "Exceed Quantity ?.";
                     return response;
                 }
                 var productCheckout = _mapper.Map<ProductCheckout>(productCheckoutDTO);
-
-                var product = await _productBaseRepo.GetByIdAsync(productCheckoutDTO.ProductId);
-
                 product.Quantity -= productCheckoutDTO.QuantityPerProduct;
                 productCheckout.TotalPricePerProduct = product.Price * productCheckoutDTO.QuantityPerProduct;
                 productCheckout.OrderId = orderId;
