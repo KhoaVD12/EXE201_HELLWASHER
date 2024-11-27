@@ -17,9 +17,9 @@ namespace DataAccess.Repo
             this.context = context;
             _dbSet = context.Set<T>();
         }
-        public Task<List<T>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbSet.ToListAsync();
         }
 
         public Task<T?> GetByIdAsync(int id)
