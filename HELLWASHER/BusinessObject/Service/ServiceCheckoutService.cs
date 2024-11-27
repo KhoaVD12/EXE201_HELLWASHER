@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using Azure;
 using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
 using DataAccess.IRepo;
+using DataAccess.Repo;
+using MailKit.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +20,17 @@ namespace BusinessObject.Service
     {
         private readonly IServiceCheckoutRepo _repo;
         private readonly IBaseRepo<DataAccess.Entity.Service> _washServiceRepo;
-        
+        private readonly IOrderRepo _orderRepo;
         private readonly IMapper _mapper;
         public ServiceCheckoutService(IServiceCheckoutRepo repo, 
             IMapper mapper,
-            IBaseRepo<DataAccess.Entity.Service> washServiceRepo
-            )
+            IBaseRepo<DataAccess.Entity.Service> washServiceRepo,
+            IOrderRepo orderRepo)
         {
             _mapper = mapper;
             _repo = repo;
             _washServiceRepo = washServiceRepo;
-            
+            _orderRepo = orderRepo;
         }
 
         public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateServiceCheckout(CreateServiceCheckoutDTO itemDTO)
@@ -51,6 +54,15 @@ namespace BusinessObject.Service
                 }
                 var mapp = _mapper.Map<ServiceCheckout>(itemDTO);
                 mapp.TotalPricePerService = serviceExist.Price * itemDTO.Weight;
+                var order = await _orderRepo.GetByIdAsync(itemDTO.OrderId);
+                if (order == null)
+                {
+                    res.Success = false;
+                    res.Message = "No Order like that: " + itemDTO.OrderId;
+                    return res;
+                }
+                order.TotalPrice += mapp.TotalPricePerService;
+                await _orderRepo.Update(order);
                 await _repo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseServiceCheckoutDTO>(mapp);
                 res.Success = true;

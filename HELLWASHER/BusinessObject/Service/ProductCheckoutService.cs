@@ -18,12 +18,14 @@ namespace BusinessObject.Service
     {
         private readonly IProductCheckoutRepo _repo;
         private readonly IBaseRepo<Product> _productBaseRepo;
+        private readonly IOrderRepo _orderRepo;
         private readonly IMapper _mapper;
-        public ProductCheckoutService(IProductCheckoutRepo repo, IBaseRepo<Product> productBaserepo, IMapper mapper)
+        public ProductCheckoutService(IProductCheckoutRepo repo, IBaseRepo<Product> productBaserepo, IMapper mapper, IOrderRepo orderRepo)
         {
             _repo = repo;
             _productBaseRepo = productBaserepo;
             _mapper = mapper;
+            _orderRepo = orderRepo;
         }
 
         public async Task<ServiceResponse<ProductCheckoutResponse>> CreateProductCheckout(int orderId, ProductCheckoutDTO productCheckoutDTO)
@@ -54,8 +56,16 @@ namespace BusinessObject.Service
                 productCheckout.OrderId = orderId;
 
                 await _productBaseRepo.UpdateAsync(product);
+                var order = await _orderRepo.GetByIdAsync(orderId);
+                if (order == null)
+                {
+                    response.Success = false;
+                    response.Message = "No Order like that: "+orderId;
+                    return response;
+                }
+                order.TotalPrice += productCheckout.TotalPricePerProduct;
                 await _repo.AddAsync(productCheckout);
-
+                await _orderRepo.Update(order);
                 response.Data = new ProductCheckoutResponse
                 {
                     Id = productCheckout.ProductCheckoutId,
