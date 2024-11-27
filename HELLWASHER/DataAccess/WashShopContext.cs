@@ -19,7 +19,7 @@ namespace DataAccess
         public DbSet<Service> Services { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
-        
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
 
 

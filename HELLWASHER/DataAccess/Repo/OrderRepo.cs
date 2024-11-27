@@ -23,7 +23,16 @@ namespace DataAccess.Repo
                 .Where(o => o.UserId == userId)
                 .ToListAsync();
         }
-
+        public async Task<IEnumerable<Order>> GetAll()
+        {
+            return await _dbContext.Orders
+                .Include(o => o.ServiceCheckouts)
+                .ThenInclude(sc => sc.Service)
+                .Include(o => o.ProductCheckouts)
+                .ThenInclude(sc => sc.Product)
+                .Include(o => o.User)
+                .ToListAsync();
+        }
         public async Task<Order> GetOrderWithDetails(int id)
         {
             return await _dbContext.Orders

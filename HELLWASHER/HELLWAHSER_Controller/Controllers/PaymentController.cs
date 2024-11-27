@@ -15,18 +15,11 @@ namespace HELLWASHER_Controller.Controllers
             _service = service;
         }
         [HttpPost("create-payment")]
-        public async Task<IActionResult> CreatePayment()
+        public async Task<IActionResult> CreatePayment(int orderId, string? returnUrl = "http://localhost:5295", string? cancelUrl = "http://localhost:5295")
         {
-            long orderCode = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            List<ItemData> items = new List<ItemData>
-        {
-            new ItemData("Mì tôm hảo hảo ly", 1, 1000)
-        };
-            PaymentData paymentData = new PaymentData(orderCode, 1000, "Thanh toan don hang", items, "https://localhost:3002/cancel", "https://localhost:3002/success");
-
             try
             {
-                var result = await _service.CreatePaymentAsync(paymentData);
+                var result = await _service.CreatePaymentAsync(orderId, returnUrl, cancelUrl);
                 return Ok(result);
             }
             catch (Exception ex)
