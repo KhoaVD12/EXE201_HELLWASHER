@@ -10,6 +10,8 @@ using DataAccess.IRepo;
 using AutoMapper;
 using DataAccess.Entity;
 using DataAccess.BaseRepo;
+using MailKit.Search;
+using CloudinaryDotNet.Actions;
 namespace BusinessObject.Utils.PayOs
 {
     public class PayOsService:IPayOsService
@@ -18,12 +20,18 @@ namespace BusinessObject.Utils.PayOs
         private readonly IOrderRepo _orderRepo;
         private readonly IMapper _mapper;
         private readonly IBaseRepo<Payment> _paymentRepo;
-        public PayOsService(PayOS payOS, IOrderRepo orderRepo, IMapper mapper, IBaseRepo<Payment> paymentRepo)
+        private readonly IBaseRepo<DataAccess.Entity.PaymentLinkInformation> _infoRepo;
+        private readonly IBaseRepo<DataAccess.Entity.Transaction> _transactionRepo;
+        public PayOsService(PayOS payOS, IOrderRepo orderRepo, IMapper mapper, IBaseRepo<Payment> paymentRepo,
+            IBaseRepo<DataAccess.Entity.PaymentLinkInformation> infoRepo,
+            IBaseRepo<DataAccess.Entity.Transaction> transactionRepo)
         {
             _payOS = payOS;
             _orderRepo = orderRepo;
             _mapper = mapper;
             _paymentRepo = paymentRepo;
+            _infoRepo = infoRepo;
+            _transactionRepo = transactionRepo;
         }
         #region Map Item
         // Helper method to combine ProductCheckout and ServiceCheckout into ItemData
@@ -89,6 +97,7 @@ namespace BusinessObject.Utils.PayOs
                         Amount=paymentResult.amount,
                         Description=paymentResult.description,
                         OrderId=orderId,
+                        OrderCode=paymentResult.orderCode,
                         Currency=paymentResult.currency,
                         PaymentLinkId=paymentResult.paymentLinkId,
                         Status=paymentResult.status,
@@ -97,6 +106,51 @@ namespace BusinessObject.Utils.PayOs
                         QrCode=paymentResult.qrCode,
                     };
                     await _paymentRepo.AddAsync(payment);
+                    if (payment.OrderCode != null)
+                    {
+                        var result = await _payOS.getPaymentLinkInformation(payment.OrderCode);
+                        var paymentLinkInfomation = new DataAccess.Entity.PaymentLinkInformation
+                        {
+                            Id = result.id,
+                            OrderCode = payment.OrderCode,
+                            Amount = result.amount,
+                            AmountPaid = result.amountPaid,
+                            AmountRemaining = result.amountRemaining,
+                            Status = result.status,
+                            CreateAt = result.createdAt,
+                            CancelAt = result.canceledAt,
+                            CancellationReason = result.cancellationReason
+                        };
+                        await _infoRepo.AddAsync(paymentLinkInfomation);
+                        if (result.transactions != null)
+                        {
+                            var infos = await _infoRepo.GetAllAsync();
+                            var exist = infos.FirstOrDefault(i => i.OrderCode == payment.OrderCode);
+                            if (exist != null)
+                            {
+                                foreach (var item in result.transactions)
+                                {
+                                    var transaction = new DataAccess.Entity.Transaction
+                                    {
+                                        PaymentLinkInformationId = exist.PaymentLinkInformationId,
+                                        Reference = item.reference,
+                                        Amount = item.amount,
+                                        AccountNumber = item.accountNumber,
+                                        Description = item.description,
+                                        TransactionDateTime = item.transactionDateTime,
+                                        VirtualAccountName = item.virtualAccountName,
+                                        VirtualAccountNumber = item.virtualAccountNumber,
+                                        CounterAccountBankId = item.counterAccountBankId,
+                                        CounterAccountBankName = item.counterAccountBankName,
+                                        CounterAccountName = item.counterAccountName,
+                                        CounterAccountNumber = item.counterAccountNumber
+                                    };
+                                    await _transactionRepo.AddAsync(transaction);
+                                }
+                            }
+                        }
+                    }
+
                     res.Success = true;
                     res.Message = "Payment created successfully";
                     res.Data = paymentResult;
@@ -153,10 +207,29 @@ namespace BusinessObject.Utils.PayOs
                 var result = await _payOS.cancelPaymentLink(orderCode, cancellationReason);
                 if (result != null)
                 {
-                    res.Success = true;
-                    res.Message = "Get Successfully";
-                    res.Data = result;
-                    return res;
+                    var payments = await _paymentRepo.GetAllAsync();
+                    var exist = payments.FirstOrDefault(p => p.OrderCode == orderCode);
+                    var infos=await _infoRepo.GetAllAsync();
+                    var infoExist = infos.FirstOrDefault(i => i.OrderCode == orderCode);
+                    if (exist != null&&infoExist!=null)
+                    {
+                        exist.Status = result.status;
+                        infoExist.Status = result.status;
+                        infoExist.CancelAt = result.canceledAt;
+                        infoExist.CancellationReason= cancellationReason;
+                        await _paymentRepo.UpdateAsync(exist);
+                        await _infoRepo.UpdateAsync(infoExist);
+                        res.Success = true;
+                        res.Message = "Get Successfully";
+                        res.Data = result;
+                        return res;
+                    }
+                    else
+                    {
+                        res.Success = false;
+                        res.Message = "No payment/payment Link Info found?";
+                        return res;
+                    }
                 }
                 else
                 {
