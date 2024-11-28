@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Add_Payment : Migration
+    public partial class PayOs_Entity_Needed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,6 +26,27 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PaymentLinkInformation",
+                columns: table => new
+                {
+                    PaymentLinkInformationId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderCode = table.Column<long>(type: "bigint", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    AmountPaid = table.Column<int>(type: "int", nullable: false),
+                    AmountRemaining = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreateAt = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CancelAt = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CancellationReason = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentLinkInformation", x => x.PaymentLinkInformationId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Payments",
                 columns: table => new
                 {
@@ -36,6 +57,7 @@ namespace DataAccess.Migrations
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
+                    OrderCode = table.Column<long>(type: "bigint", nullable: false),
                     Currency = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PaymentLinkId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -108,6 +130,36 @@ namespace DataAccess.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    TransactionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentLinkInformationId = table.Column<int>(type: "int", nullable: false),
+                    Reference = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: false),
+                    AccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TransactionDateTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VirtualAccountName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VirtualAccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CounterAccountBankId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CounterAccountBankName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CounterAccountName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CounterAccountNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
+                    table.ForeignKey(
+                        name: "FK_Transactions_PaymentLinkInformation_PaymentLinkInformationId",
+                        column: x => x.PaymentLinkInformationId,
+                        principalTable: "PaymentLinkInformation",
+                        principalColumn: "PaymentLinkInformationId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -273,6 +325,11 @@ namespace DataAccess.Migrations
                 name: "IX_ServiceCheckouts_ServiceId",
                 table: "ServiceCheckouts",
                 column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_PaymentLinkInformationId",
+                table: "Transactions",
+                column: "PaymentLinkInformationId");
         }
 
         /// <inheritdoc />
@@ -291,6 +348,9 @@ namespace DataAccess.Migrations
                 name: "ServiceCheckouts");
 
             migrationBuilder.DropTable(
+                name: "Transactions");
+
+            migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
@@ -298,6 +358,9 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "PaymentLinkInformation");
 
             migrationBuilder.DropTable(
                 name: "Categories");

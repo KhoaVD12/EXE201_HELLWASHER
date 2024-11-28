@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241127103936_Add_Payment")]
-    partial class Add_Payment
+    [Migration("20241128102121_PayOs_Entity_Needed")]
+    partial class PayOs_Entity_Needed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,9 @@ namespace DataAccess.Migrations
                     b.Property<long?>("ExpiredAt")
                         .HasColumnType("bigint");
 
+                    b.Property<long>("OrderCode")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -186,6 +189,48 @@ namespace DataAccess.Migrations
                     b.HasKey("PaymentId");
 
                     b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.PaymentLinkInformation", b =>
+                {
+                    b.Property<int>("PaymentLinkInformationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentLinkInformationId"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountRemaining")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CancelAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CancellationReason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreateAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("OrderCode")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PaymentLinkInformationId");
+
+                    b.ToTable("PaymentLinkInformation");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
@@ -319,6 +364,61 @@ namespace DataAccess.Migrations
                     b.ToTable("ServiceCheckouts");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.Transaction", b =>
+                {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"));
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CounterAccountBankId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountBankName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentLinkInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reference")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionDateTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VirtualAccountName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VirtualAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("PaymentLinkInformationId");
+
+                    b.ToTable("Transactions");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -440,6 +540,17 @@ namespace DataAccess.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.Transaction", b =>
+                {
+                    b.HasOne("DataAccess.Entity.PaymentLinkInformation", "PaymentLinkInformation")
+                        .WithMany("Transactions")
+                        .HasForeignKey("PaymentLinkInformationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PaymentLinkInformation");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.Category", b =>
                 {
                     b.Navigation("Products");
@@ -450,6 +561,11 @@ namespace DataAccess.Migrations
                     b.Navigation("ProductCheckouts");
 
                     b.Navigation("ServiceCheckouts");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.PaymentLinkInformation", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Product", b =>

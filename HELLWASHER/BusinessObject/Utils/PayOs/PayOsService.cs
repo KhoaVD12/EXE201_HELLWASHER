@@ -118,12 +118,12 @@ namespace BusinessObject.Utils.PayOs
                 return res;
             }
         }
-        public async Task<ServiceResponse<PaymentLinkInformation>> GetPaymentLinkInformation(int id)
+        public async Task<ServiceResponse<Net.payOS.Types.PaymentLinkInformation>> GetPaymentLinkInformation(long orderCode)
         {
-            var res= new ServiceResponse<PaymentLinkInformation>();
+            var res= new ServiceResponse<Net.payOS.Types.PaymentLinkInformation>();
             try
             {
-                var result = await _payOS.getPaymentLinkInformation(id);
+                var result = await _payOS.getPaymentLinkInformation(orderCode);
                 if (result != null)
                 {
                     res.Success = true;
@@ -145,9 +145,9 @@ namespace BusinessObject.Utils.PayOs
                 return res;
             }
         }
-        public async Task<ServiceResponse<PaymentLinkInformation>> CancelPaymentLink(long orderCode, string? cancellationReason)
+        public async Task<ServiceResponse<Net.payOS.Types.PaymentLinkInformation>> CancelPaymentLink(long orderCode, string? cancellationReason)
         {
-            var res = new ServiceResponse<PaymentLinkInformation>();
+            var res = new ServiceResponse<Net.payOS.Types.PaymentLinkInformation>();
             try
             {
                 var result = await _payOS.cancelPaymentLink(orderCode, cancellationReason);
