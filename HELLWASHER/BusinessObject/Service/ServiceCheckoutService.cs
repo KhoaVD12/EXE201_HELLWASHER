@@ -159,7 +159,6 @@ namespace BusinessObject.Service
                     return res;
                 }
 
-                
                 var exist = await _repo.GetByIdAsync(id);
                 if (exist == null)
                 {
@@ -168,7 +167,6 @@ namespace BusinessObject.Service
                     return res;
                 }
 
-                
                 var service = await _washServiceRepo.GetByIdAsync(exist.ServiceId);
                 if (service == null)
                 {
@@ -177,12 +175,25 @@ namespace BusinessObject.Service
                     return res;
                 }
 
-                
-                exist.Weight = weight;
-                exist.TotalPricePerService = Math.Round(weight * service.Price, 2); 
+                var order = await _orderRepo.GetByIdAsync(exist.OrderId);
+                if (order == null)
+                {
+                    res.Success = false;
+                    res.Message = "Order not found";
+                    return res;
+                }
 
-               
+                // Calculate the difference in total price
+                var oldTotalPrice = exist.TotalPricePerService;
+                exist.Weight = weight;
+                exist.TotalPricePerService = Math.Round(weight * service.Price, 2);
+                var priceDifference = exist.TotalPricePerService - oldTotalPrice;
+
+                // Update the order's total price
+                order.TotalPrice += priceDifference;
+
                 await _repo.UpdateAsync(exist);
+                await _orderRepo.Update(order);
 
                 var result = _mapper.Map<ResponseServiceCheckoutDTO>(exist);
 
@@ -198,5 +209,6 @@ namespace BusinessObject.Service
                 return res;
             }
         }
+
     }
 }

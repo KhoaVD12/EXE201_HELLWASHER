@@ -11,6 +11,7 @@ namespace DataAccess.Enum
         CONFIRMED,
         UPDATED,
         PENDING,
+        PAID,
         CANCELLED
     }
 }

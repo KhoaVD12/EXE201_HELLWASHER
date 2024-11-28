@@ -213,6 +213,7 @@ namespace BusinessObject.Service
                     response.Message = "Quantity must be greater than 0";
                     return response;
                 }
+
                 var productCheckout = await _repo.GetByIdAsync(id);
                 if (productCheckout == null)
                 {
@@ -220,16 +221,30 @@ namespace BusinessObject.Service
                     response.Message = "Product checkout not found";
                     return response;
                 }
+
                 var product = await _productBaseRepo.GetByIdAsync(productCheckout.ProductId);
+                var order = await _orderRepo.GetByIdAsync(productCheckout.OrderId);
+                if (order == null)
+                {
+                    response.Success = false;
+                    response.Message = "Order not found";
+                    return response;
+                }
 
+                // Calculate the difference in quantity and update the product's quantity
+                var quantityDifference = quantity - productCheckout.QuantityPerProduct;
+                product.Quantity -= quantityDifference;
+
+                // Update the product checkout details
                 productCheckout.QuantityPerProduct = quantity;
-
                 productCheckout.TotalPricePerProduct = product.Price * quantity;
 
-                product.Quantity += productCheckout.QuantityPerProduct - quantity;
+                // Update the order's total price
+                order.TotalPrice += product.Price * quantityDifference;
 
                 await _productBaseRepo.UpdateAsync(product);
                 await _repo.UpdateAsync(productCheckout);
+                await _orderRepo.Update(order);
 
                 response.Data = _mapper.Map<ProductCheckoutDTO>(productCheckout);
                 response.Success = true;
@@ -243,5 +258,6 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
     }
 }
