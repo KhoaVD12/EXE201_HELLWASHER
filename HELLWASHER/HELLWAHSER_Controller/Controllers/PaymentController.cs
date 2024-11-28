@@ -27,10 +27,10 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-        [HttpGet("getPaymentLinkInformation")]
-        public async Task<IActionResult> GetPaymentLinkInformation(int id)
+        [HttpGet("getPaymentLinkInformation/{orderCode}")]
+        public async Task<IActionResult> GetPaymentLinkInformation(long orderCode)
         {
-            var result=await _service.GetPaymentLinkInformation(id);
+            var result=await _service.GetPaymentLinkInformation(orderCode);
             if (result != null)
             {
                 return Ok(result);
