@@ -398,3 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 *.cache
 HELLWASHER/.vs/HELLWASHER/v17/.suo
+/HELLWASHER/.vs/HELLWASHER/v17/.suo
+/HELLWASHER/HELLWAHSER_Controller/appsettings.json
