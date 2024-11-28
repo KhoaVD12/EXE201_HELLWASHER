@@ -14,6 +14,7 @@ namespace DataAccess.Entity
         public decimal Amount { get; set; }
         public string Description { get; set; }
         public int OrderId {  get; set; }
+        public long OrderCode { get; set; }
         public string Currency { get; set; }
         public string PaymentLinkId { get; set; }
         public string Status { get; set; }
