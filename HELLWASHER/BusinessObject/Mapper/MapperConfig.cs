@@ -60,6 +60,9 @@ namespace BusinessObject.Mapper
             CreateMap<FeedbackRequest, Feedback>().ReverseMap();
             //CreateMap<Feedback, FeedbackDTO>().ReverseMap();
 
+            //PayOs 
+            CreateMap<Net.payOS.Types.PaymentLinkInformation, DataAccess.Entity.PaymentLinkInformation>().ReverseMap();
+            CreateMap<Net.payOS.Types.Transaction, Transaction>().ReverseMap();
             //Authen
             CreateMap<RegisterRequest, User>().ReverseMap();
             CreateMap<LoginRequest, User>().ReverseMap();
