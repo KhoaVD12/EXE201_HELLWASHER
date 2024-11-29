@@ -28,8 +28,10 @@ namespace BusinessObject.Mapper
             CreateMap<ResponseWashServiceDTO, DataAccess.Entity.Service>().ReverseMap();
             CreateMap<UpdateWashServiceDTO, DataAccess.Entity.Service>().ReverseMap();
             //Category
-            CreateMap<CreateCategoryDTO, Category>().ReverseMap();
-            CreateMap<ResponseCategoryDTO, Category>().ReverseMap();
+            CreateMap<CreateCategoryDTO, ProductCategory>().ReverseMap();
+            CreateMap<ResponseCategoryDTO, ProductCategory>().ReverseMap();
+            CreateMap<ServiceCategory, CreateCategoryDTO>().ReverseMap();
+            CreateMap<ServiceCategory, ResponseCategoryDTO>().ReverseMap();
             //User
             CreateMap<User, CreateUserDTO>().ReverseMap();
             CreateMap<User, ResponseUserDTO>().ReverseMap();

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(WashShopContext))]
-    [Migration("20241127103936_Add_Payment")]
-    partial class Add_Payment
+    [Migration("20241129130437_Add_ServiceCategory")]
+    partial class Add_ServiceCategory
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,25 +24,6 @@ namespace DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("DataAccess.Entity.Category", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CategoryId");
-
-                    b.ToTable("Categories");
-                });
 
             modelBuilder.Entity("DataAccess.Entity.Feedback", b =>
                 {
@@ -168,6 +149,9 @@ namespace DataAccess.Migrations
                     b.Property<long?>("ExpiredAt")
                         .HasColumnType("bigint");
 
+                    b.Property<long>("OrderCode")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -188,6 +172,48 @@ namespace DataAccess.Migrations
                     b.ToTable("Payments");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.PaymentLinkInformation", b =>
+                {
+                    b.Property<int>("PaymentLinkInformationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentLinkInformationId"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmountRemaining")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CancelAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CancellationReason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreateAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("OrderCode")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PaymentLinkInformationId");
+
+                    b.ToTable("PaymentLinkInformation");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -195,9 +221,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -215,6 +238,9 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("ProductCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductStatus")
                         .HasColumnType("int");
 
@@ -223,9 +249,28 @@ namespace DataAccess.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductCategoryId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductCategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.ProductCheckout", b =>
@@ -282,12 +327,36 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("ServiceCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ServiceStatus")
                         .HasColumnType("int");
 
                     b.HasKey("ServiceId");
 
+                    b.HasIndex("ServiceCategoryId");
+
                     b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.ServiceCategory", b =>
+                {
+                    b.Property<int>("ServiceCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceCategoryId"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ServiceCategoryId");
+
+                    b.ToTable("ServiceCategories");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.ServiceCheckout", b =>
@@ -317,6 +386,61 @@ namespace DataAccess.Migrations
                     b.HasIndex("ServiceId");
 
                     b.ToTable("ServiceCheckouts");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.Transaction", b =>
+                {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"));
+
+                    b.Property<string>("AccountNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CounterAccountBankId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountBankName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CounterAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentLinkInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reference")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TransactionDateTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VirtualAccountName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VirtualAccountNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("PaymentLinkInformationId");
+
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.User", b =>
@@ -393,9 +517,9 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
                 {
-                    b.HasOne("DataAccess.Entity.Category", "Category")
+                    b.HasOne("DataAccess.Entity.ProductCategory", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("ProductCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -421,6 +545,15 @@ namespace DataAccess.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.Service", b =>
+                {
+                    b.HasOne("DataAccess.Entity.ServiceCategory", null)
+                        .WithMany("Services")
+                        .HasForeignKey("ServiceCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("DataAccess.Entity.ServiceCheckout", b =>
                 {
                     b.HasOne("DataAccess.Entity.Order", "Order")
@@ -440,9 +573,15 @@ namespace DataAccess.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("DataAccess.Entity.Category", b =>
+            modelBuilder.Entity("DataAccess.Entity.Transaction", b =>
                 {
-                    b.Navigation("Products");
+                    b.HasOne("DataAccess.Entity.PaymentLinkInformation", "PaymentLinkInformation")
+                        .WithMany("Transactions")
+                        .HasForeignKey("PaymentLinkInformationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PaymentLinkInformation");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.Order", b =>
@@ -452,6 +591,11 @@ namespace DataAccess.Migrations
                     b.Navigation("ServiceCheckouts");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.PaymentLinkInformation", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.Product", b =>
                 {
                     b.Navigation("Feedbacks");
@@ -459,11 +603,21 @@ namespace DataAccess.Migrations
                     b.Navigation("ProductCheckouts");
                 });
 
+            modelBuilder.Entity("DataAccess.Entity.ProductCategory", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("DataAccess.Entity.Service", b =>
                 {
                     b.Navigation("Feedbacks");
 
                     b.Navigation("ServiceItems");
+                });
+
+            modelBuilder.Entity("DataAccess.Entity.ServiceCategory", b =>
+                {
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("DataAccess.Entity.User", b =>

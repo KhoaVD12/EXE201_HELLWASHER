@@ -12,6 +12,7 @@ namespace DataAccess.Entity
         public int ServiceId { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
+        public int ServiceCategoryId { get; set; }
         public string ClothUnit { get; set; }
         public decimal Price { get; set; }
         public ServiceEnum ServiceStatus { get; set; }

@@ -17,7 +17,8 @@ namespace DataAccess
         public DbSet<ProductCheckout> ProductCheckouts { get; set; }
         public DbSet<ServiceCheckout> ServiceCheckouts { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ServiceCategory> ServiceCategories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }

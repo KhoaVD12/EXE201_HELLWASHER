@@ -1,20 +1,18 @@
 ﻿using BusinessObject.IService;
 using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Response;
-using BusinessObject.Service;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
-    [EnableCors("Allow")]
-    [ApiController]
     [Route("api/[controller]")]
-    public class CategoryController : ControllerBase
+    [ApiController]
+    public class ServiceCategoryController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
-        public CategoryController(ICategoryService categoryService)
+        private readonly IServiceCategoryService _categoryService;
+        public ServiceCategoryController(IServiceCategoryService categoryService)
         {
             _categoryService = categoryService;
         }
@@ -77,6 +75,5 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest();
             }
         }
-
     }
 }

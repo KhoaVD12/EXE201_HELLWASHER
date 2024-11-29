@@ -12,6 +12,7 @@ using DataAccess.Entity;
 using DataAccess.BaseRepo;
 using MailKit.Search;
 using CloudinaryDotNet.Actions;
+using BusinessObject.IService;
 namespace BusinessObject.Utils.PayOs
 {
     public class PayOsService:IPayOsService
@@ -22,9 +23,11 @@ namespace BusinessObject.Utils.PayOs
         private readonly IBaseRepo<Payment> _paymentRepo;
         private readonly IBaseRepo<DataAccess.Entity.PaymentLinkInformation> _infoRepo;
         private readonly IBaseRepo<DataAccess.Entity.Transaction> _transactionRepo;
+        private readonly IOrderService _orderService;
         public PayOsService(PayOS payOS, IOrderRepo orderRepo, IMapper mapper, IBaseRepo<Payment> paymentRepo,
             IBaseRepo<DataAccess.Entity.PaymentLinkInformation> infoRepo,
-            IBaseRepo<DataAccess.Entity.Transaction> transactionRepo)
+            IBaseRepo<DataAccess.Entity.Transaction> transactionRepo,
+            IOrderService orderService)
         {
             _payOS = payOS;
             _orderRepo = orderRepo;
@@ -32,6 +35,7 @@ namespace BusinessObject.Utils.PayOs
             _paymentRepo = paymentRepo;
             _infoRepo = infoRepo;
             _transactionRepo = transactionRepo;
+            _orderService = orderService;
         }
         #region Map Item
         // Helper method to combine ProductCheckout and ServiceCheckout into ItemData
@@ -87,6 +91,7 @@ namespace BusinessObject.Utils.PayOs
                     buyerPhone: order.CusomterPhone,
                     buyerAddress: order.Address
                 );
+                paymentData = paymentData with { signature = PayOSUtils.GenerateSignature(paymentData) };
                 var paymentResult = await _payOS.createPaymentLink(paymentData);
                 if (paymentResult != null)
                 {
@@ -199,6 +204,73 @@ namespace BusinessObject.Utils.PayOs
                 return res;
             }
         }
+
+        public async Task<ServiceResponse<bool>> FinishPayment(long orderCode)
+        {
+            var res = new ServiceResponse<bool>();
+            try
+            {
+                var result = await _payOS.getPaymentLinkInformation(orderCode);
+                if (result != null && result.status == "PAID")
+                {
+                    var infos = await _infoRepo.GetAllAsync();
+                    var payments = await _paymentRepo.GetAllAsync();
+                    var infoExist = infos.FirstOrDefault(i => i.OrderCode == orderCode);
+                    var paymentExist = payments.FirstOrDefault(i => i.OrderCode == orderCode);
+
+                    if (paymentExist != null && infoExist != null)
+                    {
+                        infoExist.Status = "PAID";
+                        paymentExist.Status = "PAID";
+                        await _infoRepo.UpdateAsync(infoExist);
+                        await _paymentRepo.UpdateAsync(paymentExist);
+                        if (result.transactions != null )
+                        {
+                                foreach (var item in result.transactions)
+                                {
+                                    var transaction = new DataAccess.Entity.Transaction
+                                    {
+                                        PaymentLinkInformationId = infoExist.PaymentLinkInformationId,
+                                        Reference = item.reference,
+                                        Amount = item.amount,
+                                        AccountNumber = item.accountNumber,
+                                        Description = item.description,
+                                        TransactionDateTime = item.transactionDateTime,
+                                        VirtualAccountName = item.virtualAccountName,
+                                        VirtualAccountNumber = item.virtualAccountNumber,
+                                        CounterAccountBankId = item.counterAccountBankId,
+                                        CounterAccountBankName = item.counterAccountBankName,
+                                        CounterAccountName = item.counterAccountName,
+                                        CounterAccountNumber = item.counterAccountNumber
+                                    };
+                                    await _transactionRepo.AddAsync(transaction);
+                                }
+                        }
+                    }
+                    else
+                    {
+                        res.Success = false;
+                        res.Message = $"No Payment/Info with this order code: {orderCode}";
+                        return res;
+                    }
+                    res.Success = true;
+                    res.Message = $"Update in DB successfully with this: {orderCode}";
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = $"No Payment info with this order code/This payment is not Paid: {orderCode}";
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to Update: {ex.Message}";
+                return res;
+            }
+        }
         public async Task<ServiceResponse<Net.payOS.Types.PaymentLinkInformation>> CancelPaymentLink(long orderCode, string? cancellationReason)
         {
             var res = new ServiceResponse<Net.payOS.Types.PaymentLinkInformation>();
@@ -242,6 +314,34 @@ namespace BusinessObject.Utils.PayOs
             {
                 res.Success = false;
                 res.Message = ex.Message;
+                return res;
+            }
+        }
+
+        public async Task<ServiceResponse<IEnumerable<Payment>>> GetAllPayment()
+        {
+            var res = new ServiceResponse<IEnumerable<Payment>>();
+            try
+            {
+                var payments = await _paymentRepo.GetAllAsync();
+                if (payments.Any())
+                {
+                    res.Message = "Get Payments successfully";
+                    res.Data = payments;
+                    res.Success = true;
+                    return res;
+                }
+                else
+                {
+                    res.Message = "No Payment";
+                    res.Success = false;
+                    return res;
+                }
+            }
+            catch(Exception ex)
+            {
+                res.Message = $"Fail to get Payments: {ex.Message}";
+                res.Success = false;
                 return res;
             }
         }

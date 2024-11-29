@@ -13,19 +13,19 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.Service
 {
-    public class CategoryService:ICategoryService
+    public class ProductCategoryService:IProductCategoryService
     {
-        private readonly IBaseRepo<Category> _baseRepo;
+        private readonly IBaseRepo<ProductCategory> _baseRepo;
         private readonly IMapper _mapper;
-        public CategoryService(IBaseRepo<Category> repo, IMapper mapper)
+        public ProductCategoryService(IBaseRepo<ProductCategory> repo, IMapper mapper)
         {
             _baseRepo = repo;
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<Category>> CreateCategory(CreateCategoryDTO categoryDTO)
+        public async Task<ServiceResponse<ProductCategory>> CreateCategory(CreateCategoryDTO categoryDTO)
         {
-            var res = new ServiceResponse<Category>();
+            var res = new ServiceResponse<ProductCategory>();
             try
             {
                 var existList = await _baseRepo.GetAllAsync();
@@ -35,7 +35,7 @@ namespace BusinessObject.Service
                     res.Message = "Name existed";
                     return res;
                 }
-                var mapp = _mapper.Map<Category>(categoryDTO);
+                var mapp = _mapper.Map<ProductCategory>(categoryDTO);
                 await _baseRepo.AddAsync(mapp);
                 var result = _mapper.Map<ResponseCategoryDTO>(mapp);
                 res.Success = true;
@@ -79,9 +79,9 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<PaginationModel<Category>>> GetAllCategory(int page, int pageSize, string? search, string sort)
+        public async Task<ServiceResponse<PaginationModel<ProductCategory>>> GetAllCategory(int page, int pageSize, string? search, string sort)
         {
-            var res = new ServiceResponse<PaginationModel<Category>>();
+            var res = new ServiceResponse<PaginationModel<ProductCategory>>();
             try
             {
                 var services = await _baseRepo.GetAllAsync();
@@ -93,9 +93,9 @@ namespace BusinessObject.Service
                 services = sort.ToLower().Trim() switch
                 {
                     "name" => services.OrderBy(e => e.Name),
-                    _ => services.OrderBy(e => e.CategoryId)
+                    _ => services.OrderBy(e => e.ProductCategoryId)
                 };
-                var mapp = _mapper.Map<IEnumerable<Category>>(services);
+                var mapp = _mapper.Map<IEnumerable<ProductCategory>>(services);
                 if (mapp.Any())
                 {
                     var paginationModel = await Pagination.GetPaginationEnum(mapp, page, pageSize);
