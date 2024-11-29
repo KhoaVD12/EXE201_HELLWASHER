@@ -3,6 +3,7 @@ using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
 using CloudinaryDotNet;
+using DataAccess.Enum;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -78,7 +79,7 @@ namespace HELLWASHER_Controller.Controllers
         }
         [HttpPut("UpdateStatus/{id}&&{status}")]
         [Authorize(Roles = "Admin, Staff")]
-        public async Task<IActionResult> ChangeStatusService([FromRoute] int id, string status)
+        public async Task<IActionResult> ChangeStatusService([FromRoute] int id, ServiceEnum status)
         {
             var result = await _washServiceService.UpdateWashStatus(id, status);
             if (result.Success)

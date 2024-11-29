@@ -75,12 +75,19 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
         public async Task<ServiceResponse<ImageResponse>> ProductImage(IFormFile image, int productId)
         {
             var response = new ServiceResponse<ImageResponse>();
             try
             {
                 var product = await _baseRepo.GetByIdAsync(productId);
+                if (product == null || product.IsDeleted)
+                {
+                    response.Success = false;
+                    response.Message = "Product not found or has been deleted";
+                    return response;
+                }
 
                 var imageService = new ImageService();
                 string uploadedImageUrl = string.Empty;
@@ -103,7 +110,7 @@ namespace BusinessObject.Service
                     productId = productId,
                     ImageUrl = uploadedImageUrl
                 };
-                response.Message = "Product created successfully";
+                response.Message = "Product image updated successfully";
                 response.Success = true;
 
                 return response;
@@ -115,6 +122,7 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
         public async Task<ServiceResponse<bool>> DeleteProduct(int id)
         {
             var response = new ServiceResponse<bool>();
@@ -148,8 +156,9 @@ namespace BusinessObject.Service
             try
             {
                 var products = await _baseRepo.GetAllAsync();
+                var activeProducts = products.Where(p => !p.IsDeleted);
 
-                var productDTOs = _mapper.Map<IEnumerable<ResponseProductDTO>>(products);
+                var productDTOs = _mapper.Map<IEnumerable<ResponseProductDTO>>(activeProducts);
                 response.Data = productDTOs;
                 response.Success = true;
             }
@@ -167,10 +176,10 @@ namespace BusinessObject.Service
             try
             {
                 var exist = await _baseRepo.GetByIdAsync(productId);
-                if (exist == null)
+                if (exist == null || exist.IsDeleted)
                 {
                     response.Success = false;
-                    response.Message = "Product not found";
+                    response.Message = "Product not found or has been deleted";
                     return response;
                 }
                 var productDTO = _mapper.Map<ResponseProductDTO>(exist);
@@ -185,16 +194,17 @@ namespace BusinessObject.Service
                 return response;
             }
         }
+
         public async Task<ServiceResponse<UpdateProductResponse>> UpdateProduct(UpdateProductDTO productDTO, int productId)
         {
             var response = new ServiceResponse<UpdateProductResponse>();
             try
             {
                 var product = await _baseRepo.GetByIdAsync(productId);
-                if (product == null)
+                if (product == null || product.IsDeleted)
                 {
                     response.Success = false;
-                    response.Message = "Product not found";
+                    response.Message = "Product not found or has been deleted";
                     return response;
                 }
 
@@ -211,8 +221,6 @@ namespace BusinessObject.Service
                 product.Price = productDTO.Price;
                 product.Quantity = productDTO.Quantity;
                 product.CategoryId = productDTO.CategoryId;
-
-
 
                 await _baseRepo.UpdateAsync(product);
 
@@ -232,6 +240,5 @@ namespace BusinessObject.Service
                 return response;
             }
         }
-
     }
 }

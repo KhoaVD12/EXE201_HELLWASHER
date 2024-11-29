@@ -145,9 +145,11 @@ namespace BusinessObject.Service
                     response.Message = "Feedback not found";
                     return response;
                 }
-                var feedback = _mapper.Map<Feedback>(feedbackRequest);
-                feedback.FeedbackId = feedbackId;
-                await _feedbackRepo.UpdateAsync(feedback);
+
+                // Update the properties of the existing entity
+                _mapper.Map(feedbackRequest, exist);
+
+                await _feedbackRepo.UpdateAsync(exist);
                 response.Data = feedbackRequest;
                 response.Success = true;
                 response.Message = "Update feedback successfully";

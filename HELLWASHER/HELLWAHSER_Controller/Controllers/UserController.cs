@@ -12,7 +12,7 @@ namespace HELLWASHER_Controller.Controllers
     [EnableCors("Allow")]
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Customer, Staff")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;

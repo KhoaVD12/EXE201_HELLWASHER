@@ -253,7 +253,7 @@ namespace BusinessObject.Service
             }
         }
 
-        public async Task<ServiceResponse<bool>> UpdateWashStatus(int id, string status)
+        public async Task<ServiceResponse<bool>> UpdateWashStatus(int id, ServiceEnum status)
         {
             var res = new ServiceResponse<bool>();
             try
@@ -265,37 +265,27 @@ namespace BusinessObject.Service
                     res.Message = "No service found";
                     return res;
                 }
-                else
+
+                if (exist.ServiceStatus == status)
                 {
-                    
-                    string normalizedStatus = status.ToUpper().Trim();
-
-                    
-                    if (!Enum.TryParse<ServiceEnum>(normalizedStatus, out var newStatus))
-                    {
-                        res.Success = false;
-                        res.Message = "Invalid Status";
-                        return res;
-                    }
-                    if (exist.ServiceStatus == newStatus)
-                    {
-                        res.Success = false;
-                        res.Message = "No changes were made. Status is already set to the same value.";
-                        return res;
-                    }
-
-                    await _baseRepo.UpdateAsync(exist);
-                    res.Success = true;
-                    res.Message ="Update Successfully";
+                    res.Success = false;
+                    res.Message = "No changes were made. Status is already set to the same value.";
                     return res;
                 }
+
+                exist.ServiceStatus = status;
+                await _baseRepo.UpdateAsync(exist);
+                res.Success = true;
+                res.Message = "Update Successfully";
+                return res;
             }
             catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to update Service:{ex.Message}";
+                res.Message = $"Fail to update Service: {ex.Message}";
                 return res;
             }
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessObject.Model.Request.CreateRequest;
 using BusinessObject.Model.Request.UpdateRequest.Entity;
 using BusinessObject.Model.Response;
+using DataAccess.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,6 @@ namespace BusinessObject.IService
             string? search, string sort);
         Task<ServiceResponse<ResponseWashServiceDTO>> GetById(int id);
         Task<ServiceResponse<ResponseWashServiceDTO>> UpdateWashService(int id, UpdateWashServiceDTO serviceDTO);
-        Task<ServiceResponse<bool>> UpdateWashStatus(int id, string status);
+        Task<ServiceResponse<bool>> UpdateWashStatus(int id, ServiceEnum status);
     }
 }
