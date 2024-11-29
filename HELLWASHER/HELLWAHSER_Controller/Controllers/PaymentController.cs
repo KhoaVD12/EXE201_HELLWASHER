@@ -14,6 +14,16 @@ namespace HELLWASHER_Controller.Controllers
         {
             _service = service;
         }
+        [HttpGet("Payments")]
+        public async Task<IActionResult> GetPayments()
+        {
+            var result = await _service.GetAllPayment();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("create-payment")]
         public async Task<IActionResult> CreatePayment(int orderId, string? returnUrl = "http://localhost:5295", string? cancelUrl = "http://localhost:5295")
         {
@@ -37,6 +47,27 @@ namespace HELLWASHER_Controller.Controllers
             }
             return BadRequest(result);
         }
+        /// <summary>
+        /// MUST USE AFTER FINISHING PAYMENT AT PAYOS WEBSITE
+        /// </summary>
+        /// <param name="orderCode"></param>
+        /// <returns></returns>
+        [HttpPut("FinishPayment")]
+        public async Task<IActionResult> FinishPayment(long orderCode)
+        {
+            var result = await _service.FinishPayment(orderCode);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        /// <summary>
+        /// Cancel a payment whenever you want
+        /// </summary>
+        /// <param name="orderCode"></param>
+        /// <param name="cancellationReason"></param>
+        /// <returns></returns>
         [HttpPut("cancelPaymentLink")]
         public async Task<IActionResult> CancelPaymentLink(long orderCode, string? cancellationReason)
         {

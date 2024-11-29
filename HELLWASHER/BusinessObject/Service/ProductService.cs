@@ -23,11 +23,11 @@ namespace BusinessObject.Service
     public class ProductService : IProductService
     {
         private readonly IBaseRepo<Product> _baseRepo;
-        private readonly IBaseRepo<Category> _categoryRepo;
+        private readonly IBaseRepo<ProductCategory> _categoryRepo;
         private readonly IMapper _mapper;
         private readonly IProductRepo _productRepo;
         private readonly WashShopContext _dbcontext;
-        public ProductService(IBaseRepo<Product> baseRepo, IMapper mapper, WashShopContext dbContext, IProductRepo productRepo, IBaseRepo<Category> categoryRepo)
+        public ProductService(IBaseRepo<Product> baseRepo, IMapper mapper, WashShopContext dbContext, IProductRepo productRepo, IBaseRepo<ProductCategory> categoryRepo)
         {
             _baseRepo = baseRepo;
             _mapper = mapper;
@@ -53,7 +53,7 @@ namespace BusinessObject.Service
                 mapping.Description = productDTO.Description;
                 mapping.Price = productDTO.Price;
                 mapping.Quantity = productDTO.Quantity;
-                mapping.CategoryId = productDTO.CategoryId;
+                mapping.ProductCategoryId = productDTO.CategoryId;
                 mapping.IsDeleted = false;
 
                 await _baseRepo.AddAsync(mapping);
@@ -220,7 +220,7 @@ namespace BusinessObject.Service
                 product.Description = productDTO.Description;
                 product.Price = productDTO.Price;
                 product.Quantity = productDTO.Quantity;
-                product.CategoryId = productDTO.CategoryId;
+                product.ProductCategoryId = productDTO.CategoryId;
 
                 await _baseRepo.UpdateAsync(product);
 

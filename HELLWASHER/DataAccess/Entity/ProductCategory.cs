@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entity
 {
-    public class Category
+    public class ProductCategory
     {
-        public int CategoryId { get; set; }
+        public int ProductCategoryId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         // Navigation properties

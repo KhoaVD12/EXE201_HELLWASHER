@@ -34,9 +34,9 @@ namespace DataAccess.Entity
                 }
             }
         }
-        public int CategoryId { get; set; }
+        public int ProductCategoryId { get; set; }
         public ICollection<ProductCheckout> ProductCheckouts { get; set; }
         public ICollection<Feedback> Feedbacks { get; set; }
-        public Category Category { get; set; }
+        public ProductCategory Category { get; set; }
     }
 }

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BusinessObject.IService
 {
-    public interface ICategoryService
+    public interface IServiceCategoryService
     {
-        Task<ServiceResponse<Category>> CreateCategory(CreateCategoryDTO categoryDTO);
+        Task<ServiceResponse<ServiceCategory>> CreateCategory(CreateCategoryDTO categoryDTO);
         Task<ServiceResponse<bool>> DeleteCategory(int id);
-        Task<ServiceResponse<PaginationModel<Category>>> GetAllCategory(int page, int pageSize,
+        Task<ServiceResponse<PaginationModel<ServiceCategory>>> GetAllCategory(int page, int pageSize,
             string? search, string sort);
         Task<ServiceResponse<ResponseCategoryDTO>> UpdateCategory(int id, ResponseCategoryDTO categoryDTO);
     }
