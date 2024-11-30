@@ -28,7 +28,9 @@ namespace BusinessObject
             services.AddScoped<IWashServiceService, WashServiceService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductCateRepo, ProductCateRepo>();
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
+            services.AddScoped<IServiceCateRepo, ServiceCateRepo>();
             services.AddScoped<IServiceCategoryService, ServiceCategoryService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IProductCheckoutService, ProductCheckoutService>();

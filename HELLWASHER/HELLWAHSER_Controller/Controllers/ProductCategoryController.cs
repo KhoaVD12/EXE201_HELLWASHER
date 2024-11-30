@@ -49,6 +49,20 @@ namespace HELLWASHER_Controller.Controllers
                 return NotFound();
             }
         }
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _categoryService.GetById(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> DeleteCategory(int id)

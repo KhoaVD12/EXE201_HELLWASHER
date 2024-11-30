@@ -5,6 +5,7 @@ using BusinessObject.Model.Response;
 using BusinessObject.Utils;
 using DataAccess.BaseRepo;
 using DataAccess.Entity;
+using DataAccess.IRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace BusinessObject.Service
 {
     public class ProductCategoryService:IProductCategoryService
     {
-        private readonly IBaseRepo<ProductCategory> _baseRepo;
+        private readonly IProductCateRepo _baseRepo;
         private readonly IMapper _mapper;
-        public ProductCategoryService(IBaseRepo<ProductCategory> repo, IMapper mapper)
+        public ProductCategoryService(IProductCateRepo repo, IMapper mapper)
         {
             _baseRepo = repo;
             _mapper = mapper;
@@ -84,7 +85,7 @@ namespace BusinessObject.Service
             var res = new ServiceResponse<PaginationModel<ProductCategory>>();
             try
             {
-                var services = await _baseRepo.GetAllAsync();
+                var services = await _baseRepo.GetAll();
                 if (!string.IsNullOrEmpty(search))
                 {
                     services = services.Where(e => e.Name.Contains(search, StringComparison.OrdinalIgnoreCase));
@@ -118,7 +119,33 @@ namespace BusinessObject.Service
                 return res;
             }
         }
-
+        public async Task<ServiceResponse<ProductCategory>> GetById(int id)
+        {
+            var res = new ServiceResponse<ProductCategory>();
+            try
+            {
+                var exist = await _baseRepo.GetById(id);
+                if (exist != null)
+                {
+                    res.Success = true;
+                    res.Message = $"Get Successfully with the ID: {id}";
+                    res.Data = exist;
+                    return res;
+                }
+                else
+                {
+                    res.Success = false;
+                    res.Message = $"No Service Category with the ID: {id}";
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Fail to get Category: {ex.Message}";
+                return res;
+            }
+        }
         public async Task<ServiceResponse<ResponseCategoryDTO>> UpdateCategory(int id, ResponseCategoryDTO categoryDTO)
         {
             var res = new ServiceResponse<ResponseCategoryDTO>();

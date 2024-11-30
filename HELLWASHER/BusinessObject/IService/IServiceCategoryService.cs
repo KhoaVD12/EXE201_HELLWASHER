@@ -15,6 +15,7 @@ namespace BusinessObject.IService
         Task<ServiceResponse<bool>> DeleteCategory(int id);
         Task<ServiceResponse<PaginationModel<ServiceCategory>>> GetAllCategory(int page, int pageSize,
             string? search, string sort);
+        Task<ServiceResponse<ServiceCategory>> GetById(int id);
         Task<ServiceResponse<ResponseCategoryDTO>> UpdateCategory(int id, ResponseCategoryDTO categoryDTO);
     }
 }
