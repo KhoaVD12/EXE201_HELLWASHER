@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Add_ServiceCategory : Migration
+    public partial class Add_ServiceId : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -194,6 +194,7 @@ namespace DataAccess.Migrations
                     CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CusomterPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ServiceId = table.Column<int>(type: "int", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),

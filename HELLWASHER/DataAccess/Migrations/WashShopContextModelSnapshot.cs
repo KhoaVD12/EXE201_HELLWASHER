@@ -96,6 +96,9 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("PickUpDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ServiceId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
 
