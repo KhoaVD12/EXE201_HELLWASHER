@@ -15,7 +15,7 @@ namespace BusinessObject.ViewModels.Order
         [EmailAddress]
         public string CustomerEmail { get; set; }
         [Required]
-        [Phone]
+        //[Phone]
         public string CusomterPhone { get; set; }
         [Required]
         public string Address { get; set; }

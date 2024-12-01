@@ -65,7 +65,7 @@ namespace HELLWASHER_Controller.Controllers
         //    return Ok(result);
         //}
         [HttpPost("OrderService")]
-        public async Task<IActionResult> AddOrder([FromForm] QuickOrderDTO orderDTO)
+        public async Task<IActionResult> AddOrder([FromBody] QuickOrderDTO orderDTO)
         {
             var user = await _userService.GetUserByTokenAsync(User);
             if (user == null)
@@ -77,6 +77,11 @@ namespace HELLWASHER_Controller.Controllers
                 };
                 return Unauthorized(response);
             }
+
+            // Automatically fill the orderDTO with user data
+            orderDTO.CustomerName = user.Name;
+            orderDTO.CustomerEmail = user.Email;
+            orderDTO.CusomterPhone = user.Phone;
 
             var result = await _orderService.AddOrder(orderDTO, user);
             if (!result.Success) return BadRequest(result);
