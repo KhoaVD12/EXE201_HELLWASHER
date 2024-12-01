@@ -14,6 +14,7 @@ namespace DataAccess.Entity
         public string CustomerName { get; set; }
         public string CustomerEmail { get; set; }
         public string CusomterPhone { get; set; }
+        public int? ServiceId { get; set; }
         public DateTime OrderDate { get; set; }
         public string Address { get; set; }
         public decimal TotalPrice { get; set; }
