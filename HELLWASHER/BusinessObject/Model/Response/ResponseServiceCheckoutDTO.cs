@@ -9,7 +9,7 @@ namespace BusinessObject.Model.Response
 {
     public class ResponseServiceCheckoutDTO
     {
-        public int Id { get; set; }
+        public int ServiceCheckoutId { get; set; }
         [Required]
         public int OrderId { get; set; }
         [Required]
@@ -18,8 +18,8 @@ namespace BusinessObject.Model.Response
         [StringLength(100)]
         public string Name { get; set; }
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Quantity must be greater than 0")]
-        public int QuantityPerService { get; set; }
+        //[Range(1, int.MaxValue, ErrorMessage = "Quantity must be greater than 0")]
+        public int Weight { get; set; }
         public decimal TotalPricePerService { get; set; }
     }
 }

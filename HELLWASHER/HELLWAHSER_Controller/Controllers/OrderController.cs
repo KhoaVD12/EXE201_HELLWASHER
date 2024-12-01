@@ -65,7 +65,7 @@ namespace HELLWASHER_Controller.Controllers
         //    return Ok(result);
         //}
         [HttpPost("OrderService")]
-        public async Task<IActionResult> AddOrder([FromBody] QuickOrderDTO orderDTO)
+        public async Task<IActionResult> AddOrder([FromForm] QuickOrderDTO orderDTO)
         {
             var user = await _userService.GetUserByTokenAsync(User);
             if (user == null)
