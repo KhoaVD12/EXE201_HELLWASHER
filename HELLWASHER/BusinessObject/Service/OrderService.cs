@@ -55,7 +55,7 @@ namespace BusinessObject.Service
                 }
 
                 IEnumerable<Order> orders;
-                if (user.Role == "Admin")
+                if (user.Role == "Admin" || user.Role == "Staff")
                 {
                     // Fetch all orders for Admin
                     orders = await _orderRepo.GetAllAsync();
