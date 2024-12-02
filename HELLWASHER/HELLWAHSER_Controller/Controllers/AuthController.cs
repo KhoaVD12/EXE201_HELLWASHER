@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
-    [EnableCors("Allow")]
+    [EnableCors("AllowAll")]
     [Route("api/authentication")]
     [ApiController]
     public class AuthController : ControllerBase

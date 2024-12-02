@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HELLWASHER_Controller.Controllers
 {
-    [EnableCors("Allow")]
+    [EnableCors("AllowAll")]
     [ApiController]
     [Route("api/[controller]")]
     public class ServiceCheckoutController : ControllerBase
