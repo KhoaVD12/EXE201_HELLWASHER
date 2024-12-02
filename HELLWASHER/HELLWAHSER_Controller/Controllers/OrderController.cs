@@ -70,12 +70,10 @@ namespace HELLWASHER_Controller.Controllers
             var user = await _userService.GetUserByTokenAsync(User);
             if (user == null)
             {
-                var response = new
-                {
-                    Success = false,
-                    Message = "You need to login"
-                };
-                return Unauthorized(response);
+                var resultIfUserNull = await _orderService.AddOrder(orderDTO, user);
+                if (!resultIfUserNull.Success) return BadRequest(resultIfUserNull);
+
+                return Ok(resultIfUserNull);
             }
 
             // Automatically fill the orderDTO with user data

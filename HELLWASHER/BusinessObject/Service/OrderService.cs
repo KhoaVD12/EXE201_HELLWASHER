@@ -94,31 +94,31 @@ namespace BusinessObject.Service
 
             try
             {
-                if (user == null || user.UserId <= 0)
-                {
-                    serviceResponse.Success = false;
-                    serviceResponse.Message = "Invalid user.";
-                    return serviceResponse;
-                }
+                //if (user == null || user.UserId <= 0)
+                //{
+                //    serviceResponse.Success = false;
+                //    serviceResponse.Message = "Invalid user.";
+                //    return serviceResponse;
+                //}
 
                 // Map DTO to entity
                 var orderEntity = _mapper.Map<Order>(order);
 
-                var userEntity = await _userRepo.GetByIdAsync(user.UserId);
-                if (userEntity == null)
-                {
-                    serviceResponse.Success = false;
-                    serviceResponse.Message = "User not found.";
-                    return serviceResponse;
-                }
+                //var userEntity = await _userRepo.GetByIdAsync(user.UserId);
+                //if (userEntity == null)
+                //{
+                //    serviceResponse.Success = false;
+                //    serviceResponse.Message = "User not found.";
+                //    return serviceResponse;
+                //}
 
-                orderEntity.UserId = user.UserId;
+                orderEntity.UserId = user?.UserId;
                 orderEntity.OrderStatus = OrderEnum.PENDING;
                 orderEntity.OrderDate = DateTime.Now;
                 orderEntity.WashStatus = WashEnum.PENDING;
-                orderEntity.CusomterPhone = userEntity.Phone;
-                orderEntity.CustomerEmail = userEntity.Email;
-                orderEntity.CustomerName = userEntity.Name;
+                orderEntity.CusomterPhone = order.CusomterPhone;
+                orderEntity.CustomerEmail = order.CustomerEmail;
+                orderEntity.CustomerName = order.CustomerName;
                 orderEntity.Address = order.Address;
                 orderEntity.TotalPrice = 0;
 
