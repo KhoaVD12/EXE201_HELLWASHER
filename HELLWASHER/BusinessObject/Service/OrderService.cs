@@ -296,18 +296,18 @@ namespace BusinessObject.Service
                     response.Message = "Order not found.";
                     return response;
                 }
-                if (order.ConfirmImage == null)
-                {
-                    response.Success = false;
-                    response.Message = "Please upload confirm image.";
-                    return response;
-                }
-                if (order.OrderStatus != OrderEnum.CONFIRMED || order.OrderStatus == null)
-                {
-                    response.Success = false;
-                    response.Message = "Order needs to be confirmed.";
-                    return response;
-                }
+                //if (order.ConfirmImage == null)
+                //{
+                //    response.Success = false;
+                //    response.Message = "Please upload confirm image.";
+                //    return response;
+                //}
+                //if (order.OrderStatus != OrderEnum.CONFIRMED || order.OrderStatus == null)
+                //{
+                //    response.Success = false;
+                //    response.Message = "Order needs to be confirmed.";
+                //    return response;
+                //}
 
                 var userItem = await _orderRepository.GetOrderWithDetails(orderId);
 
