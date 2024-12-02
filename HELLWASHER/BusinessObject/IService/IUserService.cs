@@ -15,6 +15,7 @@ namespace BusinessObject.IService
     public interface IUserService
     {
         Task<ServiceResponse<PaginationModel<ResponseUserDTO>>> GetAllUsers(int page, int pageSize, string? search, string sort);
+        Task<ServiceResponse<IEnumerable<ResponseUserDTO>>> GetAllCustomers();
         Task<ServiceResponse<ResponseUserDTO>>GetUserById(int id);
         Task<ServiceResponse<ResponseUserDTO>> CreateUser(CreateUserDTO userDTO);
         Task<ServiceResponse<ResponseUserDTO>> UpdateUser(int id, UpdateUserDTO userDTO);

@@ -12,7 +12,6 @@ namespace HELLWASHER_Controller.Controllers
     [EnableCors("AllowAll")]
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin, Customer, Staff")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -20,6 +19,7 @@ namespace HELLWASHER_Controller.Controllers
         {
             _userService = userService;
         }
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost]
         public async Task<IActionResult> CreateUser(CreateUserDTO userDTO)
         {
@@ -33,7 +33,17 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest(result.Message);
             }
         }
+        [HttpGet("customers")]
+        [Authorize(Roles = "Admin, Staff")]
+        public async Task<IActionResult> GetAllCustomers()
+        {
+            var result = await _userService.GetAllCustomers();
+            if (!result.Success) return BadRequest(result);
+
+            return Ok(result);
+        }
         [HttpGet("Users")]
+        [Authorize(Roles = "Admin, Customer, Staff")]
         public async Task<IActionResult> GetUsers(int page = 1, int pageSize = 10,
             string search = "", string sort = "")
         {
@@ -86,6 +96,8 @@ namespace HELLWASHER_Controller.Controllers
                 return NotFound(result.Message);
             }
         }
+        [Authorize(Roles = "Admin, Staff")]
+
         [HttpPut("ChangeStatus/{id}&{status}")]
         public async Task<IActionResult> ChangeStatus(int id, string status)
         {
@@ -100,6 +112,8 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> DeleteUser(int id)
         {
             var result = await _userService.DeleteUser(id);

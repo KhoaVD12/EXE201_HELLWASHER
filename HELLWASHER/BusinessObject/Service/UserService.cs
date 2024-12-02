@@ -70,7 +70,34 @@ namespace BusinessObject.Service
                 return res;
             }
         }
+        public async Task<ServiceResponse<IEnumerable<ResponseUserDTO>>> GetAllCustomers()
+        {
+            var res = new ServiceResponse<IEnumerable<ResponseUserDTO>>();
+            try
+            {
+                var users = await _repo.GetAllAsync();
+                var customers = users.Where(u => u.Role.Equals("Customer", StringComparison.OrdinalIgnoreCase));
 
+                if (!customers.Any())
+                {
+                    res.Success = false;
+                    res.Message = "No customers found";
+                    return res;
+                }
+
+                var mappedCustomers = _mapper.Map<IEnumerable<ResponseUserDTO>>(customers);
+                res.Success = true;
+                res.Message = "Customers retrieved successfully";
+                res.Data = mappedCustomers;
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Failed to retrieve customers: {ex.Message}";
+                return res;
+            }
+        }
         public async Task<ServiceResponse<ResponseUserDTO>> CreateUser(CreateUserDTO userDTO)
         {
             var res = new ServiceResponse<ResponseUserDTO>();
