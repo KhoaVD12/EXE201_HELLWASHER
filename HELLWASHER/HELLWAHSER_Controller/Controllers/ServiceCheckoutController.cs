@@ -17,7 +17,7 @@ namespace HELLWASHER_Controller.Controllers
             _service = service;
         }
         [HttpPost]
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult>CreateItem(int orderId, [FromBody] CreateServiceCheckoutDTO itemDTO)
         {
             var result = await _service.CreateServiceCheckout(orderId, itemDTO);
@@ -31,7 +31,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpPut("UpdateClothWeight/{id}&&{weight}")]
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> UpdateClothWeight([FromRoute]int id, [FromRoute]decimal weight)
         {
             var result = await _service.UpdateClothWeight(id, weight);
@@ -45,7 +45,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult>Delete([FromRoute] int id)
         {
             var result= await _service.DeleteCheckout(id);
@@ -59,7 +59,7 @@ namespace HELLWASHER_Controller.Controllers
             }
         }
         [HttpGet("OrderId/{id}")]
-        [Authorize(Roles = "Staff")]
+        [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> GetByOrderId([FromRoute] int id)
         {
             var result=await _service.GetCheckoutByOrderId(id);
