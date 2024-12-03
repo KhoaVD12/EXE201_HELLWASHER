@@ -33,6 +33,18 @@ namespace HELLWASHER_Controller.Controllers
                 return BadRequest(result.Message);
             }
         }
+        [HttpGet("ViewProfile")]
+        [Authorize]
+        public async Task<IActionResult> ViewProfile()
+        {
+            var claims = User;
+            var result = await _userService.ViewProfile(claims);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
         [HttpGet("customers")]
         [Authorize(Roles = "Admin, Staff")]
         public async Task<IActionResult> GetAllCustomers()

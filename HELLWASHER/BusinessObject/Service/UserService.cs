@@ -344,5 +344,31 @@ namespace BusinessObject.Service
             }
             return user;
         }
+        public async Task<ServiceResponse<ResponseUserDTO>> ViewProfile(ClaimsPrincipal claims)
+        {
+            var res = new ServiceResponse<ResponseUserDTO>();
+            try
+            {
+                var user = await GetUserByTokenAsync(claims);
+                if (user == null)
+                {
+                    res.Success = false;
+                    res.Message = "User not found";
+                    return res;
+                }
+
+                var mappedUser = _mapper.Map<ResponseUserDTO>(user);
+                res.Success = true;
+                res.Message = "User profile retrieved successfully";
+                res.Data = mappedUser;
+                return res;
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = $"Failed to retrieve user profile: {ex.Message}";
+                return res;
+            }
+        }
     }
 }

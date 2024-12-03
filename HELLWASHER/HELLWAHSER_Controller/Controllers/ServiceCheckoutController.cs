@@ -18,9 +18,9 @@ namespace HELLWASHER_Controller.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Staff")]
-        public async Task<IActionResult>CreateItem([FromBody]CreateServiceCheckoutDTO itemDTO)
+        public async Task<IActionResult>CreateItem(int orderId, [FromBody] CreateServiceCheckoutDTO itemDTO)
         {
-            var result = await _service.CreateServiceCheckout(itemDTO);
+            var result = await _service.CreateServiceCheckout(orderId, itemDTO);
             if (result.Success)
             {
                 return Ok(result);

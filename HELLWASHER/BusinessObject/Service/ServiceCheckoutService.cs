@@ -33,18 +33,28 @@ namespace BusinessObject.Service
             _orderRepo = orderRepo;
         }
 
-        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateServiceCheckout(CreateServiceCheckoutDTO itemDTO)
+        public async Task<ServiceResponse<ResponseServiceCheckoutDTO>> CreateServiceCheckout(int OrderId, CreateServiceCheckoutDTO itemDTO)
         {
             var res = new ServiceResponse<ResponseServiceCheckoutDTO>();
             try
             {
-                var items = await _repo.GetAllAsync();
-                if (items.Any(i => i.ServiceId == itemDTO.ServiceId&&i.OrderId==itemDTO.OrderId))
+                // Check if the order exists
+                var order = await _orderRepo.GetByIdAsync(OrderId);
+                if (order == null)
                 {
                     res.Success = false;
-                    res.Message = "You haved added this service in the Order before, now you can only update Weight inside";
+                    res.Message = "No Order with this Id: " + OrderId;
                     return res;
                 }
+
+                var items = await _repo.GetAllAsync();
+                if (items.Any(i => i.ServiceId == itemDTO.ServiceId && i.OrderId == OrderId))
+                {
+                    res.Success = false;
+                    res.Message = "You have added this service in the Order before, now you can only update Weight inside";
+                    return res;
+                }
+
                 var serviceExist = await _washServiceRepo.GetByIdAsync(itemDTO.ServiceId);
                 if (serviceExist == null)
                 {
@@ -52,31 +62,29 @@ namespace BusinessObject.Service
                     res.Message = "No service with this Id";
                     return res;
                 }
+
                 var mapp = _mapper.Map<ServiceCheckout>(itemDTO);
+                mapp.OrderId = OrderId; // Ensure the OrderId is set
                 mapp.TotalPricePerService = serviceExist.Price * itemDTO.Weight;
-                var order = await _orderRepo.GetByIdAsync(itemDTO.OrderId);
-                if (order == null)
-                {
-                    res.Success = false;
-                    res.Message = "No Order like that: " + itemDTO.OrderId;
-                    return res;
-                }
+
                 order.TotalPrice += mapp.TotalPricePerService;
                 await _orderRepo.Update(order);
                 await _repo.AddAsync(mapp);
+
                 var result = _mapper.Map<ResponseServiceCheckoutDTO>(mapp);
                 res.Success = true;
                 res.Message = "Create item successfully";
                 res.Data = result;
                 return res;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 res.Success = false;
-                res.Message = $"Fail to create item:{ex.Message}";
+                res.Message = $"Fail to create item: {ex.Message}";
                 return res;
             }
         }
+
 
         public async Task<ServiceResponse<bool>> DeleteCheckout(int id)
         {
